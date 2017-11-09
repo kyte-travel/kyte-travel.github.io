@@ -1,6 +1,5 @@
 html {
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio:1.25),
