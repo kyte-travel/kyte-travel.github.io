@@ -1,8 +1,9 @@
 # Deploy process
 
 1. clone this site.
-1. Get appropreate permission to access s3
-1. Run following command
+1. Get appropreate permission to access s3.
+1. Get [s3cmd](http://s3tools.org/download).
+1. Run following command in *the cloned directory*.
 
-    aws s3 sync . s3://kyte.travel --exclude '*.git/*' --exclude 'README.md' --delete
+    s3cmd sync --exclude-from .s3ignore ./ s3://kyte.travel --delete-removed
 
