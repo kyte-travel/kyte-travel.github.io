@@ -6,7 +6,7 @@
 
         // Initialization the functions
         init: function () {
-            BestApp.AffixMenu();
+            //BestApp.AffixMenu();
             BestApp.MobileMenu();
             BestApp.ScrollSpy();
             BestApp.SmoothScroll();
@@ -25,7 +25,7 @@
                 BestApp.Animated();
             });
         },
-
+/*
         // Navigation menu affix
         AffixMenu: function () {
             $('body').waypoint(function () {
@@ -42,7 +42,7 @@
                 offset: -150
             });
         },
-
+*/
         // Add mobile navigation
         MobileMenu: function () {
             /*
