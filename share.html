@@ -43,8 +43,10 @@
                     query_string[pair[0]].push(pair[1]);
                 }
             }
-
-            $('#ogimage').attr('content', 'http://res.cloudinary.com/dshkmq3ve/image/upload/l_text:Arial_35:' + query_string.departure + ',co_white,g_north_west,x_70,y_70/l_text:Arial_35:' + query_string.arrival + ',co_white,g_north_east,x_70,y_70/Card_lblaut.png');
+            var url = 'http://res.cloudinary.com/dshkmq3ve/image/upload/l_text:Arial_35:' + query_string.departure + ',co_white,g_north_west,x_140,y_70/l_text:Arial_35:' + query_string.arrival + ',co_white,g_north_east,x_140,y_70/l_text:Arial_35:' + query_string.pricing + ',co_rgb:2696DA,g_south,y_70/card_pezyxi.png'
+            $('#ogimage').attr('content', url);
+            
+            $('#ticket').attr('src', url);
         });
     </script>
 
@@ -79,6 +81,7 @@
 </head>
 
 <body>
+    <img id="ticket">
 </body>
 
 </html>
