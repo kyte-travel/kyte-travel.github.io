@@ -3806,3 +3806,9 @@ img.parallax-slider.loaded,
 .logo {
     margin-bottom: 24px;
 }
+
+.comingsoon {
+    margin-top: 8px;
+    font-size: 13px;
+    opacity: 0.8;
+}
