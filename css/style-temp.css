@@ -85,6 +85,7 @@ body {
     width: 100%;
     text-align: center;
     color: #fff;
+    padding: 0 16px;
 }
 
 .header-container h5 {
@@ -337,20 +338,6 @@ input[type="color"]::-webkit-color-swatch {
     }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type="color"] {
-        height: 34px;
-        padding: 2px;
-        border-color: #707070;
-    }
-     ::i-block-chrome,
-    input[type="color"] {
-        height: 50px;
-        padding: 0px 20px;
-        border-color: #e0e0e0;
-    }
-}
-
 input[type="date"]::-webkit-inner-spin-button,
 input[type="datetime-local"]::-webkit-inner-spin-button,
 input[type="month"]::-webkit-inner-spin-button,
@@ -436,7 +423,7 @@ button {
     background-image: -o-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: linear-gradient(45deg, #2696DA, #3DB8D4);
     padding: 10px 20px;
-    margin: 0 4px;
+    margin: 0 4px 16px 4px;
     text-align: center;
     outline: none !important;
     border-radius: 80px;
@@ -1368,39 +1355,6 @@ img.parallax-slider.loaded,
     color: #FFF;
 }
 
-@media (max-width: 1920px) {
-    .container-wrap .col-txt {
-        min-height: 420px;
-        padding-top: 100px;
-    }
-    .container-wrap .col-pull-left,
-    .container-wrap .col-pull-right {
-        margin-top: -420px;
-    }
-}
-
-@media (max-width: 1640px) {
-    .container-wrap .col-txt {
-        min-height: 360px;
-        padding-top: 60px;
-    }
-    .container-wrap .col-pull-left,
-    .container-wrap .col-pull-right {
-        margin-top: -360px;
-    }
-}
-
-@media (max-width: 1400px) {
-    .container-wrap .col-txt {
-        min-height: 310px;
-        padding-top: 30px;
-    }
-    .container-wrap .col-pull-left,
-    .container-wrap .col-pull-right {
-        margin-top: -310px;
-    }
-}
-
 @media (min-width: 1200px) {
     .padding-top0-lg {
         padding-top: 0px !important;
@@ -1889,16 +1843,11 @@ img.parallax-slider.loaded,
         font-size: 15px;
         line-height: 22px;
     }
-    .header-img {
-        width: auto;
-    }
 }
 
 @media (max-width: 767px) {
-    .header-img {
-        width: auto;
-        margin-top: 80px;
-        margin-bottom: -48px;
+    .hero-img {
+        padding: 0;
     }
     #header .logo {
         margin-top: -40px;
