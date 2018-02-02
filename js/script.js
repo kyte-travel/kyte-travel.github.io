@@ -1,3 +1,17 @@
+//jQuery is required to run this code
+$(document).ready(function () {
+
+    $(window).on('scroll', function () {
+        var scrolled = $(this).scrollTop();
+        $('#title').css({
+            'transform': 'translateY(' + (scrolled * 0.4) + 'px)'// parallax (20% scroll rate)
+            , 'opacity': 1 - scrolled / 600 // fade out at 200px from top
+        });
+        $('#hero-vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.4) + 'px, 0)'); // parallax (25% scroll rate)
+    });
+
+});
+
 (function ($) {
 
     'use strict';
@@ -25,24 +39,24 @@
                 BestApp.Animated();
             });
         },
-/*
-        // Navigation menu affix
-        AffixMenu: function () {
-            $('body').waypoint(function () {
-                $('#navigation').removeClass('affix');
-                $('#header-img').removeClass('affix');
-            }, {
-                offset: -149
-            });
+        /*
+                // Navigation menu affix
+                AffixMenu: function () {
+                    $('body').waypoint(function () {
+                        $('#navigation').removeClass('affix');
+                        $('#header-img').removeClass('affix');
+                    }, {
+                        offset: -149
+                    });
 
-            $('body').waypoint(function () {
-                $('#navigation').addClass('affix');
-                $('#header-img').addClass('affix');
-            }, {
-                offset: -150
-            });
-        },
-*/
+                    $('body').waypoint(function () {
+                        $('#navigation').addClass('affix');
+                        $('#header-img').addClass('affix');
+                    }, {
+                        offset: -150
+                    });
+                },
+        */
         // Add mobile navigation
         MobileMenu: function () {
             /*
