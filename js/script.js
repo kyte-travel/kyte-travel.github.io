@@ -3,12 +3,12 @@ $(document).ready(function () {
     $(window).on('scroll', function () {
         var scrolled = $(this).scrollTop();
         $('#title').css({
-            'transform': 'translateY(' - (scrolled * 0.1) + 'px)' // parallax (20% scroll rate)
-                ,
-            'opacity': 1 - scrolled / 600 // fade out at 200px from top
+            'transform': 'translateY(' + (scrolled * 0.4) + 'px)',
+            'opacity': 1 - scrolled / 600
         });
-        $('#hero-vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.4) + 'px, 0)'); // parallax (25% scroll rate)
-        $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.11) + 'px, 0)'); // parallax (25% scroll rate)
+        $('#hero-vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.4) + 'px, 0)');
+        $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.12) + 'px, 0)');
+        $('#arrow').css('opacity', 1 - scrolled / 600);
     });
 });
 
