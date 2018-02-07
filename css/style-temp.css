@@ -70,6 +70,7 @@ body {
 .filter {
     z-index: -1;
     position: fixed;
+    /*
     background: #2696DA;
     background-image: -webkit-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: -moz-linear-gradient(45deg, #2696DA, #3DB8D4);
@@ -78,7 +79,8 @@ body {
     background-image: linear-gradient(45deg, #2696DA, #3DB8D4);
     opacity: .5;
     height: 100%;
-    line-height: 196vh;
+    */
+    line-height: 190vh;
     width: 100%;
     top: 0;
     text-align: center;
@@ -427,11 +429,13 @@ button {
     text-align: left;
     white-space: nowrap;
     background: #2696DA;
+    /*
     background-image: -webkit-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: -moz-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: -ms-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: -o-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: linear-gradient(45deg, #2696DA, #3DB8D4);
+    */
     padding: 10px 20px;
     margin: 0 4px 16px 4px;
     text-align: center;
@@ -644,6 +648,10 @@ button.close:hover {
 .tooltip-inner {
     padding: 6px 12px 5px;
     border-radius: 0px;
+}
+
+.padding-30 {
+    padding: 0 30px;
 }
 
 .padding-top0 {

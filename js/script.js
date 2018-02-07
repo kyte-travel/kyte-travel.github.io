@@ -1,23 +1,19 @@
 //jQuery is required to run this code
 $(document).ready(function () {
-
     $(window).on('scroll', function () {
         var scrolled = $(this).scrollTop();
         $('#title').css({
-            'transform': 'translateY(' + (scrolled * 0.4) + 'px)' // parallax (20% scroll rate)
+            'transform': 'translateY(' - (scrolled * 0.1) + 'px)' // parallax (20% scroll rate)
                 ,
             'opacity': 1 - scrolled / 600 // fade out at 200px from top
         });
         $('#hero-vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.4) + 'px, 0)'); // parallax (25% scroll rate)
-        $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.1) + 'px, 0)'); // parallax (25% scroll rate)
+        $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.11) + 'px, 0)'); // parallax (25% scroll rate)
     });
-
 });
 
 (function ($) {
-
     'use strict';
-
     var BestApp = {
         init: function () {
             BestApp.MobileMenu();
