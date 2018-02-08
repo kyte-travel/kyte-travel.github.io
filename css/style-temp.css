@@ -17,16 +17,6 @@ body {
     font-weight: 200;
 }
 
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
-}
-
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
-}
-
 .video-container {
     position: relative;
     bottom: 0%;
@@ -37,7 +27,6 @@ body {
 
 .video-container .poster img {
     width: 100%;
-    bottom: 0;
     position: absolute;
 }
 
@@ -56,15 +45,14 @@ body {
     position: fixed;
     width: auto;
     z-index: -2;
-    /*
+    left: 0%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    */
 }
 
 .hero-img {
-    margin-bottom: -160px;
+    margin-bottom: -120px;
 }
 
 .filter {
@@ -81,7 +69,7 @@ body {
     width: 100%;
     top: 0;
     text-align: center;
-    position: absolute;
+    position: fixed;
     line-height: 190vh;
 }
 
