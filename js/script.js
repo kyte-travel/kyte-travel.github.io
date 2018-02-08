@@ -6,7 +6,6 @@ $(document).ready(function () {
             'transform': 'translateY(' + (scrolled * 0.4) + 'px)',
             'opacity': 1 - scrolled / 600
         });
-        $('#filter').css('transform', 'translate3d(0, ' + -(scrolled * 0.4) + 'px, 0)');
         $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.12) + 'px, 0)');
         $('#arrow').css('opacity', 1 - scrolled / 600);
     });
