@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?dtjjfz');
-  src:  url('../fonts/icomoon.eot?dtjjfz#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?dtjjfz') format('truetype'),
-    url('../fonts/icomoon.woff?dtjjfz') format('woff'),
-    url('../fonts/icomoon.svg?dtjjfz#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?v8w63x');
+  src:  url('../fonts/icomoon.eot?v8w63x#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?v8w63x') format('truetype'),
+    url('../fonts/icomoon.woff?v8w63x') format('woff'),
+    url('../fonts/icomoon.svg?v8w63x#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -45,9 +45,9 @@
 .icon-ic_flight:before {
   content: "\e906";
 }
-.icon-ic_keyboard_arrow_down:before {
-  content: "\e907";
-}
 .icon-ic_search:before {
   content: "\e908";
+}
+.icon-ic_wish_schedule:before {
+  content: "\e909";
 }
