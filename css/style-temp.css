@@ -27,17 +27,14 @@ body {
 
 .video-container .poster img {
     width: 100%;
-    position: absolute;
 }
 
 .video-container video {
-    position: absolute;
     z-index: 0;
 }
 
 #hero-vid {
     backface-visibility: hidden;
-    background-size: cover;
     bottom: 0;
     height: auto;
     min-height: 100%;
