@@ -37,7 +37,7 @@ body {
     backface-visibility: hidden;
     bottom: 0;
     height: auto;
-    min-height: 100%;
+    min-height: 100vh;
     min-width: 100%;
     position: fixed;
     width: auto;
