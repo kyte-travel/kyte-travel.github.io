@@ -1,0 +1,2 @@
+cd /Users/Jamie/Documents/GitHub/squarelab-kyte.github.io
+python -m SimpleHTTPServer 8000

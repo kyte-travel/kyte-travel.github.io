@@ -1,3 +1,50 @@
+/* fix iOS bug not displaying 100vh correctly */
+
+
+/* ipad */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .fullheight {
+        height: 768px;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .fullheight {
+        height: 1024px;
+    }
+}
+
+
+/* iphone5 */
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    .fullheight {
+        height: 320px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    .fullheight {
+        height: 568px;
+    }
+}
+
+
+/* iPhone 4 */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .fullheight {
+        height: 320px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .fullheight {
+        height: 480px;
+    }
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio:1.25),
 only screen and (min-device-pixel-ratio:1.25),
 only screen and (min-resolution:200dpi),
@@ -35,22 +82,17 @@ body {
 
 #hero-vid {
     backface-visibility: hidden;
-    bottom: 0;
-    height: auto;
-    min-height: 100vh;
-    min-width: 100%;
     position: fixed;
     width: auto;
     z-index: -2;
-    left: 0%;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100vh;
+    transform: translateX(-50%);
 }
 
 .filter {
     z-index: -1;
-    position: fixed;
     background: #2696DA;
     background-image: -webkit-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: -moz-linear-gradient(45deg, #2696DA, #3DB8D4);
@@ -58,20 +100,18 @@ body {
     background-image: -o-linear-gradient(45deg, #2696DA, #3DB8D4);
     background-image: linear-gradient(45deg, #2696DA, #3DB8D4);
     opacity: .5;
-    height: 100%;
     width: 100%;
     top: 0;
-    text-align: center;
+    left: 50%;
+    height: 100vh;
+    transform: translateX(-50%);
     position: fixed;
-    line-height: 190vh;
+    text-align: center;
+    line-height: 168vh;
 }
 
 .hero-img {
     margin-bottom: -120px;
-}
-
-.icon-ic_keyboard_arrow_down {
-    color: #fff;
 }
 
 .filter .icon-large {
@@ -412,19 +452,11 @@ button {
     text-align: left;
     white-space: nowrap;
     background: #2696DA;
-    /*
-    background-image: -webkit-linear-gradient(45deg, #2696DA, #3DB8D4);
-    background-image: -moz-linear-gradient(45deg, #2696DA, #3DB8D4);
-    background-image: -ms-linear-gradient(45deg, #2696DA, #3DB8D4);
-    background-image: -o-linear-gradient(45deg, #2696DA, #3DB8D4);
-    background-image: linear-gradient(45deg, #2696DA, #3DB8D4);
-    */
     padding: 10px 20px;
     margin: 0 4px 16px 4px;
     text-align: center;
     outline: none !important;
     border-radius: 80px;
-    -webkit-transition: color .225s ease, background .225s ease, border .225s ease;
     -webkit-transition: .225s ease-out !important;
     -moz-transition: .225s ease-out !important;
     -o-transition: .225s ease-out !important;
