@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?v8w63x');
-  src:  url('../fonts/icomoon.eot?v8w63x#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?v8w63x') format('truetype'),
-    url('../fonts/icomoon.woff?v8w63x') format('woff'),
-    url('../fonts/icomoon.svg?v8w63x#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?uqcnkw');
+  src:  url('../fonts/icomoon.eot?uqcnkw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?uqcnkw') format('truetype'),
+    url('../fonts/icomoon.woff?uqcnkw') format('woff'),
+    url('../fonts/icomoon.svg?uqcnkw#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,30 +24,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ic_date_range:before {
+  content: "\e909";
+}
 .icon-ic_bookmark_star:before {
   content: "\e900";
 }
 .icon-ic_bookmarked:before {
   content: "\e901";
 }
-.icon-ic_date_range:before {
+.icon-ic_edit:before {
   content: "\e902";
 }
-.icon-ic_edit:before {
+.icon-ic_favorite_city:before {
   content: "\e903";
 }
-.icon-ic_favorite_city:before {
+.icon-ic_flight_depart_land:before {
   content: "\e904";
 }
-.icon-ic_flight_depart_land:before {
+.icon-ic_flight:before {
   content: "\e905";
 }
-.icon-ic_flight:before {
+.icon-ic_keyboard_arrow_down:before {
   content: "\e906";
 }
 .icon-ic_search:before {
-  content: "\e908";
+  content: "\e907";
 }
 .icon-ic_wish_schedule:before {
-  content: "\e909";
+  content: "\e908";
 }

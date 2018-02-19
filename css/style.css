@@ -116,6 +116,9 @@ body {
 
 .filter .icon-large {
     color: #ffffff;
+    font-size: 2em;
+    margin: 0;
+    line-height: 190vh;
 }
 
 .header-container {
