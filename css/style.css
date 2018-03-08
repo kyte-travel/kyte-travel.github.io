@@ -114,13 +114,6 @@ body {
     margin-bottom: -120px;
 }
 
-.filter .icon-large {
-    color: #ffffff;
-    font-size: 2em;
-    margin: 0;
-    line-height: 190vh;
-}
-
 .header-container {
     z-index: 1000;
     position: absolute;
@@ -149,6 +142,20 @@ body {
     font-size: 1.2em;
     margin-right: 12px;
     vertical-align: text-bottom;
+}
+
+.filter .icon-large {
+    color: #fff;
+    font-size: 2em;
+    margin: 0;
+    line-height: 190vh;
+}
+
+.btn-custom .icon-large {
+    line-height: 20px;
+}
+
+h4, h5 .icon-large {
     color: rgba(0, 0, 0, .54);
 }
 
