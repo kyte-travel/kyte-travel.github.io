@@ -85,10 +85,10 @@ body {
     position: fixed;
     width: auto;
     z-index: -2;
-    top: 0;
+    top: 50%;
     left: 50%;
-    height: 100vh;
-    transform: translateX(-50%);
+    height: 100vmax;
+    transform: translate(-50%, -50%);
 }
 
 .filter {
@@ -2149,6 +2149,28 @@ img.parallax-slider.loaded,
     margin-bottom: 24px;
 }
 
-small {
+.small {
     font-style: italic;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.text-top {
+    vertical-align: text-top;
+}
+
+.text-bottom {
+    vertical-align: text-bottom;
+}
+
+a.btn-custom div {
+    line-height: 24px;
+}
+
+.button-label {
+    height: 20px;
+    display: inline-block;
+    margin-top: -0.4em;
 }
