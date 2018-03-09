@@ -5,5 +5,5 @@
 1. Get [s3cmd](http://s3tools.org/download).
 1. Run following command in *the cloned directory*.
 
-    s3cmd sync --exclude-from .s3ignore ./ s3://kyte.travel --delete-removed
+    ./deploy.sh
 
