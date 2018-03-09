@@ -144,6 +144,10 @@ body {
     vertical-align: text-bottom;
 }
 
+.icon-middle {
+    margin-right: 8px;
+}
+
 .filter .icon-large {
     color: #fff;
     font-size: 2em;
@@ -155,7 +159,8 @@ body {
     line-height: 20px;
 }
 
-h4, h5 .icon-large {
+h4 .icon-large,
+h5 .icon-large {
     color: rgba(0, 0, 0, .54);
 }
 
