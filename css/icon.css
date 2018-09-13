@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?7047dr');
-  src:  url('../fonts/icomoon.eot?7047dr#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?7047dr') format('truetype'),
-    url('../fonts/icomoon.woff?7047dr') format('woff'),
-    url('../fonts/icomoon.svg?7047dr#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?9j56ae');
+  src:  url('../fonts/icomoon.eot?9j56ae#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?9j56ae') format('truetype'),
+    url('../fonts/icomoon.woff?9j56ae') format('woff'),
+    url('../fonts/icomoon.svg?9j56ae#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,39 +24,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-ic_apple:before {
-  content: "\e90a";
-}
-.icon-ic_one_store:before {
-  content: "\e90b";
-}
-.icon-ic_date_range:before {
-  content: "\e909";
-}
-.icon-ic_bookmark_star:before {
+.icon-ic_blog:before {
   content: "\e900";
 }
-.icon-ic_bookmarked:before {
+.icon-ic_bookmark_star:before {
   content: "\e901";
 }
-.icon-ic_edit:before {
+.icon-ic_bookmarked:before {
   content: "\e902";
 }
-.icon-ic_favorite_city:before {
+.icon-ic_date_range:before {
   content: "\e903";
 }
-.icon-ic_flight_depart_land:before {
+.icon-ic_edit:before {
   content: "\e904";
 }
-.icon-ic_flight:before {
+.icon-ic_favorite_city:before {
   content: "\e905";
 }
-.icon-ic_keyboard_arrow_down:before {
+.icon-ic_flight_depart_land:before {
   content: "\e906";
 }
-.icon-ic_search:before {
+.icon-ic_flight_depart:before {
   content: "\e907";
 }
-.icon-ic_wish_schedule:before {
+.icon-ic_flight:before {
   content: "\e908";
+}
+.icon-ic_search:before {
+  content: "\e909";
 }

@@ -1,6 +1,5 @@
 /* fix iOS bug not displaying 100vh correctly */
 
-
 /* ipad */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -117,7 +116,7 @@ body {
 .header-container {
     z-index: 1000;
     position: absolute;
-    top: 80px;
+    top: 120px;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -937,103 +936,103 @@ button.close:hover {
     padding: 0px 0px 0px 15px;
 }
 
-.container-wrap .col-pull-left.col-pull-4>div,
-.container-wrap .col-pull-left.col-pull-4>figure {
+.container-wrap .col-pull-left.col-pull-4 > div,
+.container-wrap .col-pull-left.col-pull-4 > figure {
     margin-left: -4%;
 }
 
-.container-wrap .col-pull-left.col-pull-8>div,
-.container-wrap .col-pull-left.col-pull-8>figure {
+.container-wrap .col-pull-left.col-pull-8 > div,
+.container-wrap .col-pull-left.col-pull-8 > figure {
     margin-left: -8%;
 }
 
-.container-wrap .col-pull-left.col-pull-12>div,
-.container-wrap .col-pull-left.col-pull-12>figure {
+.container-wrap .col-pull-left.col-pull-12 > div,
+.container-wrap .col-pull-left.col-pull-12 > figure {
     margin-left: -12%;
 }
 
-.container-wrap .col-pull-left.col-pull-16>div,
-.container-wrap .col-pull-left.col-pull-16>figure {
+.container-wrap .col-pull-left.col-pull-16 > div,
+.container-wrap .col-pull-left.col-pull-16 > figure {
     margin-left: -16%;
 }
 
-.container-wrap .col-pull-left.col-pull-20>div,
-.container-wrap .col-pull-left.col-pull-20>figure {
+.container-wrap .col-pull-left.col-pull-20 > div,
+.container-wrap .col-pull-left.col-pull-20 > figure {
     margin-left: -20%;
 }
 
-.container-wrap .col-pull-left.col-pull-24>div,
-.container-wrap .col-pull-left.col-pull-24>figure {
+.container-wrap .col-pull-left.col-pull-24 > div,
+.container-wrap .col-pull-left.col-pull-24 > figure {
     margin-left: -24%;
 }
 
-.container-wrap .col-pull-left.col-pull-28>div,
-.container-wrap .col-pull-left.col-pull-28>figure {
+.container-wrap .col-pull-left.col-pull-28 > div,
+.container-wrap .col-pull-left.col-pull-28 > figure {
     margin-left: -28%;
 }
 
-.container-wrap .col-pull-left.col-pull-32>div,
-.container-wrap .col-pull-left.col-pull-32>figure {
+.container-wrap .col-pull-left.col-pull-32 > div,
+.container-wrap .col-pull-left.col-pull-32 > figure {
     margin-left: -32%;
 }
 
-.container-wrap .col-pull-left.col-pull-36>div,
-.container-wrap .col-pull-left.col-pull-36>figure {
+.container-wrap .col-pull-left.col-pull-36 > div,
+.container-wrap .col-pull-left.col-pull-36 > figure {
     margin-left: -36%;
 }
 
-.container-wrap .col-pull-left.col-pull-40>div,
-.container-wrap .col-pull-left.col-pull-40>figure {
+.container-wrap .col-pull-left.col-pull-40 > div,
+.container-wrap .col-pull-left.col-pull-40 > figure {
     margin-left: -40%;
 }
 
-.container-wrap .col-pull-right.col-pull-4>div,
-.container-wrap .col-pull-right.col-pull-4>figure {
+.container-wrap .col-pull-right.col-pull-4 > div,
+.container-wrap .col-pull-right.col-pull-4 > figure {
     margin-right: -4%;
 }
 
-.container-wrap .col-pull-right.col-pull-8>div,
-.container-wrap .col-pull-right.col-pull-8>figure {
+.container-wrap .col-pull-right.col-pull-8 > div,
+.container-wrap .col-pull-right.col-pull-8 > figure {
     margin-right: -8%;
 }
 
-.container-wrap .col-pull-right.col-pull-12>div,
-.container-wrap .col-pull-right.col-pull-12>figure {
+.container-wrap .col-pull-right.col-pull-12 > div,
+.container-wrap .col-pull-right.col-pull-12 > figure {
     margin-right: -12%;
 }
 
-.container-wrap .col-pull-right.col-pull-16>div,
-.container-wrap .col-pull-right.col-pull-16>figure {
+.container-wrap .col-pull-right.col-pull-16 > div,
+.container-wrap .col-pull-right.col-pull-16 > figure {
     margin-right: -16%;
 }
 
-.container-wrap .col-pull-right.col-pull-20>div,
-.container-wrap .col-pull-right.col-pull-20>figure {
+.container-wrap .col-pull-right.col-pull-20 > div,
+.container-wrap .col-pull-right.col-pull-20 > figure {
     margin-right: -20%;
 }
 
-.container-wrap .col-pull-right.col-pull-24>div,
-.container-wrap .col-pull-right.col-pull-24>figure {
+.container-wrap .col-pull-right.col-pull-24 > div,
+.container-wrap .col-pull-right.col-pull-24 > figure {
     margin-right: -24%;
 }
 
-.container-wrap .col-pull-right.col-pull-28>div,
-.container-wrap .col-pull-right.col-pull-28>figure {
+.container-wrap .col-pull-right.col-pull-28 > div,
+.container-wrap .col-pull-right.col-pull-28 > figure {
     margin-right: -28%;
 }
 
-.container-wrap .col-pull-right.col-pull-32>div,
-.container-wrap .col-pull-right.col-pull-32>figure {
+.container-wrap .col-pull-right.col-pull-32 > div,
+.container-wrap .col-pull-right.col-pull-32 > figure {
     margin-right: -32%;
 }
 
-.container-wrap .col-pull-right.col-pull-36>div,
-.container-wrap .col-pull-right.col-pull-36>figure {
+.container-wrap .col-pull-right.col-pull-36 > div,
+.container-wrap .col-pull-right.col-pull-36 > figure {
     margin-right: -36%;
 }
 
-.container-wrap .col-pull-right.col-pull-40>div,
-.container-wrap .col-pull-right.col-pull-40>figure {
+.container-wrap .col-pull-right.col-pull-40 > div,
+.container-wrap .col-pull-right.col-pull-40 > figure {
     margin-right: -40%;
 }
 
@@ -1373,20 +1372,10 @@ img.parallax-slider.loaded,
     margin: 0px;
 }
 
-.footer .socials {
-    float: right;
-    margin: 0px 10px;
-}
-
 .footer .company-info {
     font-size: 12px;
     line-height: 150%;
     margin-top: 10px;
-}
-
-.footer .socials a {
-    margin-left: 15px;
-    font-size: 16px;
 }
 
 .footer .scrollup {
@@ -1683,7 +1672,7 @@ img.parallax-slider.loaded,
         font-size: 32px;
         line-height: 40px;
     }
-    #header .nav>li {
+    #header .nav > li {
         padding-right: 15px;
         padding-left: 15px;
     }
@@ -1821,46 +1810,46 @@ img.parallax-slider.loaded,
         padding: 0px;
         margin: 0px auto;
     }
-    .container-wrap .col-pull-left.col-pull-4>div,
-    .container-wrap .col-pull-left.col-pull-4>figure,
-    .container-wrap .col-pull-left.col-pull-8>div,
-    .container-wrap .col-pull-left.col-pull-8>figure,
-    .container-wrap .col-pull-left.col-pull-12>div,
-    .container-wrap .col-pull-left.col-pull-12>figure,
-    .container-wrap .col-pull-left.col-pull-16>div,
-    .container-wrap .col-pull-left.col-pull-16>figure,
-    .container-wrap .col-pull-left.col-pull-20>div,
-    .container-wrap .col-pull-left.col-pull-20>figure,
-    .container-wrap .col-pull-left.col-pull-24>div,
-    .container-wrap .col-pull-left.col-pull-24>figure,
-    .container-wrap .col-pull-left.col-pull-28>div,
-    .container-wrap .col-pull-left.col-pull-28>figure,
-    .container-wrap .col-pull-left.col-pull-32>div,
-    .container-wrap .col-pull-left.col-pull-32>figure,
-    .container-wrap .col-pull-left.col-pull-36>div,
-    .container-wrap .col-pull-left.col-pull-36>figure,
-    .container-wrap .col-pull-left.col-pull-40>div,
-    .container-wrap .col-pull-left.col-pull-40>figure,
-    .container-wrap .col-pull-right.col-pull-4>div,
-    .container-wrap .col-pull-right.col-pull-4>figure,
-    .container-wrap .col-pull-right.col-pull-8>div,
-    .container-wrap .col-pull-right.col-pull-8>figure,
-    .container-wrap .col-pull-right.col-pull-12>div,
-    .container-wrap .col-pull-right.col-pull-12>figure,
-    .container-wrap .col-pull-right.col-pull-16>div,
-    .container-wrap .col-pull-right.col-pull-16>figure,
-    .container-wrap .col-pull-right.col-pull-20>div,
-    .container-wrap .col-pull-right.col-pull-20>figure,
-    .container-wrap .col-pull-right.col-pull-24>div,
-    .container-wrap .col-pull-right.col-pull-24>figure,
-    .container-wrap .col-pull-right.col-pull-28>div,
-    .container-wrap .col-pull-right.col-pull-28>figure,
-    .container-wrap .col-pull-right.col-pull-32>div,
-    .container-wrap .col-pull-right.col-pull-32>figure,
-    .container-wrap .col-pull-right.col-pull-36>div,
-    .container-wrap .col-pull-right.col-pull-36>figure,
-    .container-wrap .col-pull-right.col-pull-40>div,
-    .container-wrap .col-pull-right.col-pull-40>figure {
+    .container-wrap .col-pull-left.col-pull-4 > div,
+    .container-wrap .col-pull-left.col-pull-4 > figure,
+    .container-wrap .col-pull-left.col-pull-8 > div,
+    .container-wrap .col-pull-left.col-pull-8 > figure,
+    .container-wrap .col-pull-left.col-pull-12 > div,
+    .container-wrap .col-pull-left.col-pull-12 > figure,
+    .container-wrap .col-pull-left.col-pull-16 > div,
+    .container-wrap .col-pull-left.col-pull-16 > figure,
+    .container-wrap .col-pull-left.col-pull-20 > div,
+    .container-wrap .col-pull-left.col-pull-20 > figure,
+    .container-wrap .col-pull-left.col-pull-24 > div,
+    .container-wrap .col-pull-left.col-pull-24 > figure,
+    .container-wrap .col-pull-left.col-pull-28 > div,
+    .container-wrap .col-pull-left.col-pull-28 > figure,
+    .container-wrap .col-pull-left.col-pull-32 > div,
+    .container-wrap .col-pull-left.col-pull-32 > figure,
+    .container-wrap .col-pull-left.col-pull-36 > div,
+    .container-wrap .col-pull-left.col-pull-36 > figure,
+    .container-wrap .col-pull-left.col-pull-40 > div,
+    .container-wrap .col-pull-left.col-pull-40 > figure,
+    .container-wrap .col-pull-right.col-pull-4 > div,
+    .container-wrap .col-pull-right.col-pull-4 > figure,
+    .container-wrap .col-pull-right.col-pull-8 > div,
+    .container-wrap .col-pull-right.col-pull-8 > figure,
+    .container-wrap .col-pull-right.col-pull-12 > div,
+    .container-wrap .col-pull-right.col-pull-12 > figure,
+    .container-wrap .col-pull-right.col-pull-16 > div,
+    .container-wrap .col-pull-right.col-pull-16 > figure,
+    .container-wrap .col-pull-right.col-pull-20 > div,
+    .container-wrap .col-pull-right.col-pull-20 > figure,
+    .container-wrap .col-pull-right.col-pull-24 > div,
+    .container-wrap .col-pull-right.col-pull-24 > figure,
+    .container-wrap .col-pull-right.col-pull-28 > div,
+    .container-wrap .col-pull-right.col-pull-28 > figure,
+    .container-wrap .col-pull-right.col-pull-32 > div,
+    .container-wrap .col-pull-right.col-pull-32 > figure,
+    .container-wrap .col-pull-right.col-pull-36 > div,
+    .container-wrap .col-pull-right.col-pull-36 > figure,
+    .container-wrap .col-pull-right.col-pull-40 > div,
+    .container-wrap .col-pull-right.col-pull-40 > figure {
         margin: 0px;
     }
     .container-wrap .col-pull-left .img-padding {
@@ -2030,46 +2019,46 @@ img.parallax-slider.loaded,
         padding: 0px 15px;
         margin: 0px auto;
     }
-    .container-wrap .col-pull-left.col-pull-4>div,
-    .container-wrap .col-pull-left.col-pull-4>figure,
-    .container-wrap .col-pull-left.col-pull-8>div,
-    .container-wrap .col-pull-left.col-pull-8>figure,
-    .container-wrap .col-pull-left.col-pull-12>div,
-    .container-wrap .col-pull-left.col-pull-12>figure,
-    .container-wrap .col-pull-left.col-pull-16>div,
-    .container-wrap .col-pull-left.col-pull-16>figure,
-    .container-wrap .col-pull-left.col-pull-20>div,
-    .container-wrap .col-pull-left.col-pull-20>figure,
-    .container-wrap .col-pull-left.col-pull-24>div,
-    .container-wrap .col-pull-left.col-pull-24>figure,
-    .container-wrap .col-pull-left.col-pull-28>div,
-    .container-wrap .col-pull-left.col-pull-28>figure,
-    .container-wrap .col-pull-left.col-pull-32>div,
-    .container-wrap .col-pull-left.col-pull-32>figure,
-    .container-wrap .col-pull-left.col-pull-36>div,
-    .container-wrap .col-pull-left.col-pull-36>figure,
-    .container-wrap .col-pull-left.col-pull-40>div,
-    .container-wrap .col-pull-left.col-pull-40>figure,
-    .container-wrap .col-pull-right.col-pull-4>div,
-    .container-wrap .col-pull-right.col-pull-4>figure,
-    .container-wrap .col-pull-right.col-pull-8>div,
-    .container-wrap .col-pull-right.col-pull-8>figure,
-    .container-wrap .col-pull-right.col-pull-12>div,
-    .container-wrap .col-pull-right.col-pull-12>figure,
-    .container-wrap .col-pull-right.col-pull-16>div,
-    .container-wrap .col-pull-right.col-pull-16>figure,
-    .container-wrap .col-pull-right.col-pull-20>div,
-    .container-wrap .col-pull-right.col-pull-20>figure,
-    .container-wrap .col-pull-right.col-pull-24>div,
-    .container-wrap .col-pull-right.col-pull-24>figure,
-    .container-wrap .col-pull-right.col-pull-28>div,
-    .container-wrap .col-pull-right.col-pull-28>figure,
-    .container-wrap .col-pull-right.col-pull-32>div,
-    .container-wrap .col-pull-right.col-pull-32>figure,
-    .container-wrap .col-pull-right.col-pull-36>div,
-    .container-wrap .col-pull-right.col-pull-36>figure,
-    .container-wrap .col-pull-right.col-pull-40>div,
-    .container-wrap .col-pull-right.col-pull-40>figure {
+    .container-wrap .col-pull-left.col-pull-4 > div,
+    .container-wrap .col-pull-left.col-pull-4 > figure,
+    .container-wrap .col-pull-left.col-pull-8 > div,
+    .container-wrap .col-pull-left.col-pull-8 > figure,
+    .container-wrap .col-pull-left.col-pull-12 > div,
+    .container-wrap .col-pull-left.col-pull-12 > figure,
+    .container-wrap .col-pull-left.col-pull-16 > div,
+    .container-wrap .col-pull-left.col-pull-16 > figure,
+    .container-wrap .col-pull-left.col-pull-20 > div,
+    .container-wrap .col-pull-left.col-pull-20 > figure,
+    .container-wrap .col-pull-left.col-pull-24 > div,
+    .container-wrap .col-pull-left.col-pull-24 > figure,
+    .container-wrap .col-pull-left.col-pull-28 > div,
+    .container-wrap .col-pull-left.col-pull-28 > figure,
+    .container-wrap .col-pull-left.col-pull-32 > div,
+    .container-wrap .col-pull-left.col-pull-32 > figure,
+    .container-wrap .col-pull-left.col-pull-36 > div,
+    .container-wrap .col-pull-left.col-pull-36 > figure,
+    .container-wrap .col-pull-left.col-pull-40 > div,
+    .container-wrap .col-pull-left.col-pull-40 > figure,
+    .container-wrap .col-pull-right.col-pull-4 > div,
+    .container-wrap .col-pull-right.col-pull-4 > figure,
+    .container-wrap .col-pull-right.col-pull-8 > div,
+    .container-wrap .col-pull-right.col-pull-8 > figure,
+    .container-wrap .col-pull-right.col-pull-12 > div,
+    .container-wrap .col-pull-right.col-pull-12 > figure,
+    .container-wrap .col-pull-right.col-pull-16 > div,
+    .container-wrap .col-pull-right.col-pull-16 > figure,
+    .container-wrap .col-pull-right.col-pull-20 > div,
+    .container-wrap .col-pull-right.col-pull-20 > figure,
+    .container-wrap .col-pull-right.col-pull-24 > div,
+    .container-wrap .col-pull-right.col-pull-24 > figure,
+    .container-wrap .col-pull-right.col-pull-28 > div,
+    .container-wrap .col-pull-right.col-pull-28 > figure,
+    .container-wrap .col-pull-right.col-pull-32 > div,
+    .container-wrap .col-pull-right.col-pull-32 > figure,
+    .container-wrap .col-pull-right.col-pull-36 > div,
+    .container-wrap .col-pull-right.col-pull-36 > figure,
+    .container-wrap .col-pull-right.col-pull-40 > div,
+    .container-wrap .col-pull-right.col-pull-40 > figure {
         margin: 0px;
     }
     .container-wrap .col-pull-left .img-padding {
@@ -2122,7 +2111,7 @@ img.parallax-slider.loaded,
     h5 {
         letter-spacing: -.5px;
     }
-    .row-clients>div {
+    .row-clients > div {
         float: left;
         width: 50%;
     }
@@ -2148,6 +2137,33 @@ img.parallax-slider.loaded,
     .footer .scrollup {
         display: block;
     }
+}
+
+.footer .socials {
+    margin: 0px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgba(255, 255, 255, .38);;
+}
+
+.socials {
+    float: right;
+    margin: 12px 0 8px 0;
+}
+
+.socials a {
+    color: #fff;
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.footer .socials a {
+    color: rgba(0, 0, 0, .38);
+}
+
+.footer .socials a:hover {
+    color: rgba(0, 0, 0, .54);
 }
 
 .logo {
