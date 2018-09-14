@@ -116,7 +116,7 @@ body {
 .header-container {
     z-index: 1000;
     position: absolute;
-    top: 120px;
+    top: 34%;
     width: 100%;
     text-align: center;
     color: #fff;
