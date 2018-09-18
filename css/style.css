@@ -17,7 +17,7 @@ body {
     font-weight: 300;
 }
 
-#hero-vid {
+.cover {
     backface-visibility: hidden;
     position: fixed;
     width: auto;
@@ -58,7 +58,7 @@ body {
 .header-container {
     z-index: 1000;
     position: absolute;
-    top: 34%;
+    top: 32%;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -93,7 +93,7 @@ body {
     color: #fff;
     font-size: 2em;
     margin: 0;
-    line-height: 190vh;
+    line-height: 186vh;
 }
 
 .btn-custom .icon-large {
@@ -113,10 +113,6 @@ h5 .icon-large {
 .bg-grey {
     background: #fafafa;
     z-index: 1;
-}
-
-.header-container {
-    color: #FFF;
 }
 
 .bg-img .bg-img-base {

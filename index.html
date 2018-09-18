@@ -129,11 +129,12 @@
         <a href="https://vycr9.app.goo.gl/web-iOS" target="_blank" class="btn-custom"><i class="fab fa-apple fa-lg"></i>App Store</a>
         <a href="https://vycr9.app.goo.gl/web-android" target="_blank" class="btn-custom"><i class="fab fa-google-play fa-lg"></i>Google Play</a>
     </div>
-    <div class="filter fullheight">
+    <div class="filter">
         <span class="icon-ic_keyboard_arrow_down icon-large"></span>
     </div>
-    <video class="fullheight" id="hero-vid" poster="images/video.jpg" autoplay loop muted playsinline>
-        <source id="video" type="video/mp4" src="images/video.mp4" />
+    <video class="cover" autoplay loop muted playsinline>
+        <source type="video/mp4" src="images/video-portrait.mp4" media="all and (max-width:480px)" />
+        <source type="video/mp4" src="images/video-landscape.mp4" />
     </video>
     <div class="bg-white" style="margin-top:100vh">
         <div class="container">
@@ -311,31 +312,32 @@
             </div>
         </div>
 	<![endif]-->
-    
-    <script>
-    $(function() {
-        var query_string = {};
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (typeof query_string[pair[0]] === "undefined") {
-                query_string[pair[0]] = pair[1];
-            } else if (typeof query_string[pair[0]] === "string") {
-                var arr = [query_string[pair[0]], pair[1]];
-                query_string[pair[0]] = arr;
-            } else {
-                query_string[pair[0]].push(pair[1]);
-            }
-        }
 
-        if (query_string.video)
-        {
-            document.getElementById('video').src = decodeURI(query_string.video);
-            document.getElementById('hero-vid').load();
-        }
-    });
+    <script>
+        $(function() {
+            var query_string = {};
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (typeof query_string[pair[0]] === "undefined") {
+                    query_string[pair[0]] = pair[1];
+                } else if (typeof query_string[pair[0]] === "string") {
+                    var arr = [query_string[pair[0]], pair[1]];
+                    query_string[pair[0]] = arr;
+                } else {
+                    query_string[pair[0]].push(pair[1]);
+                }
+            }
+
+            if (query_string.video) {
+                document.getElementById('video').src = decodeURI(query_string.video);
+                document.getElementById('hero-vid').load();
+            }
+        });
+
     </script>
-    
+
 </body>
+
 </html>
