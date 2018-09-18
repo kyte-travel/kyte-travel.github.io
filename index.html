@@ -132,9 +132,8 @@
     <div class="filter">
         <span class="icon-ic_keyboard_arrow_down icon-large"></span>
     </div>
-    <video class="cover" autoplay loop muted playsinline>
-        <source type="video/mp4" src="images/video-portrait.mp4" media="all and (max-width:480px)" />
-        <source type="video/mp4" src="images/video-landscape.mp4" />
+    <video class="cover" id="hero-vid" autoplay loop muted playsinline>
+        <source id="video" type="video/mp4" src="images/video-landscape.mp4" />
     </video>
     <div class="bg-white" style="margin-top:100vh">
         <div class="container">
@@ -335,6 +334,16 @@
                 document.getElementById('hero-vid').load();
             }
         });
+        
+        window.onresize = function() {
+            if (window.screen.width > window.screen.height) {
+                document.getElementById('video').src = "images/video-landscape.mp4";
+                document.getElementById('hero-vid').load();
+            } else {
+                document.getElementById('video').src = "images/video-portrait.mp4";
+                document.getElementById('hero-vid').load();
+            }
+        };
 
     </script>
 
