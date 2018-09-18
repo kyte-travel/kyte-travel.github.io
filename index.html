@@ -315,16 +315,21 @@
     <script>
         function changeVideo() {
             if (window.screen.width > window.screen.height) {
-                document.getElementById('video').src = "images/video-landscape.mp4";
-                document.getElementById('hero-vid').load();
+                if (document.getElementById('video').src != "images/video-landscape.mp4") {
+                    document.getElementById('video').src = "images/video-landscape.mp4"
+                    document.getElementById('hero-vid').load();
+                }
             } else {
-                document.getElementById('video').src = "images/video-portrait.mp4";
-                document.getElementById('hero-vid').load();
+                if (document.getElementById('video').src != "images/video-portrait.mp4") {
+                    document.getElementById('video').src = "images/video-portrait.mp4"
+                    document.getElementById('hero-vid').load();
+                }
             }
         };
-        
+
         window.onresize = changeVideo;
         changeVideo();
+
     </script>
 
 </body>
