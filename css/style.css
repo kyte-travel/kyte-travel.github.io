@@ -7,7 +7,6 @@ only screen and (min-resolution:1.25dppx) {
 
 html {
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 body {
@@ -237,7 +236,7 @@ ul li {
 }
 
 img {
-    width: auto\9;
+    width: auto;
     height: auto;
     max-width: 100%;
     vertical-align: middle;
