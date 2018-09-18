@@ -317,11 +317,13 @@
             if (window.screen.width > window.screen.height) {
                 if (document.getElementById('video').src.indexOf("video-landscape.mp4") == -1) {
                     document.getElementById('video').src = "images/video-landscape.mp4";
+                    document.getElementById('hero-vid').poster = "images/video-landscape.jpg"
                     document.getElementById('hero-vid').load();
                 }
             } else {
                 if (document.getElementById('video').src.indexOf("video-portrait.mp4") == -1 ){
                     document.getElementById('video').src = "images/video-portrait.mp4";
+                    document.getElementById('hero-vid').poster = "images/video-portrait.jpg"
                     document.getElementById('hero-vid').load();
                 }
             }
