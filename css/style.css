@@ -51,6 +51,13 @@ body {
     line-height: 168vh;
 }
 
+.filter .icon-large {
+    color: #fff;
+    font-size: 2em;
+    margin: 0;
+    line-height: 182vh;
+}
+
 .hero-img {
     margin-bottom: -120px;
 }
@@ -87,13 +94,6 @@ body {
 
 .icon-middle {
     margin-right: 8px;
-}
-
-.filter .icon-large {
-    color: #fff;
-    font-size: 2em;
-    margin: 0;
-    line-height: 186vh;
 }
 
 .btn-custom .icon-large {
