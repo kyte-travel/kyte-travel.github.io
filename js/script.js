@@ -1,3 +1,25 @@
+//Animate with anchor
+$(function () {
+    $('a[href*=#]:not([href=#])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            animateTo($(this.hash));
+        }
+    });
+
+    function animateTo(target) {
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top - 320
+            }, 500);
+            return false;
+        }
+    }
+
+    if (window.location.hash) animateTo($(window.location.hash));
+});
+
+
 //jQuery is required to run this code
 $(document).ready(function () {
     $(window).on('scroll', function () {
