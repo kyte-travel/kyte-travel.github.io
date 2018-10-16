@@ -1,0 +1,95 @@
+.footer {
+    font-size: 14px;
+    padding-bottom: 30px;
+    background: #fff;
+    overflow: auto;
+}
+
+.footer a {
+    color: $text-medium-emphasis-color !important;
+}
+
+.footer a:hover {
+    color: $text-high-emphasis-color !important;
+}
+
+.min-height-60 {
+    min-height: 24px;
+}
+
+.footer-nav {
+    float: left;
+}
+
+.footer-nav a {
+    margin-right: 16px;
+}
+
+.footer-policies {
+    float: right;
+}
+
+.footer-policies a {
+    margin-left: 16px;
+}
+
+.copyright {
+    float: left;
+    font-size: 15px;
+}
+
+.company-info {
+    font-size: 12px;
+    line-height: 150%;
+    margin-top: 10px;
+}
+
+.footer .socials {
+    float: right;
+    margin: 0px;
+}
+
+.footer .socials a {
+    font-size: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding-top: 0px;
+        text-align: center;
+    }
+
+    .footer-nav {
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    .footer-nav a {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .footer-terms {
+        float: none;
+    }
+
+    .footer-terms a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .copyright {
+        float: none;
+        font-style: normal;
+        padding: 20px 0px 0px 0px;
+    }
+    .footer .socials,
+    .footer .socials a {
+        margin: 20px 10px 0 10px;
+        float: none;
+    }
+    .footer .scrollup {
+        display: block;
+    }
+}

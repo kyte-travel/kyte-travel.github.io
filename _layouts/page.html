@@ -1,0 +1,158 @@
+---
+layout: default
+---
+<nav class="navbar navbar-inverse fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header" style="float:left">
+            <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
+        </div>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="검색">
+            <ul id="results-container"></ul>
+        </div>
+        <script src="/js/jekyll-search.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            SimpleJekyllSearch.init({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('results-container'),
+                dataSource: '{{ "/search.json" }}',
+                noResultsText: '{{ site.search_no_results_text }}',
+                limit: 10,
+                fuzzy: true,
+            })
+
+            var query_string = {};
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (typeof query_string[pair[0]] === "undefined") {
+                    query_string[pair[0]] = pair[1];
+                } else if (typeof query_string[pair[0]] === "string") {
+                    var arr = [query_string[pair[0]], pair[1]];
+                    query_string[pair[0]] = arr;
+                } else {
+                    query_string[pair[0]].push(pair[1]);
+                }
+            }
+
+            require(['https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js'], function() {
+                const client = contentful.createClient({
+                    space: 'x63mv991hgep',
+                    accessToken: '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c',
+                })
+
+                if (query_string.id) {
+                    client.getEntry(query_string.id)
+                        .then(function(entry) {
+                            document.getElementById('title').innerHTML = entry.fields.title;
+                            document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
+                            document.getElementById('content').setAttribute('style', 'display:block');
+                        })
+                } else {
+                    document.getElementById('title').innerHTML = '{{page.title}}'
+                    document.getElementById('content').setAttribute('style', 'display:block');
+                }
+
+                var id = '{{ page.url | replace: '/', ''}}'
+                client.getEntries({
+                        order: '-sys.createdAt',
+                        'sys.contentType.sys.id[in]': id
+                    })
+                    .then(function(entries) {
+                        var html = ""
+                        var categories = {}
+                        var category
+                        entries.items.forEach(function(item) {
+                            category = item.fields.category;
+                            if (!categories[category]) {
+                                categories[category] = [];
+                            }
+                            categories[category].push({
+                                "title": item.fields.title,
+                                "id": item.sys.id
+                            });
+                        })
+                        for (var category in categories) {
+                            html += "<li><a class=\"folder\" href=\"#\">" + category + "</a><ul>"
+                            for (var item of categories[category]) {
+                                if (item.id == query_string.id) {
+                                    html += "<li class=\"active\"><a href=\"/" + id + "?id=" + item.id + "\">" + item.title + "</a></li>"
+                                } else {
+                                    html += "<li><a href=\"/" + id + "?id=" + item.id + "\">" + item.title + "</a></li>"
+                                }
+                            }
+                            html += "</ul></li>"
+                        }
+                        document.getElementById('mysidebar').innerHTML = html
+
+                        $("li.active").parents('li').toggleClass("active");
+
+                        $("#mysidebar").navgoco({
+                            caretHtml: '',
+                            accordion: true,
+                            openClass: 'active',
+                            save: false, // leave false or nav highlighting doesn't work right
+                            cookie: {
+                                name: 'navgoco',
+                                expires: false,
+                                path: '/'
+                            },
+                            slide: {
+                                duration: 400,
+                                easing: 'swing'
+                            }
+                        });
+
+                        $("#collapseAll").click(function(e) {
+                            e.preventDefault();
+                            $("#mysidebar").navgoco('toggle', false);
+                        });
+
+                        $("#expandAll").click(function(e) {
+                            e.preventDefault();
+                            $("#mysidebar").navgoco('toggle', true);
+                        });
+                    })
+            });
+
+        </script>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul id="mysidebar" class="nav">
+                <!--
+                {% for type in site[page.type] %}
+                {% if type.title %}
+                {% if page.title == type.title %}<li class="active">{% else %}<li>{% endif %}
+                    <a class="folder" href="{{type.url}}">{{type.title}}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="folder" href="#">{{type.category}}</a>
+                    <ul>
+                        {% for item in type.items %}
+                        {% if page.title == item.title %}
+                        <li class="active"><a href="{{item.url}}">{{item.title}}</a></li>
+                        {% else %}
+                        <li><a href="{{item.url}}">{{item.title}}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+                -->
+            </ul>
+        </div>
+        <div class="col-md-9 padding-bottom">
+            <div class="post-header">
+                <h2 id="title" class="post-title-main"></h2>
+            </div>
+            <div id="content" style="display:none">{{content}}
+            </div>
+        </div>
+    </div>
+</div>

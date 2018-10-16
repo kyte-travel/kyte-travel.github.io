@@ -1,0 +1,43 @@
+$font-family: sans-serif;
+
+$primary-color: #4285f4;
+$error-color: #b00020;
+
+$background-primary-color: #ffffff;
+$background-variant-color: #fafafa;
+$background-variant2-color: rgba(255, 255, 255, .94);
+$surface-color: #ffffff;
+$divider-color: rgba(0, 0, 0, .12);
+
+$text-high-emphasis-variant-color: #ffffff;
+$text-high-emphasis-color: rgba(0, 0, 0, .87);
+$text-medium-emphasis-color: rgba(0, 0, 0, .6);
+$text-disabled-color: rgba(0, 0, 0, .38);
+$text-divider-color: rgba(0, 0, 0, .12);
+
+$border: 1px solid $text-disabled-color;
+$border-radius: 2px;
+$box-shadow: 0 0px 1px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .38);
+$box-shadow-variant: 0 1px 2px rgba(0, 0, 0, .12);
+
+$translateY: translateY(-2px);
+
+@mixin transition() {
+    -webkit-transition: .25s ease-out !important;
+    -moz-transition: .25s ease-out !important;
+    -o-transition: .25s ease-out !important;
+    transition: .25s ease-out !important;
+}
+
+@mixin rotate-transition($deg) {
+    -webkit-transform: rotate($deg) !important;
+    -moz-transform: rotate($deg) !important;
+    -o-transform: rotate($deg) !important;
+    transform: rotate($deg) !important;
+    @include transition();
+}
+
+@mixin delay($s) {
+    -webkit-transition-delay: $s;
+    transition-delay: $s;
+}
