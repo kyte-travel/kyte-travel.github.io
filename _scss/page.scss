@@ -1084,14 +1084,14 @@ h3.codeExplanation {
 }
 
 @media (min-width: 1000px) {
-    #mysidebar {
+    #sidebar {
         width: 240px;
         margin-top: 32px;
     }
 }
 
 @media (max-width: 999px) {
-    #mysidebar {
+    #sidebar {
         margin-top: 24px;
     }
 }
@@ -1346,11 +1346,11 @@ body.print h4 {
     font-style: italic !important;
 }
 
-div.mysidebarTitle {
+div.sidebarTitle {
     color: #015CAE;
 }
 
-li.mysidebarTitle {
+li.sidebarTitle {
     margin-top: 16px;
 }
 
