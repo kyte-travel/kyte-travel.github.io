@@ -108,93 +108,79 @@
             query_string[pair[0]].push(pair[1]);
         }
     }
-
-    var ContentType;
-    var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
-    if(query_string.query) { 
-        ContentType = 'faq';
-        url += ContentType + '&query=' + query_string.query;
+    
+    fetch('https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&content_type=faq&order=fields.order,-sys.createdAt&query=' + query_string.query)
+        .then(response => response.json())
+        .then(function(entries) {
         
-    } else {
-        ContentType = 'faq.html';
-        ContentType = ContentType.replace('.html', "");
-        url += ContentType;
-    }
-    fetch(url)
-    .then(response => response.json())
-    .then(function(entries) {
-        var categories = {};
-        var category;
-        entries.items.forEach(function(item) {
-            category = item.fields.category;
-            if (!categories[category]) {
-                categories[category] = [];
+            document.getElementById('search').value = decodeURI(query_string.query);
+            
+            var categories = {};
+            var category;
+            entries.items.forEach(function(item) {
+                category = item.fields.category;
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+                categories[category].push({
+                    "title": item.fields.title,
+                    "id": item.sys.id,
+                    "contentType": item.sys.contentType.sys.id
+                });
+            })
+        
+            var id;
+            if(query_string.id) id = query_string.id;
+            var html = "";
+            for (var category in categories) {
+                if(!id) id = categories[category][0].id;
+                html += "<li><a class=\"folder\" href=\"#\">" + category + "</a><ul>"
+                for (var item of categories[category]) {
+                    if (item.id == id) {
+                        html += "<li class=\"active\"><a href=\"/faq/search" + "?query=" + query_string.query + "&id=" + item.id + "\">" + item.title + "</a></li>"
+                    } else {
+                        html += "<li><a href=\"/faq/search" + "?query=" + query_string.query + "&id=" + item.id + "\">" + item.title + "</a></li>"
+                    }
+                }
+                html += "</ul></li>";
             }
-            categories[category].push({
-                "title": item.fields.title,
-                "id": item.sys.id
+            document.getElementById('sidebar').innerHTML = html;
+        
+            $("li.active").parents('li').toggleClass("active");
+
+            $("#sidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active',
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#sidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#sidebar").navgoco('toggle', true);
+            });
+        
+            fetch('https://cdn.contentful.com/spaces/x63mv991hgep/entries/' + id + '?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c')
+                .then(response => response.json())
+                .then(function(entry) {
+                    document.getElementById('title').innerHTML = entry.fields.title;
+                    document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
             });
         })
-        
-        var id;
-        if(query_string.id) id = query_string.id;
-        if(query_string.query) {
-            document.getElementById('search').value = decodeURI(query_string.query);
-            ContentType += "?query=" + query_string.query + "&";
-        } else {
-            ContentType += "?"
-        }
-        var html = "";
-        for (var category in categories) {
-            if(!id) id = categories[category][0].id;
-            html += "<li><a class=\"folder\" href=\"#\">" + category + "</a><ul>"
-            for (var item of categories[category]) {
-                if (item.id == id) {
-                    html += "<li class=\"active\"><a href=\"/" + ContentType + "id=" + item.id + "\">" + item.title + "</a></li>"
-                } else {
-                    html += "<li><a href=\"/" + ContentType + "id=" + item.id + "\">" + item.title + "</a></li>"
-                }
-            }
-            html += "</ul></li>";
-        }
-        
-        document.getElementById('sidebar').innerHTML = html;
-
-        $("li.active").parents('li').toggleClass("active");
-
-        $("#sidebar").navgoco({
-            caretHtml: '',
-            accordion: true,
-            openClass: 'active',
-            save: false, // leave false or nav highlighting doesn't work right
-            cookie: {
-                name: 'navgoco',
-                expires: false,
-                path: '/'
-            },
-            slide: {
-                duration: 400,
-                easing: 'swing'
-            }
-        });
-
-        $("#collapseAll").click(function(e) {
-            e.preventDefault();
-            $("#sidebar").navgoco('toggle', false);
-        });
-
-        $("#expandAll").click(function(e) {
-            e.preventDefault();
-            $("#sidebar").navgoco('toggle', true);
-        });
-        
-        fetch('https://cdn.contentful.com/spaces/x63mv991hgep/entries/' + id + '?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c')
-        .then(response => response.json())
-        .then(function(entry) {
-            document.getElementById('title').innerHTML = entry.fields.title;
-            document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
-        });
-    })
 
 </script>
 <nav class="navbar navbar-inverse fixed-top">
@@ -203,7 +189,7 @@
             <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
         </div>
         <div id="search-container">
-            <form action="/faq">
+            <form action="/faq/search">
                 <input type="text" id="search" name="query" placeholder="도움말 검색">
             </form>
         </div>

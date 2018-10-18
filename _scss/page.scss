@@ -388,7 +388,7 @@ p.post-meta {
     text-transform: uppercase;
 }
 
-#search-input {
+#search {
     padding: 8px 16px;
     width: 216px;
     font-size: 14px;
@@ -400,28 +400,6 @@ p.post-meta {
     line-height: 24px;
     border: 1px solid $text-divider-color;
     border-radius: $border-radius;
-}
-
-#results-container {
-    list-style-type: none;
-    font-size: 12px;
-    background-color: white;
-    z-index: -1;
-    width: 216px;
-    border: 1px solid $text-divider-color;
-    border-radius: $border-radius;
-    position: absolute;
-    top: 60px;
-}
-
-#results-container a:hover,
-#search-container a:hover {
-    color: $text-high-emphasis-color;
-}
-
-#results-container li a {
-    color: $text-high-emphasis-color;
-    font-size: 13px;
 }
 
 .filter-options {
@@ -536,10 +514,7 @@ blockquote:before {
 .nav li.active > a.folder > span:after {
     content: '\e90a';
     font-family: 'icomoon';
-    transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transition: transform .15s ease-in-out;
-    -webkit-transition: -webkit-transform .15s ease-in-out;
+    @include rotate-transition(45deg);
 }
 
 .nav > li.active > a {
@@ -1085,7 +1060,6 @@ h3.codeExplanation {
 
 @media (min-width: 1000px) {
     #sidebar {
-        width: 240px;
         margin-top: 32px;
     }
 }
