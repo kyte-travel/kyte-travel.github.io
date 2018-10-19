@@ -525,7 +525,8 @@ blockquote:before {
 
 .nav li a {
     font-size: 14px;
-    padding: 4px 16px;
+    line-height: 150%;
+    padding: 6px 15px;
     background-color: $background-variant-color;
     border-radius: $border-radius;
 }
