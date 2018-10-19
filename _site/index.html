@@ -106,7 +106,7 @@
 <div id="filter">
     <a href="#intro"><span class="icon-ic_keyboard_arrow_down arrow_down"></span></a>
 </div>
-<video class="cover" id="hero-vid" autoplay loop muted playsinline>
+<video id="hero-vid" autoplay loop muted playsinline>
         <source id="video" type="video/mp4" />
     </video>
 <div class="bg-white" style="margin-top:100vh" id="intro">
@@ -263,6 +263,11 @@
             if (document.getElementById('video').src.indexOf("video-portrait.mp4") == -1) {
                 document.getElementById('video').src = "images/video-portrait.mp4";
                 document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
+                if(1334/750 > window.screen.height/window.screen.width) {
+                   document.getElementById('hero-vid').style.width = "100%";
+                } else {
+                    document.getElementById('hero-vid').style.height = "100%";
+                }
                 document.getElementById('hero-vid').load();
                 document.getElementById('filter').style.lineHeight = "172vh";
             }
