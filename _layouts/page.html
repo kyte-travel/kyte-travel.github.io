@@ -36,11 +36,19 @@ layout: default
             .then(function(entries) {
                 if (entries.items.length) {
                     buildSidebar(entries);
-                    if (updateEntry) getEntry(parameters.id || entries.items[0].sys.id);
+                    if (updateEntry) {
+                        getEntry(parameters.id || entries.items[0].sys.id);
+                    } else {
+                        activeSidebar();
+                    }
                 } else {
-                    getEntries(url + 'faq', false);
-                    document.getElementById('title').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과";
-                    document.getElementById('content').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요";
+                    if(parameters.id) {
+                        getEntries(url + 'faq', true);
+                    } else {
+                        getEntries(url + 'faq', false);
+                        document.getElementById('title').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과";
+                        document.getElementById('content').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요";
+                    }
                 }
             })
     }
@@ -88,6 +96,7 @@ layout: default
                     document.getElementById('title').innerHTML = entry.fields.title;
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
                     activeSidebar(entry.fields.title);
+                    pushState(id);
                 }
             });
     }
@@ -116,6 +125,16 @@ layout: default
                 easing: 'swing'
             }
         });
+    }
+    
+    function pushState(id) {
+        if(typeof(history.pushState) == 'function') {
+            if(location.href.indexOf("?id") > -1) {
+                    history.pushState(null, null, location.href.replace(/id=\w+/ig,'') + "id=" + id);
+                } else {
+                    history.pushState(null, null, location.href.replace(/&id=\w+/ig,'') + "&id=" + id);
+                }
+        }
     }
 
 </script>
