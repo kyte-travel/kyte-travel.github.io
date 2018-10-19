@@ -394,8 +394,7 @@ p.post-meta {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 5px 0px;
     line-height: 28px;
     border: 1px solid $text-divider-color;
     border-radius: $border-radius;
@@ -549,6 +548,10 @@ blockquote:before {
 
 .nav ul li a {
     background-color: $background-primary-color;
+}
+
+.navbar {
+    padding: 10px 0px;
 }
 
 .navbar-inverse {
@@ -892,9 +895,8 @@ ol.series li {
 
 .navbar-brand {
     float: left;
-    padding: 12px 15px;
-    font-size: 18px;
     line-height: 32px;
+    margin-left: 10px;
 }
 
 .navbar-toggle {

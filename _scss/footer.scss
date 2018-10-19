@@ -13,16 +13,14 @@
     color: $text-high-emphasis-color !important;
 }
 
-.min-height-60 {
-    min-height: 24px;
-}
-
 .footer-nav {
     float: left;
+    height: 100%;
 }
 
 .footer-nav a {
     margin-right: 16px;
+    height: 100%;
 }
 
 .footer-policies {
@@ -55,6 +53,11 @@
     margin-right: 8px;
 }
 
+.clear {
+	clear: both;
+	height: 0;
+}
+
 @media (max-width: 767px) {
     .footer {
         padding-top: 0px;
@@ -67,6 +70,15 @@
     }
 
     .footer-nav a {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .footer-policies {
+        float: none;
+    }
+
+    .footer-policies a {
         margin-left: 5px;
         margin-right: 5px;
     }

@@ -1,4 +1,5 @@
 url: https://kyte.travel
+exclude: ["deploy.sh", "run_server.sh", "README.md", "nginx.conf"]
 sass:
     sass_dir: _scss
     style: compressed
