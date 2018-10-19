@@ -389,17 +389,18 @@ p.post-meta {
 }
 
 #search {
-    padding: 8px 16px;
+    padding: 10px 15px;
     width: 216px;
-    font-size: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-top: 10px;
     margin-bottom: 10px;
-    line-height: 24px;
+    line-height: 28px;
     border: 1px solid $text-divider-color;
     border-radius: $border-radius;
+    font-family: 'icomoon';
+    color: $text-medium-emphasis-color;
 }
 
 .filter-options {
@@ -1098,15 +1099,6 @@ a.no_icon:after {
 
 .btn-default {
     margin-bottom: 10px;
-}
-
-.search {
-    text-align: left;
-}
-
-.search input {
-    font-size: 20px;
-    width: 300px;
 }
 
 .results {

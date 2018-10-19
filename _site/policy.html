@@ -91,7 +91,6 @@
 	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
-    //Get parameters
     var parameters = {};
     var key = window.location.search.substring(1);
     var vars = key.split("&");
@@ -107,94 +106,105 @@
         }
     }
 
-    //Get entries
-    var contentType;
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
-    if (parameters.query) {
-        contentType = 'faq';
-        url += contentType + '&query=' + parameters.query;
-    } else {
-        contentType = 'policy.html';
-        contentType = contentType.replace('.html', "");
-        url += contentType;
-    }
-    
-    fetch(url)
-        .then(response => response.json())
-        .then(function(entries) {
-            var categories = {};
-            var category;
-            entries.items.forEach(function(item) {
-                category = item.fields.category;
-                if (!categories[category]) {
-                    categories[category] = [];
+
+    $(function() {
+        if (parameters.query) {
+            document.getElementById('search').value = decodeURI(parameters.query);
+            getEntries(url + 'faq' + '&query=' + parameters.query, true);
+        } else {
+            var contentType = 'policy.html';
+            contentType = contentType.replace('.html', "");
+            getEntries(url + contentType, true);
+        }
+    })
+
+    function getEntries(query, updateEntry) {
+        fetch(query)
+            .then(response => response.json())
+            .then(function(entries) {
+                if (entries.items.length) {
+                    buildSidebar(entries);
+                    if (updateEntry) getEntry(parameters.id || entries.items[0].sys.id);
+                } else {
+                    getEntries(url + 'faq', false);
+                    document.getElementById('title').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과";
+                    document.getElementById('content').innerHTML = "\"" + decodeURI(parameters.query) + "\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요";
                 }
-                categories[category].push({
-                    "title": item.fields.title,
-                    "id": item.sys.id
-                });
             })
+    }
 
-            //Build sidebar
-            var id;
-            var html = "";
-            for (category in categories) {
-                if (!id) id = categories[category][0].id;
-                html += "<li><a class=\"folder\" href=\"#\">" + category + "</a><ul style=\"display: none;\">"
-                for (var item of categories[category]) {
-                    html += "<li><a href=\"javascript:getEntry('" + item.id + "');\">" + item.title + "</a></li>"
-                }
-                html += "</ul></li>";
+    function buildSidebar(entries) {
+        var categories = {};
+        var category;
+        entries.items.forEach(function(item) {
+            category = item.fields.category;
+            if (!categories[category]) {
+                categories[category] = [];
             }
-
-            document.getElementById('sidebar').innerHTML = html;
-            if (parameters.query) document.getElementById('search').value = decodeURI(parameters.query);
-
-            getEntry(parameters.id || id);
-
-            $("#collapseAll").click(function(e) {
-                e.preventDefault();
-                $("#sidebar").navgoco('toggle', false);
-            });
-
-            $("#expandAll").click(function(e) {
-                e.preventDefault();
-                $("#sidebar").navgoco('toggle', true);
+            categories[category].push({
+                "title": item.fields.title,
+                "id": item.sys.id
             });
         })
 
-    //Get entry
+        var html = "";
+        for (category in categories) {
+            html += "<li><a class=\"folder\" href=\"#\">" + category + "</a><ul style=\"display: none;\">"
+            for (var item of categories[category]) {
+                html += "<li><a href=\"javascript:getEntry('" + item.id + "');\">" + item.title + "</a></li>"
+            }
+            html += "</ul></li>";
+        }
+        document.getElementById('sidebar').innerHTML = html;
+
+        $("#collapseAll").click(function(e) {
+            e.preventDefault();
+            $("#sidebar").navgoco('toggle', false);
+        });
+
+        $("#expandAll").click(function(e) {
+            e.preventDefault();
+            $("#sidebar").navgoco('toggle', true);
+        });
+    }
+
     function getEntry(id) {
         fetch('https://cdn.contentful.com/spaces/x63mv991hgep/entries/' + id + '?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c')
             .then(response => response.json())
             .then(function(entry) {
-                document.getElementById('title').innerHTML = entry.fields.title;
-                document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
-
-                $("li").each(function(index) {
-                    if ($(this).text().indexOf(entry.fields.title) > -1) {
-                        $(this).attr('class', 'active');
-                    } else {
-                        $(this).attr('class', '');
-                    }
-                });
-
-                $("#sidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active',
-                    save: false, // leave false or nav highlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
+                if (entry.fields) {
+                    document.getElementById('title').innerHTML = entry.fields.title;
+                    document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
+                    activeSidebar(entry.fields.title);
+                }
             });
+    }
+
+    function activeSidebar(title) {
+        $("li").each(function(index) {
+            if ($(this).text().indexOf(title) > -1) {
+                $(this).attr('class', 'active');
+            } else {
+                $(this).attr('class', '');
+            }
+        });
+
+        $("#sidebar").navgoco({
+            caretHtml: '',
+            accordion: true,
+            openClass: 'active',
+            save: false, // leave false or nav highlighting doesn't work right
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 400,
+                easing: 'swing'
+            }
+        });
     }
 
 </script>
@@ -205,7 +215,7 @@
         </div>
         <div id="search-container">
             <form action="/faq">
-                <input type="text" id="search" name="query" placeholder="도움말 검색">
+                <input type="text" id="search" name="query" placeholder="&#xe909; 자주하는 질문">
             </form>
         </div>
     </div>
