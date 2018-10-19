@@ -164,11 +164,15 @@ title: main
 </div>
 <script>
     function changeVideo() {
-        if (window.screen.width > window.screen.height) {
+        if (window.innerWidth > window.innerHeight) {
             if (document.getElementById('video').src.indexOf("video-landscape.mp4") == -1) {
                 document.getElementById('video').src = "images/video-landscape.mp4";
                 document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
-                document.getElementById('hero-vid').style.height = "100%";
+                if(1200/720 > window.innerWidth/window.innerHeight) {
+                    document.getElementById('hero-vid').style.height = "100%";
+                } else {
+                    document.getElementById('hero-vid').style.width = "100%"; 
+                }
                 document.getElementById('hero-vid').load();
                 document.getElementById('filter').style.lineHeight = "192vh";
             }
@@ -176,7 +180,7 @@ title: main
             if (document.getElementById('video').src.indexOf("video-portrait.mp4") == -1) {
                 document.getElementById('video').src = "images/video-portrait.mp4";
                 document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
-                if(1334/750 > window.screen.height/window.screen.width) {
+                if(1334/750 > window.innerHeight/window.innerWidth) {
                    document.getElementById('hero-vid').style.width = "100%";
                 } else {
                     document.getElementById('hero-vid').style.height = "100%";
