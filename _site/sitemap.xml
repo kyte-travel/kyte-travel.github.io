@@ -3,61 +3,55 @@
     
     <url>
         <loc>http://localhost:4000/faq.html</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/css/footer.css</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/css/main.css</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/notice.html</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/css/page.css</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/policy.html</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/promotion.html</loc>
-        <lastmod>2018-10-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://localhost:4000/search.html</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://localhost:4000/sitemap.xml</loc>
-        <lastmod>2018-10-18</lastmod>
+        <lastmod>2018-10-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
