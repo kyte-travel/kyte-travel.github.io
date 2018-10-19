@@ -28,6 +28,12 @@ h4 {
     margin-bottom: 8px;
 }
 
+input[type=text] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 li:last-child {
     margin-bottom: 8px;
 }
