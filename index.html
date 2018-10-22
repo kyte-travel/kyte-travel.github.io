@@ -35,26 +35,26 @@ title: main
             <div class="post-heading"></div>
         </div>
         <div class="row padding-bottom20 padding-side30-xs">
-                <div class="col-sm-4 padding-side30-lg padding-bottom40">
-                    <h4><span class="icon-ic_search icon-large"></span>빠르게 검색하고,</h4>
-                    <div class="margin-bottom30">
-                        <p>항공편 데이터는 다이나믹하게 변하고 있습니다. 카이트는 향상된 데이터 관리 기술을 통해 다른 항공권 예약 서비스보다 훨씬 더 빠른 검색을 경험할 수 있습니다.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 padding-side30-lg padding-bottom40">
-                    <h4><span class="icon-ic_edit icon-large"></span>편하게 예약하고,</h4>
-                    <div class="margin-bottom30">
-                        <p>항공권 예약은 보통 몇 번의 과정을 거쳐야 완료될까요? 카이트는 최소한의 정보 입력만 거치면 손쉽게 예약을 완료할 수 있습니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 padding-side30-lg padding-bottom40">
-                    <h4><span class="icon-ic_flight_depart_land icon-large"></span>가볍게 떠나자.</h4>
-                    <div class="margin-bottom30">
-                        <p>직항 비즈니스석으로 여행하듯 편하게 원하는 항공편을 검색하고 한 번에 예약을 완료하세요. 여행의 출발부터 다시 집으로 돌아올 때 까지 필요한 정보를 받을 수 있습니다.</p>
-                    </div>
+            <div class="col-sm-4 padding-side30-lg padding-bottom40">
+                <h4><span class="icon-ic_search icon-large"></span>빠르게 검색하고,</h4>
+                <div class="margin-bottom30">
+                    <p>항공편 데이터는 다이나믹하게 변하고 있습니다. 카이트는 향상된 데이터 관리 기술을 통해 다른 항공권 예약 서비스보다 훨씬 더 빠른 검색을 경험할 수 있습니다.</p>
                 </div>
             </div>
+            <div class="col-sm-4 padding-side30-lg padding-bottom40">
+                <h4><span class="icon-ic_edit icon-large"></span>편하게 예약하고,</h4>
+                <div class="margin-bottom30">
+                    <p>항공권 예약은 보통 몇 번의 과정을 거쳐야 완료될까요? 카이트는 최소한의 정보 입력만 거치면 손쉽게 예약을 완료할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 padding-side30-lg padding-bottom40">
+                <h4><span class="icon-ic_flight_depart_land icon-large"></span>가볍게 떠나자.</h4>
+                <div class="margin-bottom30">
+                    <p>직항 비즈니스석으로 여행하듯 편하게 원하는 항공편을 검색하고 한 번에 예약을 완료하세요. 여행의 출발부터 다시 집으로 돌아올 때 까지 필요한 정보를 받을 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-padding60 bg-grey">
@@ -165,30 +165,25 @@ title: main
 <script>
     function changeVideo() {
         if (window.innerWidth > window.innerHeight) {
-            if (document.getElementById('video').src.indexOf("video-landscape.mp4") == -1) {
-                document.getElementById('video').src = "images/video-landscape.mp4";
-                document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
-                if(1200/720 > window.innerWidth/window.innerHeight) {
-                    document.getElementById('hero-vid').style.height = "100%";
-                } else {
-                    document.getElementById('hero-vid').style.width = "100%"; 
-                }
-                document.getElementById('hero-vid').load();
-                document.getElementById('filter').style.lineHeight = "192vh";
+            document.getElementById('video').src = "images/video-landscape.mp4";
+            document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
+            if (1200 / 720 > window.innerWidth / window.innerHeight) {
+                document.getElementById('hero-vid').style.height = "100%";
+            } else {
+                document.getElementById('hero-vid').style.width = "100%";
             }
+            document.getElementById('filter').style.lineHeight = "192vh";
         } else {
-            if (document.getElementById('video').src.indexOf("video-portrait.mp4") == -1) {
-                document.getElementById('video').src = "images/video-portrait.mp4";
-                document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
-                if(1334/750 > window.innerHeight/window.innerWidth) {
-                   document.getElementById('hero-vid').style.width = "100%";
-                } else {
-                    document.getElementById('hero-vid').style.height = "100%";
-                }
-                document.getElementById('hero-vid').load();
-                document.getElementById('filter').style.lineHeight = "172vh";
+            document.getElementById('video').src = "images/video-portrait.mp4";
+            document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
+            if (1334 / 750 > window.innerHeight / window.innerWidth) {
+                document.getElementById('hero-vid').style.width = "100%";
+            } else {
+                document.getElementById('hero-vid').style.height = "100%";
             }
+            document.getElementById('filter').style.lineHeight = "172vh";
         }
+        document.getElementById('hero-vid').load();
     };
 
     window.onresize = changeVideo;
