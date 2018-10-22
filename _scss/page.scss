@@ -13,7 +13,7 @@ body {
 h2 {
     font-size: 28px;
     margin-top: 30px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 h3 {
@@ -29,9 +29,9 @@ h4 {
 }
 
 input[type=text] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 li:last-child {
@@ -193,7 +193,7 @@ p {
     border-radius: $border-radius;
 }
 
-.bs-callout+.bs-callout {
+.bs-callout + .bs-callout {
     margin-top: -5px;
 }
 
@@ -628,9 +628,9 @@ a.dropdown-toggle,
     border-radius: $border-radius;
 }
 
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:focus,
-.navbar-inverse .navbar-nav>.open>a:hover {
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
     border-radius: $border-radius;
 }
 
@@ -973,8 +973,8 @@ table code {
 
 pre {
     margin: 25px 0px;
-    white-space:pre-line;
-    tab-size:0;
+    white-space: pre-line;
+    tab-size: 0;
 }
 
 #json-box-container pre {
@@ -1068,20 +1068,8 @@ h3.codeExplanation {
     background-color: whitesmoke;
 }
 
-@media (min-width: 1000px) {
-    #sidebar {
-        margin-top: 32px;
-    }
-}
-
-@media (max-width: 999px) {
-    #sidebar {
-        margin-top: 24px;
-    }
-}
-
-.post-header {
-    margin-top: 40px;
+#sidebar {
+    margin-top: 20px;
 }
 
 img {
@@ -1266,23 +1254,16 @@ div.box.box1 {
     word-wrap: break-word;
 }
 
-
-/*
- * Let's target IE to respect aspect ratios and sizes for img tags containing SVG files
- *
- * [1] IE9
- * [2] IE10+
- */
-
-
-/* 1 */
-
 .ie9 img[src$=".svg"] {
     width: 100%;
 }
 
 
-/* 2 */
+@media (max-width: 767px) {
+    h2 {
+        margin-top: 20px;
+    }
+}
 
 @media screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
