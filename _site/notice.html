@@ -4,7 +4,7 @@
     <title>Kyte - 가볍게 떠나는 세계 여행, 카이트</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="카이트는 여행자에게 가장 알맞은 항공권을 추천합니다. 여행자의 취향과 여행 시즌에 맞춰 특별한 여행지를 추천하고, 항공권 가격을 추적하여 쉽고 빠르게 항공권을 구매할 수 있습니다.">
+    <meta name="description" content="언제 갈까요? 어디로 갈까요? 해외여행을 언제 떠나야 할지, 어디로 떠나야 할지 고민될 땐 카이트와 함께 하세요.">
     <meta name="keywords" content="Kyte, 카이트, 항공편, 항공권, 프리비아, 아시아나, 유럽, 동남아, 홍콩, 일본, 익스피디아, 진에어, 국제선, 하나투어, 모두투어, 플레이윙즈, 저가, 항공사, 카약, 스카이스캐너, 바캉스, 자유여행, 특가추적, 대한항공, 특가항공, 휴가">
     <meta name="author" content="Square Lab">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,7 +12,7 @@
     <meta property="fb:app_id" content="1644242502562011">
     <meta property="og:site_name" content="Kyte">
     <meta property="og:title" content="Kyte - 가볍게 떠나는 세계 여행, 카이트">
-    <meta property="og:description" content="카이트는 여행자에게 가장 알맞은 항공권을 추천합니다. 여행자의 취향과 여행 시즌에 맞춰 특별한 여행지를 추천하고, 항공권 가격을 추적하여 쉽고 빠르게 항공권을 구매할 수 있습니다.">
+    <meta property="og:description" content="언제 갈까요? 어디로 갈까요? 해외여행을 언제 떠나야 할지, 어디로 떠나야 할지 고민될 땐 카이트와 함께 하세요.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kyte.travel">
     <meta property="og:image" content="https://kyte.travel/images/social.png">
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@kyte_travel">
     <meta name="twitter:title" content="Kyte - 가볍게 떠나는 세계 여행, 카이트">
-    <meta name="twitter:description" content="카이트는 여행자에게 가장 알맞은 항공권을 추천합니다. 여행자의 취향과 여행 시즌에 맞춰 특별한 여행지를 추천하고, 항공권 가격을 추적하여 쉽고 빠르게 항공권을 구매할 수 있습니다.">
+    <meta name="twitter:description" content="언제 갈까요? 어디로 갈까요? 해외여행을 언제 떠나야 할지, 어디로 떠나야 할지 고민될 땐 카이트와 함께 하세요.">
     <meta name="twitter:image" content="https://kyte.travel/images/social.png">
     
     <meta property="al:ios:app_name" content="Kyte">
@@ -136,7 +136,7 @@
                         activeSidebar();
                     }
                 } else {
-                    if(parameters.id) {
+                    if (parameters.id) {
                         getEntries(url + 'faq', true);
                     } else {
                         getEntries(url + 'faq', false);
@@ -220,14 +220,18 @@
             }
         });
     }
-    
+
     function pushState(id) {
-        if(typeof(history.pushState) == 'function') {
-            if(location.href.indexOf("?id") > -1) {
-                    history.pushState(null, null, location.href.replace(/id=\w+/ig,'') + "id=" + id);
+        if (typeof(history.pushState) == 'function') {
+            if (location.href.indexOf("?") == -1) {
+                history.pushState(null, null, location.href + "?id=" + id);
+            } else {
+                if (location.href.indexOf("?id") > -1) {
+                    history.pushState(null, null, location.href.replace(/id=\w+/ig, '') + "id=" + id);
                 } else {
-                    history.pushState(null, null, location.href.replace(/&id=\w+/ig,'') + "&id=" + id);
+                    history.pushState(null, null, location.href.replace(/&id=\w+/ig, '') + "&id=" + id);
                 }
+            }
         }
     }
 
@@ -263,9 +267,9 @@
         <hr>
         <div>
             <div class="footer-nav">
-                <a href="/notice.html?id=4SUFhDf0WcyyM8M2ggMEya" target="_self">공지사항</a>
-                <a href="/promotion.html?id=2fP8K4ZaksGgmCyySgeSCo" target="_self">프로모션</a>
-                <a href="/faq.html?id=bKbc2n4wOOMkaSkaqamMC" target="_self">자주하는 질문</a>
+                <a href="/notice.html" target="_self">공지사항</a>
+                <a href="/promotion.html" target="_self">프로모션</a>
+                <a href="/faq.html" target="_self">자주하는 질문</a>
             </div>
             <div class="footer-policies">
                 <a href="/policy.html?id=715ShfZTxesUoIWS6ygwQq" target="_self">서비스 이용약관</a>

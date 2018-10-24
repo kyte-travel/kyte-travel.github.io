@@ -42,7 +42,7 @@ layout: default
                         activeSidebar();
                     }
                 } else {
-                    if(parameters.id) {
+                    if (parameters.id) {
                         getEntries(url + 'faq', true);
                     } else {
                         getEntries(url + 'faq', false);
@@ -126,14 +126,18 @@ layout: default
             }
         });
     }
-    
+
     function pushState(id) {
-        if(typeof(history.pushState) == 'function') {
-            if(location.href.indexOf("?id") > -1) {
-                    history.pushState(null, null, location.href.replace(/id=\w+/ig,'') + "id=" + id);
+        if (typeof(history.pushState) == 'function') {
+            if (location.href.indexOf("?") == -1) {
+                history.pushState(null, null, location.href + "?id=" + id);
+            } else {
+                if (location.href.indexOf("?id") > -1) {
+                    history.pushState(null, null, location.href.replace(/id=\w+/ig, '') + "id=" + id);
                 } else {
-                    history.pushState(null, null, location.href.replace(/&id=\w+/ig,'') + "&id=" + id);
+                    history.pushState(null, null, location.href.replace(/&id=\w+/ig, '') + "&id=" + id);
                 }
+            }
         }
     }
 
