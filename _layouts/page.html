@@ -2,21 +2,7 @@
 layout: default
 ---
 <script type="text/javascript">
-    var parameters = {};
-    var key = window.location.search.substring(1);
-    var vars = key.split("&");
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
-        if (typeof parameters[pair[0]] === "undefined") {
-            parameters[pair[0]] = pair[1];
-        } else if (typeof parameters[pair[0]] === "string") {
-            var arr = [parameters[pair[0]], pair[1]];
-            parameters[pair[0]] = arr;
-        } else {
-            parameters[pair[0]].push(pair[1]);
-        }
-    }
-
+    var parameters = getParameters(); 
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
 
     $(function() {
@@ -29,6 +15,24 @@ layout: default
             getEntries(url + contentType, true);
         }
     })
+    
+    function getParameters() {
+        var parameters = {};
+        var key = window.location.search.substring(1);
+        var vars = key.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (typeof parameters[pair[0]] === "undefined") {
+                parameters[pair[0]] = pair[1];
+            } else if (typeof parameters[pair[0]] === "string") {
+                var arr = [parameters[pair[0]], pair[1]];
+                parameters[pair[0]] = arr;
+            } else {
+                parameters[pair[0]].push(pair[1]);
+            }
+        }
+        return parameters;
+    }
 
     function getEntries(query, updateEntry) {
         fetch(query)
@@ -88,15 +92,26 @@ layout: default
         });
     }
 
-    function getEntry(id) {
+    function getEntry(id, ignorePushState) {
         fetch('https://cdn.contentful.com/spaces/x63mv991hgep/entries/' + id + '?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c')
             .then(response => response.json())
             .then(function(entry) {
                 if (entry.fields) {
                     document.getElementById('title').innerHTML = entry.fields.title;
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
+                    /*
+                    setTimeout(function() {
+                        var uagent = navigator.userAgent.toLocaleLowerCase();
+                        if (uagent.search("android") > -1) {
+                            window.location = "https://vycr9.app.goo.gl/web-android";
+                        } else if (uagent.search("iphone") > -1 || uagent.search("ipod") > -1 || uagent.search("ipad") > -1) {
+                            window.location = "https://vycr9.app.goo.gl/web-iOS";
+                        }
+                    }, 500);
+                    */
+
                     activeSidebar(entry.fields.title);
-                    pushState(id);
+                    if(!ignorePushState) pushState(id);
                 }
             });
     }
@@ -128,6 +143,8 @@ layout: default
     }
 
     function pushState(id) {
+        console.log("pushState");
+        console.log(id);
         if (typeof(history.pushState) == 'function') {
             if (location.href.indexOf("?") == -1) {
                 history.pushState(null, null, location.href + "?id=" + id);
@@ -140,6 +157,13 @@ layout: default
             }
         }
     }
+    
+    $(window).on('popstate', function(event) {
+        parameters = getParameters();
+        console.log("popstate");
+        console.log(parameters.id);
+        getEntry(parameters.id, true);
+    })
 
 </script>
 <nav class="navbar navbar-inverse fixed-top">
