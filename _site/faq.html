@@ -199,24 +199,12 @@
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
-                    
-                    /*
-                    setTimeout(function() {
-                        var uagent = navigator.userAgent.toLocaleLowerCase();
-                        if (uagent.search("android") > -1) {
-                            window.location = "https://vycr9.app.goo.gl/web-android";
-                        } else if (uagent.search("iphone") > -1 || uagent.search("ipod") > -1 || uagent.search("ipad") > -1) {
-                            window.location = "https://vycr9.app.goo.gl/web-iOS";
-                        }
-                    }, 500);
-                    */
-                    
-                    if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
-                        var userAgent = navigator.userAgent.toLowerCase();
-                        if (userAgent.search("android") > -1)
-                            currentOS = "android";
-                        else if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1)
-                            currentOS = "ios";
+
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1) {
+                        currentOS = "ios";
+                    } else if (userAgent.search("android") > -1) {
+                        currentOS = "android";
                     } else {
                         $("a").each(function(index) {
                             if ($(this).attr('href').indexOf('kyte://') > -1) {
@@ -227,9 +215,8 @@
                 }
             });
     }
-    
+
     function onClick(url) {
-        alert('onClick');
         if (currentOS == 'ios') {
             setTimeout(function() {
                 goMarket();
@@ -237,21 +224,19 @@
 
             location.href = url;
         } else if (currentOS == 'android') {
-            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+            document.getElementById("invisible").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
         } else {
             
         }
-        return false;
     }
 
     function goMarket() {
         if (currentOS == 'ios') {
             location.href = app_store;
         } else if (currentOS == 'android') {
-            alert(google_play);
             location.href = google_play;
         } else {
-            
+
         }
     }
 
@@ -327,7 +312,7 @@
             </div>
         </div>
     </div>
-    <div id="invisible_div" style="display:none;"></div>
+    <div id="invisible" style="display:none;"></div>
 </div>
 
     <div class="footer">
