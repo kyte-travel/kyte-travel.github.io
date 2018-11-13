@@ -150,9 +150,11 @@ layout: default
     }
 
     function goMarket() {
+        alert('goMarket');
         if (currentOS == 'ios') {
             location.href = app_store;
         } else if (currentOS == 'android') {
+            alert(google_play);
             location.href = google_play;
         } else {
             
