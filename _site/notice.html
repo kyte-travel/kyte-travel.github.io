@@ -213,11 +213,14 @@
             iframe.onload = goGooglePlay();
             document.body.appendChild(iframe);
         } else {
+            location.href = 'https://kyte.travel/';
+            /*
             $("a").each(function(index) {
                 if ($(this).attr('href').indexOf('kyte://') > -1) {
                     $(this).attr('href', 'https://kyte.travel/');
                 }
             });
+            */
         }
     }
     
