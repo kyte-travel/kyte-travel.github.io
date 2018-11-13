@@ -207,7 +207,7 @@
                 location.href = 'https://vycr9.app.goo.gl/web-iOS';
             }, 500);
         } else if (userAgent.search("android") > -1) {
-            var iframe; = document.createElement('iframe');
+            var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
             iframe.onload = function() { location.href = 'https://vycr9.app.goo.gl/web-android'; };
@@ -263,8 +263,6 @@
 
     $(window).on('popstate', function(event) {
         parameters = getParameters();
-        console.log("popstate");
-        console.log(parameters.id);
         getEntry(parameters.id, true);
     })
 
