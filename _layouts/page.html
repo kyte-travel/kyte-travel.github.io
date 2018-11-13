@@ -4,6 +4,7 @@ layout: default
 <script type="text/javascript">
     var parameters = getParameters();
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
+    var iframe;
 
     $(function() {
         if (parameters.query) {
@@ -113,7 +114,7 @@ layout: default
                 location.href = 'https://vycr9.app.goo.gl/web-iOS';
             }, 500);
         } else if (userAgent.search("android") > -1) {
-            var iframe = document.createElement('iframe');
+            iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
             iframe.onload = goGooglePlay();
@@ -128,6 +129,7 @@ layout: default
     }
 
     function goGooglePlay() {
+        document.body.removeChild(iframe);
         location.href = 'https://vycr9.app.goo.gl/web-android';
     }
 
