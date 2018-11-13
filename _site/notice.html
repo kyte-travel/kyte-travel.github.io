@@ -225,11 +225,17 @@
 
             location.href = url;
         } else if (currentOS == 'android') {
-            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+            alert(currentOS);
+            //document.getElementById("invisible").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+            var iframe = document.createElement('iframe');
+            iframe.style.visibility = 'hidden';
+            iframe.src = url;
+            iframe.onload = goMarket();
+            document.body.appendChild(iframe);
+            document.body.removeChild(iframe);
         } else {
             
         }
-        return false;
     }
 
     function goMarket() {
@@ -315,7 +321,6 @@
             </div>
         </div>
     </div>
-    <div id="invisible_div" style="display:none;"></div>
 </div>
     <div class="footer">
     <div class="container">
