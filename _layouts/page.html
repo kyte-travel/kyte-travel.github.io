@@ -113,7 +113,8 @@ layout: default
                 location.href = 'https://vycr9.app.goo.gl/web-iOS';
             }, 500);
         } else if (userAgent.search("android") > -1) {
-            alert(url);
+            location.href = url;
+            
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
