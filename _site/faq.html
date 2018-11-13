@@ -210,7 +210,7 @@
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
-            iframe.onload = function() { location.href = 'https://vycr9.app.goo.gl/web-android'; };
+            iframe.onload = goGooglePlay();
             document.body.appendChild(iframe);
         } else {
             $("a").each(function(index) {
@@ -219,6 +219,10 @@
                 }
             });
         }
+    }
+    
+    function goGooglePlay() {
+        location.href = 'https://vycr9.app.goo.gl/web-android';
     }
 
     function activeSidebar(title) {
