@@ -230,12 +230,25 @@
     function onClick(url) {
         if (currentOS == 'ios') {
             setTimeout(function() {
-                location.href = app_store;
-            }, 500);
+                goMarket();
+            }, 1000);
 
             location.href = url;
         } else if (currentOS == 'android') {
-            document.getElementById("invisible").innerHTML = "<iframe src=" + url + " onload=\"function () { location.href = google_play; }\"></iframe>";
+            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+        } else {
+            
+        }
+        return false;
+    }
+
+    function goMarket() {
+        if (currentOS == 'ios') {
+            location.href = app_store;
+        } else if (currentOS == 'android') {
+            location.href = google_play;
+        } else {
+            
         }
     }
 
@@ -311,7 +324,7 @@
             </div>
         </div>
     </div>
-    <div id="invisible" style="display:none;"></div>
+    <div id="invisible_div" style="display:none;"></div>
 </div>
 
     <div class="footer">
