@@ -104,7 +104,7 @@ layout: default
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
-
+                    
                     if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
                         var userAgent = navigator.userAgent.toLowerCase();
                         if (userAgent.search("android") > -1)
@@ -121,7 +121,7 @@ layout: default
                 }
             });
     }
-
+    
     function onClick(url) {
         if (currentOS == 'ios') {
             setTimeout(function() {
@@ -135,12 +135,15 @@ layout: default
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
-            iframe.onload = function() {
-                location.href = google_play;
-            };
+            iframe.onload = function(index) {;
             document.body.appendChild(iframe);
             document.body.removeChild(iframe);
         }
+    }
+
+    function goMarket() {
+        alert(google_play);
+        location.href = google_play;
     }
 
     function activeSidebar(title) {
