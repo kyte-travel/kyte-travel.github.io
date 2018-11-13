@@ -228,7 +228,7 @@
     }
     
     function onClick(url) {
-        alert('onClick');
+        alert('onClick2');
         if (currentOS == 'ios') {
             setTimeout(function() {
                 goMarket();
@@ -236,7 +236,11 @@
 
             location.href = url;
         } else if (currentOS == 'android') {
-            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+            var iframe = document.createElement('iframe');
+            iframe.style.visibility = 'hidden';
+            iframe.src = url;
+            iframe.onload = goMarket();
+            document.body.appendChild(iframe);
         } else {
             
         }
@@ -244,7 +248,7 @@
     }
 
     function goMarket() {
-        alert('goMarket');
+        alert('goMarket2');
         if (currentOS == 'ios') {
             location.href = app_store;
         } else if (currentOS == 'android') {
@@ -327,7 +331,6 @@
             </div>
         </div>
     </div>
-    <div id="invisible_div" style="display:none;"></div>
 </div>
     <div class="footer">
     <div class="container">
