@@ -134,10 +134,11 @@ layout: default
     }
     
     function onClick(url) {
+        alert('onClick');
         if (currentOS == 'ios') {
             setTimeout(function() {
                 goMarket();
-            }, 1000);
+            }, 500);
 
             location.href = url;
         } else if (currentOS == 'android') {
@@ -152,6 +153,7 @@ layout: default
         if (currentOS == 'ios') {
             location.href = app_store;
         } else if (currentOS == 'android') {
+            alert(google_play);
             location.href = google_play;
         } else {
             

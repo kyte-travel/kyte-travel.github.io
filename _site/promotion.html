@@ -88,6 +88,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js"></script>
     <script src="/js/jquery.navgoco.min.js"></script>
+    <script src="/js/customschememanager.js"></script>
 </head>
 
 <body>
@@ -228,10 +229,11 @@
     }
     
     function onClick(url) {
+        alert('onClick');
         if (currentOS == 'ios') {
             setTimeout(function() {
                 goMarket();
-            }, 1000);
+            }, 500);
 
             location.href = url;
         } else if (currentOS == 'android') {
@@ -246,6 +248,7 @@
         if (currentOS == 'ios') {
             location.href = app_store;
         } else if (currentOS == 'android') {
+            alert(google_play);
             location.href = google_play;
         } else {
             
