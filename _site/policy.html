@@ -200,17 +200,6 @@
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
                     
-                    /*
-                    setTimeout(function() {
-                        var uagent = navigator.userAgent.toLocaleLowerCase();
-                        if (uagent.search("android") > -1) {
-                            window.location = "https://vycr9.app.goo.gl/web-android";
-                        } else if (uagent.search("iphone") > -1 || uagent.search("ipod") > -1 || uagent.search("ipad") > -1) {
-                            window.location = "https://vycr9.app.goo.gl/web-iOS";
-                        }
-                    }, 500);
-                    */
-                    
                     if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
                         var userAgent = navigator.userAgent.toLowerCase();
                         if (userAgent.search("android") > -1)
@@ -229,7 +218,6 @@
     }
     
     function onClick(url) {
-        alert(url);
         if (currentOS == 'ios') {
             setTimeout(function() {
                 goMarket();
