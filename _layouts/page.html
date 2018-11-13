@@ -4,9 +4,6 @@ layout: default
 <script type="text/javascript">
     var parameters = getParameters();
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
-    var app_store = 'https://vycr9.app.goo.gl/web-iOS';
-    var google_play = 'https://vycr9.app.goo.gl/web-android';
-    var currentOS;
 
     $(function() {
         if (parameters.query) {
@@ -104,46 +101,35 @@ layout: default
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
-                    
-                    if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
-                        var userAgent = navigator.userAgent.toLowerCase();
-                        if (userAgent.search("android") > -1)
-                            currentOS = "android";
-                        else if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1)
-                            currentOS = "ios";
-                    } else {
-                        $("a").each(function(index) {
-                            if ($(this).attr('href').indexOf('kyte://') > -1) {
-                                $(this).attr('href', 'https://kyte.travel/');
-                            }
-                        });
-                    }
                 }
             });
     }
-    
-    function onClick(url) {
-        if (currentOS == 'ios') {
-            setTimeout(function() {
-                location.href = app_store;
-            }, 500);
 
+    function onClick(url) {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1) {
             location.href = url;
-        } else if (currentOS == 'android') {
-            alert(currentOS);
-            //document.getElementById("invisible").innerHTML = "<iframe src=" + url + " onload=\"goMarket()\"></iframe>";
+            setTimeout(function() {
+                location.href = 'https://vycr9.app.goo.gl/web-iOS';
+            }, 500);
+        } else if (userAgent.search("android") > -1) {
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
-            iframe.onload = goMarket();
+            iframe.onload = goGooglePlay();
             document.body.appendChild(iframe);
             document.body.removeChild(iframe);
+        } else {
+            $("a").each(function(index) {
+                if ($(this).attr('href').indexOf('kyte://') > -1) {
+                    $(this).attr('href', 'https://kyte.travel/');
+                }
+            });
         }
     }
 
-    function goMarket() {
-        alert(google_play);
-        location.href = google_play;
+    function goGooglePlay() {
+        location.href = 'https://vycr9.app.goo.gl/web-android';
     }
 
     function activeSidebar(title) {
