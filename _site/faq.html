@@ -96,8 +96,11 @@
 	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
-    var parameters = getParameters(); 
+    var parameters = getParameters();
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
+    var app_store = 'https://vycr9.app.goo.gl/web-iOS';
+    var google_play = 'https://vycr9.app.goo.gl/web-android';
+    var currentOS;
 
     $(function() {
         if (parameters.query) {
@@ -109,7 +112,7 @@
             getEntries(url + contentType, true);
         }
     })
-    
+
     function getParameters() {
         var parameters = {};
         var key = window.location.search.substring(1);
@@ -193,6 +196,9 @@
                 if (entry.fields) {
                     document.getElementById('title').innerHTML = entry.fields.title;
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
+                    activeSidebar(entry.fields.title);
+                    if (!ignorePushState) pushState(id);
+                    
                     /*
                     setTimeout(function() {
                         var uagent = navigator.userAgent.toLocaleLowerCase();
@@ -203,11 +209,35 @@
                         }
                     }, 500);
                     */
-
-                    activeSidebar(entry.fields.title);
-                    if(!ignorePushState) pushState(id);
+                    
+                    if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
+                        var userAgent = navigator.userAgent.toLowerCase();
+                        if (userAgent.search("android") > -1)
+                            currentOS = "android";
+                        else if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1)
+                            currentOS = "ios";
+                    } else {
+                        $("a").each(function(index) {
+                            if ($(this).attr('href').indexOf('kyte://') > -1) {
+                                $(this).attr('href', 'https://kyte.travel/');
+                            }
+                        });
+                    }
                 }
             });
+    }
+    
+    function onClick(url) {
+        alert(currentOS);
+        if (currentOS == 'ios') {
+            setTimeout(function() {
+                location.href = app_store;
+            }, 1000);
+
+            location.href = url;
+        } else if (currentOS == 'android') {
+            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=function () { location.href = google_play; }></iframe>";
+        }
     }
 
     function activeSidebar(title) {
@@ -237,8 +267,6 @@
     }
 
     function pushState(id) {
-        console.log("pushState");
-        console.log(id);
         if (typeof(history.pushState) == 'function') {
             if (location.href.indexOf("?") == -1) {
                 history.pushState(null, null, location.href + "?id=" + id);
@@ -251,7 +279,7 @@
             }
         }
     }
-    
+
     $(window).on('popstate', function(event) {
         parameters = getParameters();
         console.log("popstate");
@@ -284,6 +312,7 @@
             </div>
         </div>
     </div>
+    <div id="invisible_div" style="display:none;"></div>
 </div>
 
     <div class="footer">
