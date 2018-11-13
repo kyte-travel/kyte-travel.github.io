@@ -199,7 +199,7 @@
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, "<br>"));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
-                    
+
                     if ((/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()))) {
                         var userAgent = navigator.userAgent.toLowerCase();
                         if (userAgent.search("android") > -1)
@@ -216,11 +216,11 @@
                 }
             });
     }
-    
+
     function onClick(url) {
         if (currentOS == 'ios') {
             setTimeout(function() {
-                goMarket();
+                location.href = app_store;
             }, 500);
 
             location.href = url;
@@ -230,22 +230,11 @@
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
-            iframe.onload = goMarket();
+            iframe.onload = function() {
+                location.href = google_play;
+            };
             document.body.appendChild(iframe);
             document.body.removeChild(iframe);
-        } else {
-            
-        }
-    }
-
-    function goMarket() {
-        if (currentOS == 'ios') {
-            location.href = app_store;
-        } else if (currentOS == 'android') {
-            alert(google_play);
-            location.href = google_play;
-        } else {
-            
         }
     }
 
@@ -322,6 +311,7 @@
         </div>
     </div>
 </div>
+
     <div class="footer">
     <div class="container">
         <hr>
