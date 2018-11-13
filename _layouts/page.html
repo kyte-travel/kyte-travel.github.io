@@ -135,7 +135,7 @@ layout: default
             var iframe = document.createElement('iframe');
             iframe.style.visibility = 'hidden';
             iframe.src = url;
-            iframe.onload = function(index) {;
+            iframe.onload = goMarket();
             document.body.appendChild(iframe);
             document.body.removeChild(iframe);
         }
