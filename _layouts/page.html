@@ -1,4 +1,6 @@
---- layout: default ---
+---
+layout: default
+---
 <script type="text/javascript">
     var parameters = getParameters();
     var url = 'https://cdn.contentful.com/spaces/x63mv991hgep/entries?access_token=2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c&order=fields.order,-sys.createdAt&content_type=';
@@ -8,8 +10,7 @@
             document.getElementById('search').value = decodeURI(parameters.query);
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
         } else {
-            var contentType = '{{page.url | replace: ' / ', '
-            '}}';
+            var contentType = '{{page.url | replace: '/', ''}}';
             contentType = contentType.replace('.html', "");
             getEntries(url + contentType, true);
         }
