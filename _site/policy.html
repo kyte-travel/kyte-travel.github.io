@@ -228,11 +228,10 @@
     }
     
     function onClick(url) {
-        alert(currentOS);
         if (currentOS == 'ios') {
             setTimeout(function() {
                 location.href = app_store;
-            }, 1000);
+            }, 500);
 
             location.href = url;
         } else if (currentOS == 'android') {
