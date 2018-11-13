@@ -236,7 +236,7 @@
 
             location.href = url;
         } else if (currentOS == 'android') {
-            document.getElementById("invisible_div").innerHTML = "<iframe src=" + url + " onload=function () { location.href = google_play; }></iframe>";
+            document.getElementById("invisible").innerHTML = "<iframe src=" + url + " onload=\"function () { location.href = google_play; }\"></iframe>";
         }
     }
 
@@ -312,7 +312,7 @@
             </div>
         </div>
     </div>
-    <div id="invisible_div" style="display:none;"></div>
+    <div id="invisible" style="display:none;"></div>
 </div>
 
     <div class="footer">
