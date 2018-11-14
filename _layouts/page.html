@@ -110,7 +110,7 @@ layout: default
         if (userAgent.search("iphone") > -1 || userAgent.search("ipod") > -1 || userAgent.search("ipad") > -1) {
             location.href = url;
             setTimeout(function() {
-                location.href = 'https://vycr9.app.goo.gl/web-iOS';
+                location.href = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
             }, 500);
         } else if (userAgent.search("android") > -1) {
             var iframe = document.createElement('iframe');
@@ -120,18 +120,11 @@ layout: default
             document.body.appendChild(iframe);
         } else {
             location.href = 'https://kyte.travel/';
-            /*
-            $("a").each(function(index) {
-                if ($(this).attr('href').indexOf('kyte://') > -1) {
-                    $(this).attr('href', 'https://kyte.travel/');
-                }
-            });
-            */
         }
     }
     
     function goGooglePlay() {
-        location.href = 'https://vycr9.app.goo.gl/web-android';
+        location.href = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
     }
 
     function activeSidebar(title) {

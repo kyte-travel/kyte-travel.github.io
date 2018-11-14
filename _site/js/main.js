@@ -1,36 +1,64 @@
-//Animate with anchor
 $(function () {
+    changeVideo();
+    window.onresize = changeVideo;
+
     $('a[href*=\\#]:not([href=\\#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             animateTo($(this.hash));
         }
     });
 
-    function animateTo(target) {
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top - 320
-            }, 500);
-            return false;
-        }
-    }
-
     if (window.location.hash) animateTo($(window.location.hash));
-});
 
-
-//jQuery is required to run this code
-$(document).ready(function () {
     $(window).on('scroll', function () {
         var scrolled = $(this).scrollTop();
         $('#title').css({
             'transform': 'translateY(' + (scrolled * 0.4) + 'px)',
-            'opacity': 1 - scrolled / 600
+            'opacity': 1 - scrolled / 1000
         });
         $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.16) + 'px, 0)');
+
+        var video = document.getElementById('hero-vid');
+        if (scrolled < window.innerHeight) {
+            video.style.visibility = 'visible';
+        } else {
+            video.style.visibility = 'hidden';
+        }
     });
 });
+
+function animateTo(target) {
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+        $('html,body').animate({
+            scrollTop: target.offset().top - 320
+        }, 500);
+        return false;
+    }
+}
+
+function changeVideo() {
+    if (window.innerWidth > window.innerHeight) {
+        document.getElementById('video').src = "images/video-landscape.mp4";
+        document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
+        if (960 / 540 > window.innerWidth / window.innerHeight) {
+            document.getElementById('hero-vid').style.height = "100%";
+        } else {
+            document.getElementById('hero-vid').style.width = "100%";
+        }
+        document.getElementById('filter').style.lineHeight = "192vh";
+    } else {
+        document.getElementById('video').src = "images/video-portrait.mp4";
+        document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
+        if (1080 / 608 > window.innerHeight / window.innerWidth) {
+            document.getElementById('hero-vid').style.width = "100%";
+        } else {
+            document.getElementById('hero-vid').style.height = "100%";
+        }
+        document.getElementById('filter').style.lineHeight = "172vh";
+    }
+    document.getElementById('hero-vid').load();
+};
 
 (function ($) {
     'use strict';

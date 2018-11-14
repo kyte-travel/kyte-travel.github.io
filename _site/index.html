@@ -87,7 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js"></script>
-    <script src="/js/default.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 
 <body>
@@ -102,7 +102,7 @@
         <a href="https://blog.naver.com/kytetravel" target="_blank" title="Kyte Blog"><span class="icon-ic_blog fa-lg"></span></a>
     </div>
 </div>
-<div class="header-container">
+<div class="header-container" id="title">
     <img src="images/logo.svg" alt="카이트 로고" class="logo">
     <h5>가볍게 떠나는 세계 여행, 카이트</h5>
     <a href="https://vycr9.app.goo.gl/web-iOS" target="_blank" class="btn-custom"><i class="fab fa-apple fa-lg"></i> App Store</a>
@@ -255,35 +255,6 @@
         <a href="https://vycr9.app.goo.gl/web-android" target="_blank" class="btn-custom"><i class="fab fa-google-play fa-lg"></i> Google Play</a>
     </div>
 </div>
-<script type="text/javascript">
-    function changeVideo() {
-        if (window.innerWidth > window.innerHeight) {
-            document.getElementById('video').src = "images/video-landscape.mp4";
-            document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
-            if (960 / 540 > window.innerWidth / window.innerHeight) {
-                document.getElementById('hero-vid').style.height = "100%";
-            } else {
-                document.getElementById('hero-vid').style.width = "100%";
-            }
-            document.getElementById('filter').style.lineHeight = "192vh";
-        } else {
-            document.getElementById('video').src = "images/video-portrait.mp4";
-            document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
-            if (1080 / 608 > window.innerHeight / window.innerWidth) {
-                document.getElementById('hero-vid').style.width = "100%";
-            } else {
-                document.getElementById('hero-vid').style.height = "100%";
-            }
-            document.getElementById('filter').style.lineHeight = "172vh";
-        }
-        document.getElementById('hero-vid').load();
-    };
-
-    window.onresize = changeVideo;
-    changeVideo();
-
-</script>
-
     <div class="footer">
     <div class="container">
         <hr>
