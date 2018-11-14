@@ -19,10 +19,13 @@ $(function () {
         $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.16) + 'px, 0)');
 
         var video = document.getElementById('hero-vid');
+        var filter = document.getElementById('filter');
         if (scrolled < window.innerHeight) {
             video.style.visibility = 'visible';
+            filter.style.visibility = 'visible';
         } else {
             video.style.visibility = 'hidden';
+            filter.style.visibility = 'hidden';
         }
     });
 });
