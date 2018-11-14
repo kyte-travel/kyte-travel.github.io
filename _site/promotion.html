@@ -105,22 +105,20 @@
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
         } else {
             var contentType = 'promotion.html';
-            contentType = contentType.replace('.html', "");
-            getEntries(url + contentType, true);
+            getEntries(url + contentType.replace('.html', ""), true);
         }
     })
 
     function getParameters() {
         var parameters = {};
-        var key = window.location.search.substring(1);
-        var vars = key.split("&");
+        var vars = window.location.search.substring(1).split("&");
+        var pair;
         for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
+            pair = vars[i].split("=");
             if (typeof parameters[pair[0]] === "undefined") {
                 parameters[pair[0]] = pair[1];
             } else if (typeof parameters[pair[0]] === "string") {
-                var arr = [parameters[pair[0]], pair[1]];
-                parameters[pair[0]] = arr;
+                parameters[pair[0]] = [parameters[pair[0]], pair[1]];
             } else {
                 parameters[pair[0]].push(pair[1]);
             }
