@@ -41,26 +41,28 @@ function animateTo(target) {
 }
 
 function changeVideo() {
+    var video = document.getElementById('video');
+    var hero = document.getElementById('hero-vid');
     if (window.innerWidth > window.innerHeight) {
-        document.getElementById('video').src = "images/video-landscape.mp4";
-        document.getElementById('hero-vid').poster = "images/video-landscape.jpg";
+        video.src = "images/video-landscape.mp4";
+        hero.poster = "images/video-landscape.jpg";
         if (960 / 540 > window.innerWidth / window.innerHeight) {
-            document.getElementById('hero-vid').style.height = "100%";
+            hero.style.height = "100%";
         } else {
-            document.getElementById('hero-vid').style.width = "100%";
+            hero.style.width = "100%";
         }
         document.getElementById('filter').style.lineHeight = "192vh";
     } else {
-        document.getElementById('video').src = "images/video-portrait.mp4";
-        document.getElementById('hero-vid').poster = "images/video-portrait.jpg";
+        video.src = "images/video-portrait.mp4";
+        hero.poster = "images/video-portrait.jpg";
         if (1080 / 608 > window.innerHeight / window.innerWidth) {
-            document.getElementById('hero-vid').style.width = "100%";
+            hero.style.width = "100%";
         } else {
-            document.getElementById('hero-vid').style.height = "100%";
+            hero.style.height = "100%";
         }
         document.getElementById('filter').style.lineHeight = "172vh";
     }
-    document.getElementById('hero-vid').load();
+    hero.load();
 };
 
 (function ($) {
