@@ -1,7 +1,5 @@
 #!/bin/bash
 
-DEPLOY_URL=s3://dev.kyte.travel
-
-echo "deploying to $DEPLOY_URL"
-
+echo "Deploying to PRD"
+DEPLOY_URL=s3://kyte.travel
 s3cmd sync --exclude-from .s3ignore _site/ $DEPLOY_URL --delete-removed
