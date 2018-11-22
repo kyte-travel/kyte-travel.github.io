@@ -1,4 +1,17 @@
-# Deploy process
+# DEV Deploy process
+
+Use Jenkins for DEV deployment.
+The jenkins job uses AWS Code Deploy Service to deploy site to EC2 instance.
+
+### DEV uses nginx server 
+
+- not to cache ongoing dev resources
+- apply different robots.txt to restrict search engine accesses
+
+
+# PRD Deploy process
+
+PRD site is deployed to S3 for static web hosting + Cloudfront.
 
 1. clone this site.
 1. Get appropreate permission to access s3.
