@@ -90,7 +90,7 @@
     <script src="/js/jquery.navgoco.min.js"></script>
 </head>
 
-<body>
+<body id='body'>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THGVLJS"
 	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -113,10 +113,14 @@
     var parameters = getParameters();
 
     $(function() {
+        document.getElementById('nav').style.display = 'none';
+        document.getElementById('footer').style.display = 'none';
+        document.getElementById('body').style.paddingTop = 0;
         if (document.referrer.indexOf("https://kyte.travel/app") == 0) {
             kyteWithDeeplink = true;
             document.getElementById('nav').style.display = 'none';
             document.getElementById('footer').style.display = 'none';
+            
         } else {
             kyteWithDeeplink = false;
         }
