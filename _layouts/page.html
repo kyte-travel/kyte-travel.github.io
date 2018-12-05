@@ -4,7 +4,7 @@ layout: default
 <script type="text/javascript">
     var domain;
     var accessToken;
-    if(window.location.href.indexOf('https://kyte.travel/') > -1) {
+    if(window.location.href.indexOf('https://kyte.travel/') == 0) {
             domain = 'https://cdn.contentful.com';
             accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
         } else {
@@ -16,8 +16,16 @@ layout: default
 
     $(function() {
         if(document.referrer.indexOf("https://kyte.travel/app") == 0) {
-                document.getElementById('nav').style.visibility = 'hidden';
-                document.getElementById('footer').style.visibility = 'hidden';
+            //신버전
+                document.getElementById('nav').style.display = 'none';
+                document.getElementById('footer').style.display = 'none';
+                if(window.location.href.indexOf('https://kyte.travel/faq.html') != 0) {
+                    document.getElementById('sidebar').style.display = 'none';
+                }
+            }
+            else
+            {
+                
             }
         
         if (parameters.query) {
