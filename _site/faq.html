@@ -97,31 +97,27 @@
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
     var domain;
+    var app;
     var accessToken;
-    if(window.location.href.indexOf('https://kyte.travel/') == 0) {
-            domain = 'https://cdn.contentful.com';
-            accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
-        } else {
-            domain = 'https://preview.contentful.com';
-            accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
-        }
+    if (window.location.href.indexOf('https://kyte.travel/') == 0) {
+        domain = 'https://cdn.contentful.com';
+        accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
+    } else {
+        domain = 'https://preview.contentful.com';
+        accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
+    }
     var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=fields.order,-sys.createdAt&content_type=';
     var parameters = getParameters();
 
     $(function() {
-        if(document.referrer.indexOf("https://kyte.travel/app") == 0) {
-            //신버전
-                document.getElementById('nav').style.display = 'none';
-                document.getElementById('footer').style.display = 'none';
-                if(window.location.href.indexOf('https://kyte.travel/faq.html') != 0) {
-                    document.getElementById('sidebar').style.display = 'none';
-                }
-            }
-            else
-            {
-                
-            }
-        
+        if (document.referrer.indexOf("https://kyte.travel/app") == 0) {
+            app = true;
+            document.getElementById('nav').style.display = 'none';
+            document.getElementById('footer').style.display = 'none';
+        } else {
+            app = false;
+        }
+
         if (parameters.query) {
             document.getElementById('search').value = decodeURI(parameters.query);
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
@@ -219,22 +215,6 @@
             });
     }
 
-    function onClick(url) {
-        location.href = url;
-        var userAgent = navigator.userAgent.toLowerCase();
-        if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
-            setTimeout(function() {
-                location.href = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
-            }, 500);
-        } else if (userAgent.search('android') > -1) {
-            setTimeout(function() {
-                location.href = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-            }, 500);
-        } else {
-            location.href = 'https://kyte.travel/';
-        }
-    }
-
     function activeSidebar(title) {
         $('li').each(function(index) {
             if ($(this).text().search(title) > -1) {
@@ -279,6 +259,28 @@
         parameters = getParameters();
         getEntry(parameters.id, true);
     })
+    
+    function onClick(url) {
+        
+        var userAgent = navigator.userAgent.toLowerCase();
+        document.getElementById('sidebar').innerHTML = userAgent;
+        
+        /*
+        location.href = url;
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
+            setTimeout(function() {
+                location.href = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
+            }, 500);
+        } else if (userAgent.search('android') > -1) {
+            setTimeout(function() {
+                location.href = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
+            }, 500);
+        } else {
+            location.href = 'https://kyte.travel/';
+        }
+        */
+    }
 
 </script>
 <nav class="navbar navbar-inverse fixed-top" id="nav">
@@ -306,6 +308,7 @@
         </div>
     </div>
 </div>
+
     <div class="footer" id="footer">
     <div class="container">
         <hr>
