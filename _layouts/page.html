@@ -4,9 +4,7 @@ layout: default
 <script type="text/javascript">
     var domain;
     var accessToken;
-    alert(document.referrer);
-    if(window.location.href.indexOf('https://kyte.travel/') > -1)
-        {
+    if(window.location.href.indexOf('https://kyte.travel/') > -1) {
             domain = 'https://cdn.contentful.com';
             accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
         } else {
@@ -17,6 +15,11 @@ layout: default
     var parameters = getParameters();
 
     $(function() {
+        if(document.referrer.indexOf("https://kyte.travel/app") == 0) {
+                document.getElementById('nav').style.visibility = 'hidden';
+                document.getElementById('footer').style.visibility = 'hidden';
+            }
+        
         if (parameters.query) {
             document.getElementById('search').value = decodeURI(parameters.query);
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
@@ -176,7 +179,7 @@ layout: default
     })
 
 </script>
-<nav class="navbar navbar-inverse fixed-top">
+<nav class="navbar navbar-inverse fixed-top" id="nav">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
