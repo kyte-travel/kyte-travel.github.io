@@ -172,7 +172,7 @@ layout: default
 
     function onClick(url) {
         var userAgent = navigator.userAgent.toLowerCase();
-        document.getElementById('sidebar').innerHTML = userAgent;
+        document.getElementById('sidebar').innerHTML = document.referrer;
 
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
             if (kyteWithDeeplink) {
