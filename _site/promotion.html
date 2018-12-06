@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>Kyte - 가볍게 떠나는 세계 여행, 카이트</title>
+    <title>프로모션</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="언제 갈까요? 어디로 갈까요? 해외여행을 언제 떠나야 할지, 어디로 떠나야 할지 고민될 땐 카이트와 함께 하세요.">
@@ -101,7 +101,7 @@
     var accessToken;
     var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
     var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-    
+
     if (window.location.href.indexOf('https://kyte.travel/') == 0) {
         domain = 'https://cdn.contentful.com';
         accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
@@ -113,14 +113,11 @@
     var parameters = getParameters();
 
     $(function() {
-        document.getElementById('nav').style.display = 'none';
-        document.getElementById('footer').style.display = 'none';
-        document.getElementById('body').style.paddingTop = 0;
         if (document.referrer.indexOf("https://kyte.travel/app") == 0) {
             kyteWithDeeplink = true;
             document.getElementById('nav').style.display = 'none';
             document.getElementById('footer').style.display = 'none';
-            
+            document.getElementById('body').style.paddingTop = 0;
         } else {
             kyteWithDeeplink = false;
         }
@@ -270,20 +267,23 @@
     function onClick(url) {
         var userAgent = navigator.userAgent.toLowerCase();
         document.getElementById('sidebar').innerHTML = userAgent;
-        
+
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
-            location.href = url;
-            setTimeout(function() {
-                location.href = appStore;
-            }, 500);
+            if (kyteWithDeeplink) {
+                location.href = url;
+            } else {
+                setTimeout(function() {
+                    location.href = appStore;
+                }, 500);
+            }
         } else if (userAgent.search('android') > -1) {
             if (userAgent.search('build') > -1) {
-                if(kyteWithDeeplink) {
+                if (kyteWithDeeplink) {
                     location.href = url;
                 } else {
                     setTimeout(function() {
-                    location.href = googlePlay;
-                }, 500);
+                        location.href = googlePlay;
+                    }, 500);
                 }
             } else {
                 location.href = url;

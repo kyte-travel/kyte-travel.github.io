@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>Kyte - 가볍게 떠나는 세계 여행, 카이트</title>
+    <title>{{page.title}}</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="언제 갈까요? 어디로 갈까요? 해외여행을 언제 떠나야 할지, 어디로 떠나야 할지 고민될 땐 카이트와 함께 하세요.">
@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/css/animate.min.css">
     <link rel="stylesheet" href="/css/icon.css">
     <link rel="stylesheet" href="/css/footer.css">
-    {% if page.title == "main" %}<link rel="stylesheet" href="/css/main.css">{% else %}<link rel="stylesheet" href="/css/page.css">{% endif %}
+    {% if page.layout == "default" %}<link rel="stylesheet" href="/css/main.css">{% else %}<link rel="stylesheet" href="/css/page.css">{% endif %}
 
     <noscript>
         <link rel="stylesheet" href="css/no-js.css">
@@ -87,7 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js"></script>
-    {% if page.title == "main" %}<script src="/js/main.js"></script>{% else %}<script src="/js/jquery.navgoco.min.js"></script>{% endif %}
+    {% if page.layout == "default" %}<script src="/js/main.js"></script>{% else %}<script src="/js/jquery.navgoco.min.js"></script>{% endif %}
 </head>
 
 <body id='body'>
