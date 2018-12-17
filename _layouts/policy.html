@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<script type="text/javascript">
+    $(function() {
+        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
+            document.getElementById('nav').style.display = 'none';
+            document.getElementById('footer').style.display = 'none';
+            document.getElementById('body').style.paddingTop = 0;
+        }
+
+        $('#sidebar').navgoco({
+            caretHtml: '',
+            accordion: true,
+            openClass: 'active',
+            save: false,
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 400,
+                easing: 'swing'
+            }
+        });
+        
+        $('li').each(function(index) {
+            if ($(this).text().indexOf('{{page.title}}') > -1) {
+                $(this).attr('class', 'active');
+            } else {
+                $(this).attr('class', '');
+            }
+        });
+    })
+
+</script>
+<nav class="navbar navbar-inverse fixed-top" id="nav">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
+        </div>
+        <div id="search-container">
+            <form action="/faq.html">
+                <input type="text" id="search" name="query" placeholder="&#xe909; 자주하는 질문">
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul id="sidebar" class="nav">
+                <li class="active"><a class="folder" href="#">개인정보 보호 및 약관</a>
+                    <ul style="" data-index="0">
+                        <li><a href="/policies/privacy.html">개인정보 처리방침</a></li>
+                        <li><a href="/policies/terms.html">서비스 이용약관</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9 padding-bottom">
+            <h2 id="title" class="post-title-main" data-gtm-vis-first-on-screen-7779110_11="433" data-gtm-vis-total-visible-time-7779110_11="3000" data-gtm-vis-recent-on-screen-7779110_11="2343" data-gtm-vis-has-fired-7779110_11="1">{{page.title}}</h2>
+            <div id="content">
+                <pre>
+                {{content}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,38 +2,38 @@
 layout: default
 ---
 <script type="text/javascript">
-    var domain;
-    var kyteWithDeeplink;
-    var accessToken;
     var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
     var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-
-    if (window.location.href.indexOf('https://kyte.travel/') == 0) {
+    
+    var href = window.location.href;
+    var domain;
+    var accessToken;
+    if (href.indexOf('https://kyte.travel/') == 0) {
         domain = 'https://cdn.contentful.com';
         accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
     } else {
         domain = 'https://preview.contentful.com';
         accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
     }
+
     var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=fields.order,-sys.createdAt&content_type=';
     var parameters = getParameters();
-
+    var kyteWithDeeplink;
     $(function() {
-        if (document.referrer.indexOf("https://kyte.travel/app") == 0) {
+        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
             kyteWithDeeplink = true;
-            document.getElementById('nav').style.display = 'none';
-            document.getElementById('footer').style.display = 'none';
-            document.getElementById('body').style.paddingTop = 0;
         } else {
             kyteWithDeeplink = false;
+            document.getElementById('nav').style.display = 'flex';
+            document.getElementById('footer').style.display = 'block';
+            document.getElementById('body').style.paddingTop = '80px';
         }
 
         if (parameters.query) {
             document.getElementById('search').value = decodeURI(parameters.query);
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
         } else {
-            var contentType = '{{page.url | replace: '/', ''}}';
-            getEntries(url + contentType.replace('.html', ''), true);
+            getEntries(url + href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html')), true);
         }
     })
 
@@ -126,8 +126,8 @@ layout: default
     }
 
     function activeSidebar(title) {
-        $('li').each(function(index) {
-            if ($(this).text().search(title) > -1) {
+        $('li').each(function(index) {            
+            if ($(this).text().indexOf(title) > -1) {
                 $(this).attr('class', 'active');
             } else {
                 $(this).attr('class', '');
@@ -138,7 +138,7 @@ layout: default
             caretHtml: '',
             accordion: true,
             openClass: 'active',
-            save: false, // leave false or nav highlighting doesn't work right
+            save: false,
             cookie: {
                 name: 'navgoco',
                 expires: false,

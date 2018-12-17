@@ -96,38 +96,38 @@
 	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
-    var domain;
-    var kyteWithDeeplink;
-    var accessToken;
     var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
     var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-
-    if (window.location.href.indexOf('https://kyte.travel/') == 0) {
+    
+    var href = window.location.href;
+    var domain;
+    var accessToken;
+    if (href.indexOf('https://kyte.travel/') == 0) {
         domain = 'https://cdn.contentful.com';
         accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
     } else {
         domain = 'https://preview.contentful.com';
         accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
     }
+
     var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=fields.order,-sys.createdAt&content_type=';
     var parameters = getParameters();
-
+    var kyteWithDeeplink;
     $(function() {
-        if (document.referrer.indexOf("https://kyte.travel/app") == 0) {
+        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
             kyteWithDeeplink = true;
-            document.getElementById('nav').style.display = 'none';
-            document.getElementById('footer').style.display = 'none';
-            document.getElementById('body').style.paddingTop = 0;
         } else {
             kyteWithDeeplink = false;
+            document.getElementById('nav').style.display = 'flex';
+            document.getElementById('footer').style.display = 'block';
+            document.getElementById('body').style.paddingTop = '80px';
         }
 
         if (parameters.query) {
             document.getElementById('search').value = decodeURI(parameters.query);
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
         } else {
-            var contentType = 'notice.html';
-            getEntries(url + contentType.replace('.html', ''), true);
+            getEntries(url + href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html')), true);
         }
     })
 
@@ -220,8 +220,8 @@
     }
 
     function activeSidebar(title) {
-        $('li').each(function(index) {
-            if ($(this).text().search(title) > -1) {
+        $('li').each(function(index) {            
+            if ($(this).text().indexOf(title) > -1) {
                 $(this).attr('class', 'active');
             } else {
                 $(this).attr('class', '');
@@ -232,7 +232,7 @@
             caretHtml: '',
             accordion: true,
             openClass: 'active',
-            save: false, // leave false or nav highlighting doesn't work right
+            save: false,
             cookie: {
                 name: 'navgoco',
                 expires: false,
@@ -333,9 +333,8 @@
                 <a href="/faq.html" target="_self">자주하는 질문</a>
             </div>
             <div class="footer-policies">
-                <a href="/policy.html?id=715ShfZTxesUoIWS6ygwQq" target="_self">서비스 이용약관</a>
-                <a href="/policy.html?id=77iF5zelziO2CUOceGKEGk" target="_self">개인정보 처리방침</a>
-                <a href="/policy.html?id=1h2Oj72yPmKMCGSeqOmIIM" target="_self">국외여행 이용약관</a>
+                <a href="/policies/privacy.html" target="_self">개인정보 처리방침</a>
+                <a href="/policies/terms.html" target="_self">서비스 이용약관</a>
             </div>
         </div>
         <div class="clear">&nbsp;</div>
