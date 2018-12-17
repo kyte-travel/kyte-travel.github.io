@@ -97,10 +97,10 @@
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
     $(function() {
-        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
-            document.getElementById('nav').style.display = 'none';
-            document.getElementById('footer').style.display = 'none';
-            document.getElementById('body').style.paddingTop = 0;
+        if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
+            document.getElementById('nav').style.display = 'flex';
+            document.getElementById('footer').style.display = 'block';
+            document.getElementById('body').style.paddingTop = '80px';
         }
 
         $('#sidebar').navgoco({
