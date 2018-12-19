@@ -421,39 +421,6 @@ p.post-meta {
     color: $primary-color;
 }
 
-footer .row {
-    font-size: 13px;
-    padding-bottom: 64px;
-    color: $text-medium-emphasis-color;
-}
-
-footer {
-    display: none;
-}
-
-footer ul {
-    padding: 0;
-}
-
-footer li {
-    margin-right: 16px;
-    list-style-type: none;
-    text-align: left;
-    display: inline;
-}
-
-footer li:last-child {
-    margin-right: 0px;
-}
-
-footer li a {
-    color: $text-medium-emphasis-color;
-}
-
-footer li a:hover {
-    color: $text-high-emphasis-color;
-}
-
 .language ul {
     text-align: right;
 }
@@ -466,10 +433,6 @@ a.accordion-toggle,
 a.accordion-collapsed {
     font-size: 14px;
     text-decoration: none;
-}
-
-nav {
-    display: none;
 }
 
 .nav,
@@ -567,6 +530,7 @@ blockquote:before {
 
 .navbar {
     padding: 10px 0px;
+    display: none;
 }
 
 .navbar-inverse {
