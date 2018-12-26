@@ -97,7 +97,9 @@
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
     $(function() {
-        if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
+        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
+            location.hash = "#title";
+        } else {
             document.getElementById('nav').style.display = 'flex';
             document.getElementById('footer').style.display = 'block';
             document.getElementById('body').style.paddingTop = '80px';
@@ -118,7 +120,7 @@
                 easing: 'swing'
             }
         });
-        
+
         $('li').each(function(index) {
             if ($(this).text().indexOf('개인정보 처리방침') > -1) {
                 $(this).attr('class', 'active');
@@ -380,6 +382,7 @@ Copa Airlines
         </div>
     </div>
 </div>
+
     <div class="footer" id="footer">
     <div class="container">
         <hr>

@@ -112,12 +112,13 @@
 
     var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=fields.order,-sys.createdAt&content_type=';
     var parameters = getParameters();
-    var kyteWithDeeplink;
+    var useDeepLink;
     $(function() {
         if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
-            kyteWithDeeplink = true;
+            useDeepLink = true;
+            location.hash = "#title";
         } else {
-            kyteWithDeeplink = false;
+            useDeepLink = false;
             document.getElementById('nav').style.display = 'flex';
             document.getElementById('footer').style.display = 'block';
             document.getElementById('body').style.paddingTop = '80px';
@@ -266,10 +267,8 @@
 
     function onClick(url) {
         var userAgent = navigator.userAgent.toLowerCase();
-        document.getElementById('sidebar').innerHTML = document.referrer + "\n" + kyteWithDeeplink + "\n" + url;
-
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
-            if (kyteWithDeeplink) {
+            if (useDeepLink) {
                 location.href = url;
             } else {
                 setTimeout(function() {
@@ -278,7 +277,7 @@
             }
         } else if (userAgent.search('android') > -1) {
             if (userAgent.search('build') > -1) {
-                if (kyteWithDeeplink) {
+                if (useDeepLink) {
                     location.href = url;
                 } else {
                     setTimeout(function() {
