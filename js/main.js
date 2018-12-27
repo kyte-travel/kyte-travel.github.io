@@ -68,8 +68,9 @@ function changeVideo() {
                 hero.css('height', window.innerHeight);
             }
         }
-        $('#arrow-down-button').css('margin-top', window.innerHeight * .36);
+        $('#arrow-down-button').css('margin-top', window.innerHeight * .3);
         width = window.innerWidth;
+        alert("changeVideo");
         hero[0].load();
     }
 };
