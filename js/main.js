@@ -59,6 +59,7 @@ function changeVideo() {
             } else {
                 hero.css('width', window.innerWidth);
             }
+            $('#arrow-down-button').css('margin-top', window.innerHeight * .42);
         } else {
             video.attr('src', 'images/video-portrait.mp4');
             hero.attr('poster', 'images/video-portrait.jpg');
@@ -67,10 +68,9 @@ function changeVideo() {
             } else {
                 hero.css('height', window.innerHeight);
             }
+            $('#arrow-down-button').css('margin-top', window.innerHeight * .28);
         }
-        $('#arrow-down-button').css('margin-top', window.innerHeight * .3);
         width = window.innerWidth;
-        alert("changeVideo");
         hero[0].load();
     }
 };
