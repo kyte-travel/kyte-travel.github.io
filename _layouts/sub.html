@@ -204,8 +204,7 @@ layout: default
                 break;
 
             case 'android':
-                var userAgent = navigator.userAgent.toLowerCase();
-                if (userAgent.search('build') > -1) {
+                if (navigator.userAgent.toLowerCase().search('build') > -1) {
                     if (useDeepLink) {
                         location.href = url;
                     } else {
