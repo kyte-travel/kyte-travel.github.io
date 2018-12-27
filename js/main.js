@@ -55,21 +55,22 @@ function changeVideo() {
             video.attr('src', 'images/video-landscape.mp4');
             hero.attr('poster', 'images/video-landscape.jpg');
             if (960 / 540 > window.innerWidth / window.innerHeight) {
-                hero.css('height', '100%');
+                hero.css('height', window.innerHeight);
             } else {
-                hero.css('width', '100%');
+                hero.css('width', window.innerWidth);
             }
-            $('#filter').css('lineHeight', '192vh');
+            //$('#filter').css('lineHeight', '192vh');
         } else {
             video.attr('src', 'images/video-portrait.mp4');
             hero.attr('poster', 'images/video-portrait.jpg');
             if (1080 / 608 > window.innerHeight / window.innerWidth) {
-                hero.css('width', '100%');
+                hero.css('width', window.innerWidth);
             } else {
-                hero.css('height', '100%');
+                hero.css('height', window.innerHeight);
             }
-            $('#filter').css('lineHeight', '172vh');
+            //$('#filter').css('lineHeight', '172vh');
         }
+        $('#arrow-down-button').css('margin-top', window.innerHeight * .48);
         width = window.innerWidth;
         hero[0].load();
     }
