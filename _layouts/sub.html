@@ -35,13 +35,13 @@ layout: default
             useDeepLink = true;
         } else {
             useDeepLink = false;
-            document.getElementById('nav').style.display = 'flex';
-            document.getElementById('footer').style.display = 'block';
-            document.getElementById('body').style.paddingTop = '80px';
+            $('#nav').css('display', 'flex');
+            $('#footer').css('display', 'block');
+            $('#body').css('paddingTop', '80px');
         }
 
         if (parameters.query) {
-            document.getElementById('search').value = decodeURI(parameters.query);
+            $('#search').val(decodeURI(parameters.query));
             getEntries(url + 'faq' + '&query=' + parameters.query, true);
         } else {
             getEntries(url + href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html')), true);
@@ -81,8 +81,8 @@ layout: default
                         getEntries(url + 'faq', true);
                     } else {
                         getEntries(url + 'faq', false);
-                        document.getElementById('title').innerHTML = '\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과';
-                        document.getElementById('content').innerHTML = '\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요';
+                        $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
+                        $('#content').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요');
                     }
                 }
             })
@@ -110,7 +110,7 @@ layout: default
             }
             html += '</ul></li>';
         }
-        document.getElementById('sidebar').innerHTML = html;
+        $('#sidebar').html(html);
 
         $('#collapseAll').click(function(e) {
             e.preventDefault();
@@ -128,9 +128,11 @@ layout: default
             .then(response => response.json())
             .then(function(entry) {
                 if (entry.fields) {
-                    document.getElementById('title').innerHTML = entry.fields.title;
-                    document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, '<br>'));
+                    $('#title').html(entry.fields.title);
+                    $('#content').html(marked(entry.fields.content.replace(/\n/g, '<br>')));
+                    
                     activeSidebar(entry.fields.title);
+                    
                     if (!ignorePushState) pushState(id);
                     if (useDeepLink) animateTo($('#title'), 20);
                     else if (platform != 'desktop') animateTo($('#title'), $('#nav').height() + 40);

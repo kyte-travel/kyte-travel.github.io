@@ -18,20 +18,20 @@ $(function () {
         });
         $('#hero-img').css('transform', 'translate3d(0, ' + -(scrolled * 0.16) + 'px, 0)');
 
-        var video = document.getElementById('hero-vid');
-        var filter = document.getElementById('filter');
+        var video = $('#hero-vid');
+        var filter = $('#filter');
         if (scrolled < window.innerHeight) {
-            video.style.visibility = 'visible';
-            filter.style.visibility = 'visible';
+            video.css('visibility', 'visible');
+            filter.css('visibility', 'visible');
         } else {
-            video.style.visibility = 'hidden';
-            filter.style.visibility = 'hidden';
+            video.css('visibility', 'hidden');
+            filter.css('visibility', 'hidden');
         }
     });
 
     if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
-        document.getElementById('footer').style.display = 'block';
-        document.getElementById('body').style.paddingTop = '80px';
+        $('#footer').css('display', 'block');
+        $('#body').css('paddingTop', '80px');
     }
 });
 
@@ -46,28 +46,28 @@ function animateTo(target) {
 }
 
 function changeVideo() {
-    var video = document.getElementById('video');
-    var hero = document.getElementById('hero-vid');
+    var video = $('#video');
+    var hero = $('#hero-vid');
     if (window.innerWidth > window.innerHeight) {
-        video.src = "images/video-landscape.mp4";
-        hero.poster = "images/video-landscape.jpg";
+        video.attr('src', 'images/video-landscape.mp4');
+        hero.attr('poster', 'images/video-landscape.jpg');
         if (960 / 540 > window.innerWidth / window.innerHeight) {
-            hero.style.height = "100%";
+            hero.css('height', '100%');
         } else {
-            hero.style.width = "100%";
+            hero.css('width', '100%');
         }
-        document.getElementById('filter').style.lineHeight = "192vh";
+        $('#filter').css('lineHeight', '192vh');
     } else {
-        video.src = "images/video-portrait.mp4";
-        hero.poster = "images/video-portrait.jpg";
+        video.attr('src', 'images/video-portrait.mp4');
+        hero.attr('poster', 'images/video-portrait.jpg');
         if (1080 / 608 > window.innerHeight / window.innerWidth) {
-            hero.style.width = "100%";
+            hero.css('width', '100%');
         } else {
-            hero.style.height = "100%";
+            hero.css('height', '100%');
         }
-        document.getElementById('filter').style.lineHeight = "172vh";
+        $('#filter').css('lineHeight', '172vh');
     }
-    hero.load();
+    hero[0].load();
 };
 
 (function ($) {

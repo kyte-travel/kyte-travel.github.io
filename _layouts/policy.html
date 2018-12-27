@@ -14,10 +14,10 @@ layout: default
         }
         
         if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
-            document.getElementById('nav').style.display = 'flex';
-            document.getElementById('sidebar').style.display = 'block';
-            document.getElementById('footer').style.display = 'block';
-            document.getElementById('body').style.paddingTop = '80px';
+            $('#nav').css('display', 'flex');
+            $('#sidebar').css('display', 'block');
+            $('#footer').css('display', 'block');
+            $('#body').css('paddingTop', '80px');
         }
         
         if (platform != 'desktop') animateTo($('#title'), $('#nav').height() + 40);

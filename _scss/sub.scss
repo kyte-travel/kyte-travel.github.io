@@ -31,7 +31,14 @@ h4 {
 input[type=text] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none;   
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 li:last-child {
@@ -410,7 +417,7 @@ p.post-meta {
     border: 1px solid $text-divider-color;
     border-radius: $border-radius;
     font-family: 'icomoon';
-    color: $text-medium-emphasis-color;
+    color: $text-high-emphasis-color;
 }
 
 .filter-options {
