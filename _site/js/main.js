@@ -26,7 +26,7 @@ $(function () {
             video.css('visibility', 'visible');
             filter.css('visibility', 'visible');
         } else {
-            video.css('visibility', 'hidden');
+            video.css('visibility', 'hidden')4
             filter.css('visibility', 'hidden');
         }
     });
