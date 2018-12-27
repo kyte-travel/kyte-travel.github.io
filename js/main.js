@@ -59,7 +59,6 @@ function changeVideo() {
             } else {
                 hero.css('width', window.innerWidth);
             }
-            //$('#filter').css('lineHeight', '192vh');
         } else {
             video.attr('src', 'images/video-portrait.mp4');
             hero.attr('poster', 'images/video-portrait.jpg');
@@ -68,9 +67,8 @@ function changeVideo() {
             } else {
                 hero.css('height', window.innerHeight);
             }
-            //$('#filter').css('lineHeight', '172vh');
         }
-        $('#arrow-down-button').css('margin-top', window.innerHeight * .48);
+        $('#arrow-down-button').css('margin-top', window.innerHeight * .36);
         width = window.innerWidth;
         hero[0].load();
     }
