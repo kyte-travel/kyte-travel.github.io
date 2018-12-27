@@ -230,7 +230,7 @@
                     if (!ignorePushState) pushState(id);
 
                     if (useDeepLink) {
-                        $('#content').css('min-height', $(window).height() - 160);
+                        $('#content').css('min-height', $(window).height() - 120);
                         animateTo($('#title'), 20);
                     } else if (platform != 'desktop') {
                         $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
