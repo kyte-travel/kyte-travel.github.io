@@ -104,7 +104,7 @@
             $('#footer').css('display', 'block');
             $('#body').css('paddingTop', '80px');
         }
-        
+
         var userAgent = navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
             platform = 'ios';
@@ -113,11 +113,8 @@
         } else {
             platform = 'desktop';
         }
-        
+
         if (platform != 'desktop') animateTo($('#title'), $('#nav').height() + 40);
-        
-        
-        $('#body').html(document.referrer);
 
         $('#sidebar').navgoco({
             caretHtml: '',
