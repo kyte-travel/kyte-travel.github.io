@@ -3,12 +3,10 @@ layout: default
 ---
 <script type="text/javascript">
     $(function() {
-        animateTo($("#title"));
-        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
-            
-        } else {
+        if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
             document.getElementById('nav').style.display = 'flex';
             document.getElementById('footer').style.display = 'block';
+            document.getElementById('sidebar').style.display = 'block';
             document.getElementById('body').style.paddingTop = '80px';
         }
 
@@ -53,7 +51,7 @@ layout: default
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <ul id="sidebar" class="nav">
+            <ul id="sidebar" class="nav" style="display: none">
                 <li class="active"><a class="folder" href="#">개인정보 보호 및 약관</a>
                     <ul style="" data-index="0">
                         <li><a href="/policies/privacy.html">개인정보 처리방침</a></li>
