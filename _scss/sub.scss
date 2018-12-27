@@ -46,6 +46,10 @@ li:last-child {
     border-radius: $border-radius;
 }
 
+#content {
+    min-height: 100vh;
+}
+
 #top {
     border: none;
     background: transparent;

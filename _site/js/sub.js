@@ -1,7 +1,7 @@
-function animateTo(target) {
+function animateTo(target, offset) {
     $('html,body').animate({
-            scrollTop: target.offset().top - 30
-        }, 300);
+            scrollTop: target.offset().top - offset
+        }, 500);
 }
 
 ! function (a) {
