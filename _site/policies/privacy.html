@@ -98,6 +98,13 @@
     <script type="text/javascript">
     var platform;
     $(function() {
+        if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
+            $('#nav').css('display', 'flex');
+            $('#sidebar').css('display', 'block');
+            $('#footer').css('display', 'block');
+            $('#body').css('paddingTop', '80px');
+        }
+        
         var userAgent = navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
             platform = 'ios';
@@ -107,14 +114,10 @@
             platform = 'desktop';
         }
         
-        if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
-            $('#nav').css('display', 'flex');
-            $('#sidebar').css('display', 'block');
-            $('#footer').css('display', 'block');
-            $('#body').css('paddingTop', '80px');
-        }
-        
         if (platform != 'desktop') animateTo($('#title'), $('#nav').height() + 40);
+        
+        
+        $('#body').html(document.referrer);
 
         $('#sidebar').navgoco({
             caretHtml: '',
