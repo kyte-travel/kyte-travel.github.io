@@ -99,8 +99,9 @@
     $(function() {
         if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
             document.getElementById('nav').style.display = 'flex';
-            document.getElementById('footer').style.display = 'block';
             document.getElementById('sidebar').style.display = 'block';
+            document.getElementById('title').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
             document.getElementById('body').style.paddingTop = '80px';
         }
 
@@ -155,7 +156,7 @@
             </ul>
         </div>
         <div class="col-md-9 padding-bottom">
-            <h2 id="title" class="post-title-main" data-gtm-vis-first-on-screen-7779110_11="433" data-gtm-vis-total-visible-time-7779110_11="3000" data-gtm-vis-recent-on-screen-7779110_11="2343" data-gtm-vis-has-fired-7779110_11="1">서비스 이용약관</h2>
+            <h2 id="title" class="post-title-main" style="display: none" data-gtm-vis-first-on-screen-7779110_11="433" data-gtm-vis-total-visible-time-7779110_11="3000" data-gtm-vis-recent-on-screen-7779110_11="2343" data-gtm-vis-has-fired-7779110_11="1">서비스 이용약관</h2>
             <div id="content">
                 <pre>
                 제1장. 총칙
