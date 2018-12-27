@@ -88,20 +88,6 @@ function changeVideo() {
         },
         // Add mobile navigation
         MobileMenu: function () {
-            /*
-			var navMenu	= '<nav id="navigation_mobile">';
-			navMenu		+= '<div class="nav-menu-links">';
-			navMenu		+= '<ul>';
-			navMenu		+= $('#navigation .nav').html();
-			navMenu		+= '</ul>';
-			navMenu		+= '</div>';
-			navMenu		+= '<div class="nav-menu-button">';
-			navMenu		+= '<button class="nav-menu-toggle"><span class="icon-menu"></button>';
-			navMenu		+= '</div>';
-			navMenu		+= '</nav>';
-			
-			$('#header').before(navMenu);
-			*/
             $('.nav-menu-toggle').on('click', function () {
                 $(this).parent('.nav-menu-button').prev('.nav-menu-links').slideToggle(300, function () {
                     $(window).trigger('resize.px.parallax');
