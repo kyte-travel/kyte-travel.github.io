@@ -130,12 +130,18 @@ layout: default
                 if (entry.fields) {
                     $('#title').html(entry.fields.title);
                     $('#content').html(marked(entry.fields.content.replace(/\n/g, '<br>')));
-                    
+
                     activeSidebar(entry.fields.title);
-                    
+
                     if (!ignorePushState) pushState(id);
-                    if (useDeepLink) animateTo($('#title'), 20);
-                    else if (platform != 'desktop') animateTo($('#title'), $('#nav').height() + 40);
+
+                    if (useDeepLink) {
+                        $('#content').css('min-height', $(window).height());
+                        animateTo($('#title'), 20);
+                    } else if (platform != 'desktop') {
+                        $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
+                        animateTo($('#title'), 100);
+                    }
                 }
             });
     }

@@ -53,12 +53,6 @@ li:last-child {
     border-radius: $border-radius;
 }
 
-@media (max-width:1023px) {
-    #content {
-        min-height: 80vh;
-    }
-}
-
 #top {
     border: none;
     background: transparent;
