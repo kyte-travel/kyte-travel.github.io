@@ -28,7 +28,7 @@ $(function () {
             filter.style.visibility = 'hidden';
         }
     });
-    
+
     if (document.referrer.indexOf('https://kyte.travel/app') != 0) {
         document.getElementById('footer').style.display = 'block';
         document.getElementById('body').style.paddingTop = '80px';

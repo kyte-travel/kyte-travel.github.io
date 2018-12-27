@@ -3,8 +3,9 @@ layout: default
 ---
 <script type="text/javascript">
     $(function() {
+        animateTo($("#title"));
         if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
-            location.hash = "#title";
+            
         } else {
             document.getElementById('nav').style.display = 'flex';
             document.getElementById('footer').style.display = 'block';

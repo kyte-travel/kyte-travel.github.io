@@ -22,7 +22,6 @@ layout: default
     $(function() {
         if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
             useDeepLink = true;
-            location.hash = "#title";
         } else {
             useDeepLink = false;
             document.getElementById('nav').style.display = 'flex';
@@ -122,6 +121,7 @@ layout: default
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, '<br>'));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
+                    animateTo($("#title"));
                 }
             });
     }

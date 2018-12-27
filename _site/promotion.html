@@ -87,7 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js"></script>
-    <script src="/js/jquery.navgoco.min.js"></script>
+    <script src="/js/sub.js"></script>
 </head>
 
 <body id='body'>
@@ -116,7 +116,6 @@
     $(function() {
         if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
             useDeepLink = true;
-            location.hash = "#title";
         } else {
             useDeepLink = false;
             document.getElementById('nav').style.display = 'flex';
@@ -216,6 +215,7 @@
                     document.getElementById('content').innerHTML = marked(entry.fields.content.replace(/\n/g, '<br>'));
                     activeSidebar(entry.fields.title);
                     if (!ignorePushState) pushState(id);
+                    animateTo($("#title"));
                 }
             });
     }
