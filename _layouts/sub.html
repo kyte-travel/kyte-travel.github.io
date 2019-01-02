@@ -30,7 +30,7 @@ layout: default
             $('#footer').css('display', 'block');
             $('#body').css('paddingTop', '80px');
         }
-        
+
         var userAgent = navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
             platform = 'ios';
@@ -80,9 +80,40 @@ layout: default
                     if (parameters.id) {
                         getEntries(url + 'faq', true);
                     } else {
-                        getEntries(url + 'faq', false);
-                        $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
-                        $('#content').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요');
+                        if (href.indexOf('/notice.html') > -1) {
+                            buildSidebar({
+                                "items": [{
+                                    "sys": {
+                                        "id": ""
+                                    },
+                                    "fields": {
+                                        "category": "공지사항",
+                                        "title": ""
+                                    }
+                                }]
+                            });
+                            $('#title').html('안내해드릴 공지사항이 없습니다.');
+                            $('#content').html('고객님께 전해야 하는 중요한 알림이 생기면 말씀드리도록 하겠습니다.');
+                        }
+                        if (href.indexOf('/promotion.html') > -1) {
+                            buildSidebar({
+                                "items": [{
+                                    "sys": {
+                                        "id": ""
+                                    },
+                                    "fields": {
+                                        "category": "진행 중인 프로모션",
+                                        "title": ""
+                                    }
+                                }]
+                            });
+                            $('#title').html('진행 중인 프로모션이 없습니다.');
+                            $('#content').html('고객님께 혜택을 드리기 위해 프로모션을 준비하고 있습니다. 조금만 기다려주세요.');
+                        } else {
+                            getEntries(url + 'faq', false);
+                            $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
+                            $('#content').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요');
+                        }
                     }
                 }
             })
