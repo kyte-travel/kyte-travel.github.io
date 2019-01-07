@@ -72,7 +72,15 @@ layout: default
                 if (entries.items.length) {
                     buildSidebar(entries);
                     if (updateEntry) {
-                        getEntry(parameters.id || entries.items[0].sys.id);
+                        if (parameters.id) {
+                            getEntry(parameters.id)
+                        } else {
+                            if (platform == 'desktop' || href.indexOf('/faq.html') == -1) {
+                                getEntry(entries.items[0].sys.id)
+                            } else {
+                                activeSidebar();
+                            }
+                        }
                     } else {
                         activeSidebar();
                     }

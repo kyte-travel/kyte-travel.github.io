@@ -1,7 +1,7 @@
 function animateTo(target, offset) {
     $('html,body').animate({
             scrollTop: target.offset().top - offset
-        }, 500);
+        }, 500, "easeInOut");
 }
 
 ! function (a) {
