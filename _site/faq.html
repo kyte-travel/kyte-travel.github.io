@@ -239,9 +239,9 @@
 
         var html = '';
         for (category in categories) {
-            html += '<li><a class=\"folder\" href=\"#\">' + category + '</a><ul style=\"display: none;\">'
+            html += '<li><a style="color:#ffffff" class=\"folder\" href=\"#\">' + category + '</a><ul style=\"display: none;\">'
             for (var item of categories[category]) {
-                html += '<li><a style="color:#ffffff" href=\"javascript:getEntry(\'' + item.id + '\');\">' + item.title + '</a></li>'
+                html += '<li><a href=\"javascript:getEntry(\'' + item.id + '\');\">' + item.title + '</a></li>'
             }
             html += '</ul></li>';
         }
