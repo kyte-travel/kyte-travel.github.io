@@ -1,3 +1,8 @@
+# Launch Local server
+
+    gem install jekyll bundler
+    bundle exec jekyll serve
+
 # DEV Deploy process
 
 Use Jenkins for DEV deployment.
