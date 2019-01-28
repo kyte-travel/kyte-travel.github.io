@@ -168,7 +168,7 @@ layout: default
             .then(function(entry) {
                 if (entry.fields) {
                     $('#title').html(entry.fields.title);
-                    $('#content').html(marked(entry.fields.content.replace(/\n/g, '<br>')));
+                    $('#content').html(marked(entry.fields.content));
 
                     activeSidebar(entry.fields.title);
 
