@@ -31,7 +31,7 @@ h4 {
 input[type=text] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;   
+    appearance: none;
 }
 
 input:-webkit-autofill,
@@ -96,7 +96,7 @@ li:last-child {
 }
 
 .padding-bottom {
-    padding-bottom: 40px;
+    padding-bottom: 24px;
 }
 
 .landing {
@@ -1241,10 +1241,23 @@ div.box.box1 {
     width: 100%;
 }
 
+.promotion {
+    margin: 0 32px;
+}
+
+.instructions img {
+    border-radius: 4px;
+    width: 50%;
+    margin-bottom: 16px;
+}
 
 @media (max-width: 767px) {
     h2 {
         margin-top: 20px;
+    }
+
+    .promotion {
+        margin: 0 16px;
     }
 }
 
