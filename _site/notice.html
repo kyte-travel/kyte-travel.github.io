@@ -34,8 +34,8 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/css/icon.css">
-    <link rel="stylesheet" type="text/css" href="/css/footer.css?v=1548748804">
-    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1548748804">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css?v=1548835565">
+    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1548835565">
 
     <noscript>
         <link rel="stylesheet" href="css/no-js.css">
@@ -279,6 +279,10 @@
                         $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
                         animateTo($('#title'), 100);
                     }
+                    
+                    if (href.indexOf('/promotion.html') > -1) {
+                        $('#title').css('display', 'none');
+                    }
                 }
             });
     }
@@ -381,7 +385,7 @@
             <ul id="sidebar" class="nav">
             </ul>
         </div>
-        <div class="col-md-9 padding-bottom">
+        <div class="col-md-9">
             <h2 id="title" class="post-title-main"></h2>
             <div id="content">
             </div>

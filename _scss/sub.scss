@@ -26,6 +26,7 @@ h4 {
     font-size: 18px;
     margin-top: 32px;
     margin-bottom: 8px;
+    font-weight: 800;
 }
 
 input[type=text] {
@@ -95,8 +96,41 @@ li:last-child {
     }
 }
 
-.padding-bottom {
-    padding-bottom: 24px;
+.promotion img {
+    border-radius: $border-radius;
+    margin-bottom: 32px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1040px;
+    }
+}
+
+.promotion img {
+    margin-bottom: 24px;
+}
+
+@media (max-width: 767px) {
+    h2 {
+        margin-top: 20px;
+    }
+
+    .col-md-9 {
+        padding: 0;
+    }
+
+    .promotion {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    img[src$=".svg"] {
+        width: 100%;
+    }
 }
 
 .landing {
@@ -1239,33 +1273,6 @@ div.box.box1 {
 
 .ie9 img[src$=".svg"] {
     width: 100%;
-}
-
-.promotion {
-    margin: 0 32px;
-}
-
-.instructions img {
-    border-radius: 4px;
-    width: 50%;
-    margin-bottom: 16px;
-}
-
-@media (max-width: 767px) {
-    h2 {
-        margin-top: 20px;
-    }
-
-    .promotion {
-        margin: 0 16px;
-    }
-}
-
-@media screen and (-ms-high-contrast: active),
-(-ms-high-contrast: none) {
-    img[src$=".svg"] {
-        width: 100%;
-    }
 }
 
 h4.panel-title {

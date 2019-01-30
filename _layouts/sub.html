@@ -181,6 +181,10 @@ layout: default
                         $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
                         animateTo($('#title'), 100);
                     }
+                    
+                    if (href.indexOf('/promotion.html') > -1) {
+                        $('#title').css('display', 'none');
+                    }
                 }
             });
     }
@@ -283,7 +287,7 @@ layout: default
             <ul id="sidebar" class="nav">
             </ul>
         </div>
-        <div class="col-md-9 padding-bottom">
+        <div class="col-md-9">
             <h2 id="title" class="post-title-main"></h2>
             <div id="content">
             </div>
