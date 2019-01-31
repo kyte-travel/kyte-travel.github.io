@@ -124,6 +124,10 @@ i {
     padding-left: 0;
 }
 
+caution {
+    color: $error-color;
+}
+
 .instruction-header {
     border-top: 1px solid $text-divider-color;
     border-bottom: 1px solid $text-divider-color;
@@ -995,11 +999,6 @@ span.muted {
 
 table code {
     background-color: transparent;
-}
-
-.highlight .err {
-    color: #a61717;
-    background-color: transparent !important;
 }
 
 table p {
