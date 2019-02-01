@@ -115,6 +115,11 @@ li:last-child {
     padding-left: 0;
 }
 
+i {
+    vertical-align: bottom;
+    color: $primary-color;
+}
+
 caution {
     color: $error-color;
 }
@@ -134,10 +139,6 @@ caution {
 @media (max-width: 767px) {
     h2 {
         margin-top: 20px;
-    }
-
-    .col-md-9 {
-        padding: 0;
     }
 
     .promotion {
