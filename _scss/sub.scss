@@ -76,10 +76,6 @@ li:last-child {
     cursor: pointer;
 }
 
-#top i {
-    font-size: 22px;
-}
-
 .top-mobile {
     margin: 10px 76px 10px 0px !important;
 }
@@ -94,11 +90,6 @@ li:last-child {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-i {
-    vertical-align: bottom;
-    color: $primary-color;
 }
 
 .promotion img {
@@ -130,10 +121,8 @@ caution {
 
 .instruction-header {
     border-top: 1px solid $text-divider-color;
-    border-bottom: 1px solid $text-divider-color;
-    padding-top: 24px;
+    padding-top: 32px;
     padding-bottom: 24px;
-    margin-bottom: 24px;
 }
 
 @media (min-width: 1200px) {
