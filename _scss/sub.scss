@@ -92,10 +92,6 @@ li:last-child {
     }
 }
 
-#content img {
-    border-radius: $border-radius;
-}
-
 .promotion img {
     border-radius: $border-radius;
     margin-bottom: 32px;
@@ -153,6 +149,10 @@ caution {
     .promotion .col-md-5 {
         padding-left: 16px;
     }
+
+    #content img {
+        border-radius: 0 !important;
+    }
 }
 
 @media screen and (-ms-high-contrast: active),
@@ -160,6 +160,10 @@ caution {
     img[src$=".svg"] {
         width: 100%;
     }
+}
+
+#content img {
+    border-radius: $border-radius;
 }
 
 .landing {
