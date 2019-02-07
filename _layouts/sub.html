@@ -1,10 +1,44 @@
 ---
 layout: default
 ---
+<nav class="navbar navbar-inverse fixed-top" id="nav">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
+        </div>
+        <div id="search-container">
+            <form action="/faq.html">
+                <input type="text" id="search" name="query" placeholder="&#xe909; 자주하는 질문">
+            </form>
+        </div>
+    </div>
+</nav>
+<div id="linear-progress-indicator">
+    <div class="indeterminate"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul id="sidebar" class="nav">
+            </ul>
+        </div>
+        <div class="col-md-9" id="content-wrapper">
+            <h2 id="title" class="post-title-main"></h2>
+            <div id="content">
+                <!--
+                <div id="spinner">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
     var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-
     var href = window.location.href;
     var platform;
     var domain;
@@ -66,6 +100,7 @@ layout: default
     }
 
     function getEntries(query, updateEntry) {
+        showLinearProgressIndicator();
         fetch(query)
             .then(response => response.json())
             .then(function(entries) {
@@ -79,10 +114,12 @@ layout: default
                                 getEntry(entries.items[0].sys.id)
                             } else {
                                 activeSidebar();
+                                hideLinearProgressIndicator();
                             }
                         }
                     } else {
                         activeSidebar();
+                        hideLinearProgressIndicator();
                     }
                 } else {
                     if (parameters.id) {
@@ -102,6 +139,7 @@ layout: default
                             });
                             $('#title').html('안내해드릴 공지사항이 없습니다.');
                             $('#content').html('고객님께 전해야 하는 중요한 알림이 생기면 말씀드리도록 하겠습니다.');
+                            hideLinearProgressIndicator();
                         }
                         if (href.indexOf('/promotion.html') > -1) {
                             buildSidebar({
@@ -121,6 +159,7 @@ layout: default
                             getEntries(url + 'faq', false);
                             $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
                             $('#content').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요');
+                            hideLinearProgressIndicator();
                         }
                     }
                 }
@@ -169,6 +208,7 @@ layout: default
                 if (entry.fields) {
                     $('#title').html(entry.fields.title);
                     $('#content').html(marked(entry.fields.content));
+                    hideLinearProgressIndicator();
 
                     activeSidebar(entry.fields.title);
 
@@ -181,9 +221,14 @@ layout: default
                         $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
                         animateTo($('#title'), 100);
                     }
-                    
+
                     if (href.indexOf('/promotion.html') > -1) {
                         $('#title').css('display', 'none');
+                        if (platform == 'desktop') {
+                            $('#content').css('padding-top', '24px');
+                        } else {
+                            $('#content-wrapper').css('padding', '0');
+                        }
                     }
                 }
             });
@@ -268,29 +313,12 @@ layout: default
         }
     }
 
+    function showLinearProgressIndicator() {
+        $('#linear-progress-indicator').css('transform', 'scale(1, 1)');
+    }
+
+    function hideLinearProgressIndicator() {
+        $('#linear-progress-indicator').css('transform', 'scale(1, 0)');
+    }
+
 </script>
-<nav class="navbar navbar-inverse fixed-top" id="nav">
-    <div class="container topnavlinks">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
-        </div>
-        <div id="search-container">
-            <form action="/faq.html">
-                <input type="text" id="search" name="query" placeholder="&#xe909; 자주하는 질문">
-            </form>
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <ul id="sidebar" class="nav">
-            </ul>
-        </div>
-            {% if page.title == "프로모션" %}<div class="col-md-9" style="padding:0">{% else %}<div class="col-md-9">{% endif %}
-            <h2 id="title" class="post-title-main"></h2>
-            <div id="content">
-            </div>
-        </div>
-    </div>
-</div>
