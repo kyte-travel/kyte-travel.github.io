@@ -92,6 +92,10 @@ li:last-child {
     }
 }
 
+#content img {
+    border-radius: $border-radius;
+}
+
 .promotion img {
     border-radius: $border-radius;
     margin-bottom: 32px;
