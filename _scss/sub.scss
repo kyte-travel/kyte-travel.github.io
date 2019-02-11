@@ -120,8 +120,17 @@ i {
     color: $primary-color;
 }
 
+p {
+    margin: 0 0 8px;
+}
+
+P:first-child {
+    margin: 0 0 8px !important;
+}
+
 .caution {
     color: $error-color;
+    margin-top: -8px;
 }
 
 .instruction-header {
@@ -249,10 +258,6 @@ a {
 a:hover {
     color: $primary-color;
     text-decoration: none;
-}
-
-p {
-    margin: 0 0 8px;
 }
 
 .bs-callout h4 {
