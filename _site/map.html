@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Kyte Map</title>
+        <style>
+            #map {
+            height: 100%;
+            }
+            html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+            
+            function initMap() {
+              coord1 = getParameterByName("coord1").split(",")
+              coord2 = getParameterByName("coord2").split(",")
+            
+              flightPlanCoordinates = [
+                {lat: Number(coord1[0]), lng: Number(coord1[1])},
+                {lat: Number(coord2[0]), lng: Number(coord2[1])},
+              ];
+            
+              var map = new google.maps.Map(document.getElementById('map'), {
+                mapTypeId: 'terrain',
+                disableDefaultUI: true
+              });
+            
+              var flightPath = new google.maps.Polyline({
+                path: flightPlanCoordinates,
+                geodesic: true,
+                strokeColor: "#2696da",
+                strokeOpacity: 1.0,
+                strokeWeight: 5
+              });
+            
+              var bounds = new google.maps.LatLngBounds ();
+              for (var i = 0, LtLgLen = flightPlanCoordinates.length; i < LtLgLen; i++) {
+                var marker = new google.maps.Marker({
+                  icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    strokeWeight: 3,
+                    strokeColor: "#fec447",
+                    fillOpacity: 1,
+                    fillColor:"#fec447",
+                    scale: 5
+                  },
+                  position: flightPlanCoordinates[i],
+                  map: map
+                });
+                bounds.extend (flightPlanCoordinates[i]);
+              }
+            
+              map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+              map.fitBounds (bounds);
+              flightPath.setMap(map);
+            }
+            
+            apiKey = getParameterByName("key")
+            locale = getParameterByName("locale")
+            s=document.createElement("script")
+            s.src="https://maps.googleapis.com/maps/api/js?callback=initMap&output=embed&&region="+locale+"&language="+locale+"&key="+apiKey;
+            document.getElementsByTagName("head")[0].appendChild(s);
+        </script>
+    </body>
+</html>
