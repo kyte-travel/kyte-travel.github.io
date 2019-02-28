@@ -155,6 +155,7 @@ layout: default
                             });
                             $('#title').html('진행 중인 프로모션이 없습니다.');
                             $('#content').html('고객님께 혜택을 드리기 위해 프로모션을 준비하고 있습니다.<br>조금만 기다려주세요.');
+                            hideLinearProgressIndicator();
                         } else {
                             getEntries(url + 'faq', false);
                             $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
