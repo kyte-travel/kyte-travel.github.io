@@ -389,14 +389,20 @@ caption {
     text-align: left;
 }
 
-th {
-    text-align: left;
-}
-
 table {
     width: 100%;
+    margin-bottom: 4px;
     margin-bottom: 8px;
+    border-top: 1px solid $text-divider-color;
     border-bottom: 1px solid $text-divider-color;
+}
+
+th {
+    background-color: $background-variant3-color;
+}
+
+tr {
+    border-top: 1px solid $text-divider-color;
 }
 
 table > thead > tr > th,
