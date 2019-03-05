@@ -8,29 +8,21 @@
     <canvas id="canvas"></canvas>
     <script>
         var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
-
-        var size = 200;
-        canvas.style.width = size + "px";
-        canvas.style.height = size + "px";
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
 
         var scale = window.devicePixelRatio;
-        canvas.width = size * scale;
-        canvas.height = size * scale;
-
+        var ctx = canvas.getContext('2d');
+        var size = 400;
         ctx.scale(scale, scale);
-        ctx.fillStyle = "#bada55";
-        ctx.fillRect(10, 10, 400, 400);
-        ctx.fillStyle = "#ffffff";
-        ctx.font = '18px Arial';
+        ctx.fillStyle = "#f5f5f5";
+        ctx.fillRect((canvas.width - size) / 2, (canvas.height - size) / 2, size, size);
+        ctx.fillStyle = "#212121";
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
+        ctx.font = '24px sans-serif';
+        ctx.fillText("devicePixelRatio: " + window.devicePixelRatio, canvas.width / 2, canvas.height / 2);
 
-        var x = size / 2;
-        var y = size / 2;
-
-        var textString = "devicePixelRatio: " + window.devicePixelRatio;
-        ctx.fillText(textString, x, y);
     </script>
 
 </body>
