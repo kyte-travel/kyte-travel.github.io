@@ -1,0 +1,79 @@
+body {
+    padding-top: 56px;
+}
+
+.container {
+    max-width: 1110px;
+}
+
+.bg-dark {
+    background-color: #323232 !important;
+}
+
+.bg-image-full-1 {
+    position: relative;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    max-width: 1920px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 0 !important;
+    animation: panning-1 5s linear;
+    background-position: 0% 0%;
+    animation-delay: 4s;
+}
+
+.bg-image-full-2 {
+    position: relative;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    max-width: 1920px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 0 !important;
+    background-position: 0% 0%;
+    animation: panning-2 10s linear;
+}
+
+@keyframes panning-1 {
+    0% {
+        background-position: 0% 0%;
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 0% 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes panning-2 {
+    0% {
+        background-position: 0% 0%;
+        opacity: 1;
+    }
+    
+    40% {
+        opacity: 1;
+    }
+
+    50% {
+        background-position: 0% 100%;
+        opacity: 0;
+    }
+
+    100% {
+        background-position: 0% 100%;
+        opacity: 0;
+    }
+}
