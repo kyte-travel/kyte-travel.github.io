@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>devicePixelRatio</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        var size = 200;
+        canvas.style.width = size + "px";
+        canvas.style.height = size + "px";
+
+        var scale = window.devicePixelRatio;
+        canvas.width = size * scale;
+        canvas.height = size * scale;
+
+        ctx.scale(scale, scale);
+        ctx.fillStyle = "#bada55";
+        ctx.fillRect(10, 10, 400, 400);
+        ctx.fillStyle = "#ffffff";
+        ctx.font = '18px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        var x = size / 2;
+        var y = size / 2;
+
+        var textString = "devicePixelRatio: " + window.devicePixelRatio;
+        ctx.fillText(textString, x, y);
+    </script>
+
+</body>
+
+</html>
