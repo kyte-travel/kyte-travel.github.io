@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function scaleVideoContainer() {
-  var height = Math.min($(window).height() + 5, 800);
+  var height = Math.min($(window).height(), 960);
   var unitHeight = parseInt(height) + 'px';
   $('.homepage-hero-module').css('height', unitHeight);
 }
@@ -26,23 +26,21 @@ function initBannerVideoSize(element) {
 }
 
 function scaleBannerVideoSize(element) {
-  var windowWidth = $(window).width(),
-    windowHeight = $(window).height() + 5,
+  var windowWidth = $('.homepage-hero-module').width(),
+    windowHeight = $('.homepage-hero-module').height(),
     videoWidth,
     videoHeight;
 
   $(element).each(function () {
     var videoAspectRatio = $(this).data('height') / $(this).data('width');
     $(this).width(windowWidth);
-    if (windowWidth < 768) {
-      videoHeight = windowHeight;
-      videoWidth = videoHeight / videoAspectRatio;
-      $(this).css({
-        'margin-top': 0,
-        'margin-left': -(videoWidth - windowWidth) / 2 + 'px'
-      });
-      $(this).width(videoWidth).height(videoHeight);
-    }
+    videoHeight = windowHeight;
+    videoWidth = videoHeight / videoAspectRatio;
+    $(this).css({
+      'margin-top': 0,
+      'margin-left': -(videoWidth - windowWidth) / 2 + 'px'
+    });
+    $(this).width(videoWidth).height(videoHeight);
     $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
   });
 }
