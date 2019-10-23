@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function scaleVideoContainer() {
-  var height = Math.min($(window).height(), 960);
+  var height = Math.min($(window).height(), 1080);
   var unitHeight = parseInt(height) + 'px';
   $('.homepage-hero-module').css('height', unitHeight);
 }
