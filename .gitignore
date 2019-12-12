@@ -1,2 +1,7 @@
 .DS_Store
 .sass-cache
+.idea/$PRODUCT_WORKSPACE_FILE$
+.idea/kyte-travel.github.io.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
