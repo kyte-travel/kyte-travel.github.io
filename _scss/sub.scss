@@ -600,10 +600,6 @@ blockquote:before {
     padding: 4px 16px;
 }
 
-.nav ul li ul li a {
-    padding-left: 40px;
-}
-
 .nav li.thirdlevel > a {
     color: $primary-color;
     padding-left: 20px;
@@ -611,7 +607,11 @@ blockquote:before {
 }
 
 .nav ul li a {
-    background-color: $background-primary-color;
+    background-color: transparent;
+}
+
+.nav > li > ul {
+    margin: 12px 0;
 }
 
 .navbar {
