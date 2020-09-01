@@ -22,7 +22,7 @@ $(function () {
 
         var video = $('#hero-vid');
         var filter = $('#filter');
-        if (scrolled < window.innerHeight) {
+        if (scrolled < window.outerHeight) {
             video.css('visibility', 'visible');
             filter.css('visibility', 'visible');
         } else {
@@ -48,29 +48,29 @@ function animateTo(target) {
 }
 
 function changeVideo() {
-    if (width != window.innerWidth) {
+    if (width != window.outerWidth) {
         var video = $('#video');
         var hero = $('#hero-vid');
-        if (window.innerWidth > window.innerHeight) {
+        if (window.outerWidth > window.outerHeight) {
             video.attr('src', 'images/video-landscape.mp4');
             hero.attr('poster', 'images/video-landscape.jpg');
-            if (960 / 540 > window.innerWidth / window.innerHeight) {
-                hero.css('height', window.innerHeight);
+            if (960 / 540 > window.outerWidth / window.outerHeight) {
+                hero.css('height', window.outerHeight);
             } else {
-                hero.css('width', window.innerWidth);
+                hero.css('width', window.outerWidth);
             }
-            $('#arrow-down-button').css('margin-top', window.innerHeight * .42);
+            $('#arrow-down-button').css('margin-top', window.outerHeight * .42);
         } else {
             video.attr('src', 'images/video-portrait.mp4');
             hero.attr('poster', 'images/video-portrait.jpg');
-            if (1080 / 608 > window.innerHeight / window.innerWidth) {
-                hero.css('width', window.innerWidth);
+            if (1080 / 608 > window.outerHeight / window.outerWidth) {
+                hero.css('width', window.outerWidth);
             } else {
-                hero.css('height', window.innerHeight);
+                hero.css('height', window.outerHeight);
             }
-            $('#arrow-down-button').css('margin-top', window.innerHeight * .28);
+            $('#arrow-down-button').css('margin-top', window.outerHeight * .28);
         }
-        width = window.innerWidth;
+        width = window.outerWidth;
         hero[0].load();
     }
 };
