@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/css/icon.css">
-    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1598939753">
+    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1603714339">
     
 
     <noscript>
@@ -100,328 +100,301 @@
 	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar navbar-inverse fixed-top" id="nav">
-    <div class="container topnavlinks">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
-        </div>
-        <div id="search-container">
-            <form action="/faq.html">
-                <input type="text" id="search" name="query" placeholder="&#xe909; 자주하는 질문">
-            </form>
-        </div>
+  <div class="container topnavlinks">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><img src="/images/logo-dark.svg" class="logo"></a>
     </div>
+  </div>
 </nav>
 <div id="linear-progress-indicator">
-    <div class="indeterminate"></div>
+  <div class="indeterminate"></div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <ul id="sidebar" class="nav">
-            </ul>
-        </div>
-        <div class="col-md-9" id="content-wrapper">
-            <h2 id="title" class="post-title-main"></h2>
-            <div id="content">
-                <!--
-                <div id="spinner">
-                    <svg class="circular" viewBox="25 25 50 50">
-                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
-                    </svg>
-                </div>
-                -->
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-3">
+      <ul id="sidebar" class="nav">
+      </ul>
     </div>
+    <div class="col-md-9" id="content-wrapper">
+      <h2 id="title" class="post-title-main"></h2>
+      <div id="content">
+        <!--
+        <div id="spinner">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+            </svg>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
-    var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
-    var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
-    var href = window.location.href;
-    var platform;
-    var domain;
-    var accessToken;
-    if (href.indexOf('https://kyte.travel/') == 0) {
-        domain = 'https://cdn.contentful.com';
-        accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
+  var appStore = 'https://itunes.apple.com/app/apple-store/id1208047465?mt=8';
+  var googlePlay = 'https://play.google.com/store/apps/details?id=co.squarelab.kyte';
+  var href = window.location.href;
+  var platform;
+  var domain;
+  var accessToken;
+  if (href.indexOf('https://kyte.travel/') == 0) {
+    domain = 'https://cdn.contentful.com';
+    accessToken = '2568c3311665ce63b835b7818f369ee6535d6fe5da4f15112f061cacf986227c';
+  } else {
+    domain = 'https://preview.contentful.com';
+    accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
+  }
+
+  var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=-sys.createdAt&content_type=';
+  var parameters = getParameters();
+  var useDeepLink;
+
+  $(function() {
+    if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
+      useDeepLink = true;
     } else {
-        domain = 'https://preview.contentful.com';
-        accessToken = '8e2508e2bd1694c00df73687654485bf812981a764bb8ee9d0a68d0eb1628c2f';
+      useDeepLink = false;
+      $('#nav').css('display', 'flex');
+      $('#footer').css('display', 'block');
+      $('#body').css('paddingTop', '80px');
     }
 
-    var url = domain + '/spaces/x63mv991hgep/entries?access_token=' + accessToken + '&order=fields.order,-sys.createdAt&content_type=';
-    var parameters = getParameters();
-    var useDeepLink;
-
-    $(function() {
-        if (document.referrer.indexOf('https://kyte.travel/app') == 0) {
-            useDeepLink = true;
-        } else {
-            useDeepLink = false;
-            $('#nav').css('display', 'flex');
-            $('#footer').css('display', 'block');
-            $('#body').css('paddingTop', '80px');
-        }
-
-        var userAgent = navigator.userAgent.toLowerCase();
-        if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
-            platform = 'ios';
-        } else if (userAgent.search('android') > -1) {
-            platform = 'android';
-        } else {
-            platform = 'desktop';
-        }
-
-        if (parameters.query) {
-            $('#search').val(decodeURI(parameters.query));
-            getEntries(url + 'faq' + '&query=' + parameters.query, true);
-        } else {
-            getEntries(url + href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html')), true);
-        }
-    })
-
-    function getParameters() {
-        var parameters = {};
-        var vars = window.location.search.substring(1).split('&');
-        var pair;
-        for (var i = 0; i < vars.length; i++) {
-            pair = vars[i].split('=');
-            if (typeof parameters[pair[0]] === 'undefined') {
-                parameters[pair[0]] = pair[1];
-            } else if (typeof parameters[pair[0]] === 'string') {
-                parameters[pair[0]] = [parameters[pair[0]], pair[1]];
-            } else {
-                parameters[pair[0]].push(pair[1]);
-            }
-        }
-        return parameters;
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf('iphone') > -1 || userAgent.search('ipod') > -1 || userAgent.search('ipad') > -1) {
+      platform = 'ios';
+    } else if (userAgent.search('android') > -1) {
+      platform = 'android';
+    } else {
+      platform = 'desktop';
     }
 
-    function getEntries(query, updateEntry) {
-        showLinearProgressIndicator();
-        fetch(query)
+    if (parameters.query) {
+      $('#search').val(decodeURI(parameters.query));
+      getEntries(url + 'faq' + '&query=' + parameters.query, true);
+    } else {
+      getEntries(url + href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html')), true);
+    }
+  })
+
+  function getParameters() {
+    var parameters = {};
+    var vars = window.location.search.substring(1).split('&');
+    var pair;
+    for (var i = 0; i < vars.length; i++) {
+      pair = vars[i].split('=');
+      if (typeof parameters[pair[0]] === 'undefined') {
+        parameters[pair[0]] = pair[1];
+      } else if (typeof parameters[pair[0]] === 'string') {
+        parameters[pair[0]] = [parameters[pair[0]], pair[1]];
+      } else {
+        parameters[pair[0]].push(pair[1]);
+      }
+    }
+    return parameters;
+  }
+
+  function getEntries(query, updateEntry) {
+    showLinearProgressIndicator();
+    fetch(query)
             .then(response => response.json())
             .then(function(entries) {
-                if (entries.items.length) {
-                    buildSidebar(entries);
-                    if (updateEntry) {
-                        if (parameters.id) {
-                            getEntry(parameters.id)
-                        } else {
-                            if (platform == 'desktop' || href.indexOf('/faq.html') == -1) {
-                                getEntry(entries.items[0].sys.id)
-                            } else {
-                                activeSidebar();
-                                hideLinearProgressIndicator();
-                            }
-                        }
+              if (entries.items.length) {
+                buildSidebar(entries);
+                if (updateEntry) {
+                  if (parameters.id) {
+                    getEntry(parameters.id)
+                  } else {
+                    if (platform == 'desktop') {
+                      getEntry(entries.items[0].sys.id)
                     } else {
-                        activeSidebar();
-                        hideLinearProgressIndicator();
+                      activeSidebar();
+                      hideLinearProgressIndicator();
                     }
+                  }
                 } else {
-                    if (parameters.id) {
-                        getEntries(url + 'faq', true);
-                    } else {
-                        if (href.indexOf('/notice.html') > -1) {
-                            buildSidebar({
-                                "items": [{
-                                    "sys": {
-                                        "id": ""
-                                    },
-                                    "fields": {
-                                        "category": "공지사항",
-                                        "title": ""
-                                    }
-                                }]
-                            });
-                            $('#title').html('안내해드릴 공지사항이 없습니다.');
-                            $('#content').html('고객님께 전해야 하는 중요한 알림이 생기면 말씀드리도록 하겠습니다.');
-                            hideLinearProgressIndicator();
-                        }
-                        if (href.indexOf('/promotion.html') > -1) {
-                            buildSidebar({
-                                "items": [{
-                                    "sys": {
-                                        "id": ""
-                                    },
-                                    "fields": {
-                                        "category": "진행 중인 프로모션",
-                                        "title": ""
-                                    }
-                                }]
-                            });
-                            $('#title').html('진행 중인 프로모션이 없습니다.');
-                            $('#content').html('고객님께 혜택을 드리기 위해 프로모션을 준비하고 있습니다.<br>조금만 기다려주세요.');
-                            hideLinearProgressIndicator();
-                        } else {
-                            getEntries(url + 'faq', false);
-                            $('#title').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과');
-                            $('#content').html('\"' + decodeURI(parameters.query) + '\"에 대한 검색 결과가 없습니다.<br>다른 검색어로 검색해 보세요');
-                            hideLinearProgressIndicator();
-                        }
-                    }
+                  activeSidebar();
+                  hideLinearProgressIndicator();
                 }
-            })
-    }
-
-    function buildSidebar(entries) {
-        var categories = {};
-        var category;
-        entries.items.forEach(function(item) {
-            category = item.fields.category;
-            if (!categories[category]) {
-                categories[category] = [];
-            }
-            categories[category].push({
-                "title": item.fields.title,
-                "id": item.sys.id
-            });
-        })
-
-        var html = '';
-        for (category in categories) {
-            html += '<li><a class=\"folder\" href=\"#\">' + category + '</a><ul style=\"display: none;\">'
-            for (var item of categories[category]) {
-                html += '<li><a href=\"javascript:getEntry(\'' + item.id + '\');\">' + item.title + '</a></li>'
-            }
-            html += '</ul></li>';
-        }
-        $('#sidebar').html(html);
-
-        $('#collapseAll').click(function(e) {
-            e.preventDefault();
-            $('#sidebar').navgoco('toggle', false);
-        });
-
-        $('#expandAll').click(function(e) {
-            e.preventDefault();
-            $('#sidebar').navgoco('toggle', true);
-        });
-    }
-
-    function getEntry(id, ignorePushState) {
-        fetch(domain + '/spaces/x63mv991hgep/entries/' + id + '?access_token=' + accessToken)
-            .then(response => response.json())
-            .then(function(entry) {
-                if (entry.fields) {
-                    $('#title').html(entry.fields.title);
-                    $('#content').html(marked(entry.fields.content));
+              } else {
+                if (parameters.id) {
+                  getEntries(url + 'faq', true);
+                } else {
+                  if (href.indexOf('/notice.html') > -1) {
+                    buildSidebar({
+                      "items": [{
+                        "sys": {
+                          "id": ""
+                        },
+                        "fields": {
+                          "category": "공지사항",
+                          "title": ""
+                        }
+                      }]
+                    });
+                    $('#title').html('안내해드릴 공지사항이 없습니다.');
+                    $('#content').html('고객님께 전해야 하는 중요한 알림이 생기면 말씀드리도록 하겠습니다.');
                     hideLinearProgressIndicator();
-
-                    activeSidebar(entry.fields.title);
-
-                    if (!ignorePushState) pushState(id);
-
-                    if (useDeepLink) {
-                        $('#content').css('min-height', $(window).height() - 120);
-                        animateTo($('#title'), 20);
-                    } else if (platform != 'desktop') {
-                        $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
-                        animateTo($('#title'), 100);
-                    }
-
-                    if (href.indexOf('/promotion.html') > -1) {
-                        $('#title').css('display', 'none');
-                        if (platform == 'desktop') {
-                            $('#content').css('padding-top', '24px');
-                        } else {
-                            $('#content-wrapper').css('padding', '0');
-                        }
-                    }
+                  }
                 }
-            });
-    }
+              }
+            })
+  }
 
-    function activeSidebar(title) {
-        $('li').each(function(index) {
-            if ($(this).text().indexOf(title) > -1) {
-                $(this).attr('class', 'active');
-            } else {
-                $(this).attr('class', '');
-            }
-        });
-
-        $('#sidebar').navgoco({
-            caretHtml: '',
-            accordion: true,
-            openClass: 'active',
-            save: false,
-            cookie: {
-                name: 'navgoco',
-                expires: false,
-                path: '/'
-            },
-            slide: {
-                duration: 400,
-                easing: 'swing'
-            }
-        });
-    }
-
-    function pushState(id) {
-        if (typeof(history.pushState) == 'function') {
-            if (location.href.indexOf('?') == -1) {
-                history.pushState(null, null, location.href + '?id=' + id);
-            } else {
-                if (location.href.indexOf('?id') > -1) {
-                    history.pushState(null, null, location.href.replace(/id=\w+/ig, '') + 'id=' + id);
-                } else {
-                    history.pushState(null, null, location.href.replace(/&id=\w+/ig, '') + '&id=' + id);
-                }
-            }
-        }
-    }
-
-    $(window).on('popstate', function(event) {
-        parameters = getParameters();
-        getEntry(parameters.id, true);
+  function buildSidebar(entries) {
+    var categories = {};
+    var category;
+    entries.items.forEach(function(item) {
+      category = '공지사항';
+      if (!categories[category]) {
+        categories[category] = [];
+      }
+      categories[category].push({
+        "title": item.fields.title,
+        "id": item.sys.id
+      });
     })
 
-    function onClick(url) {
-        switch (platform) {
-            case 'ios':
+    var html = '';
+    for (category in categories) {
+      html += '<li><a class=\"folder\" href=\"#\">' + category + '</a><ul style=\"display: none;\">'
+      for (var item of categories[category]) {
+        html += '<li><a href=\"javascript:getEntry(\'' + item.id + '\');\">' + item.title + '</a></li>'
+      }
+      html += '</ul></li>';
+    }
+    $('#sidebar').html(html);
+
+    $('#collapseAll').click(function(e) {
+      e.preventDefault();
+      $('#sidebar').navgoco('toggle', false);
+    });
+
+    $('#expandAll').click(function(e) {
+      e.preventDefault();
+      $('#sidebar').navgoco('toggle', true);
+    });
+  }
+
+  function getEntry(id, ignorePushState) {
+    fetch(domain + '/spaces/x63mv991hgep/entries/' + id + '?access_token=' + accessToken)
+            .then(response => response.json())
+            .then(function(entry) {
+              if (entry.fields) {
+                $('#title').html(entry.fields.title);
+                $('#content').html(marked(entry.fields.content));
+                hideLinearProgressIndicator();
+
+                activeSidebar(entry.fields.title);
+
+                if (!ignorePushState) pushState(id);
+
                 if (useDeepLink) {
-                    location.href = url;
-                } else {
-                    setTimeout(function() {
-                        location.href = appStore;
-                    }, 500);
+                  $('#content').css('min-height', $(window).height() - 120);
+                  animateTo($('#title'), 20);
+                } else if (platform != 'desktop') {
+                  $('#content').css('min-height', $(window).height() - $('#nav').height() - $('#footer').height() - 160);
+                  animateTo($('#title'), 100);
                 }
-                break;
 
-            case 'android':
-                if (navigator.userAgent.toLowerCase().search('build') > -1) {
-                    if (useDeepLink) {
-                        location.href = url;
-                    } else {
-                        setTimeout(function() {
-                            location.href = googlePlay;
-                        }, 500);
-                    }
-                } else {
-                    location.href = url;
-                    setTimeout(function() {
-                        location.href = googlePlay;
-                    }, 500);
+                if (href.indexOf('/promotion.html') > -1) {
+                  $('#title').css('display', 'none');
+                  if (platform == 'desktop') {
+                    $('#content').css('padding-top', '24px');
+                  } else {
+                    $('#content-wrapper').css('padding', '0');
+                  }
                 }
-                break;
+              }
+            });
+  }
 
-            default:
-                location.href = 'https://kyte.travel/';
+  function activeSidebar(title) {
+    $('li').each(function(index) {
+      if ($(this).text().indexOf(title) > -1) {
+        $(this).attr('class', 'active');
+      } else {
+        $(this).attr('class', '');
+      }
+    });
+
+    $('#sidebar').navgoco({
+      caretHtml: '',
+      accordion: true,
+      openClass: 'active',
+      save: false,
+      cookie: {
+        name: 'navgoco',
+        expires: false,
+        path: '/'
+      },
+      slide: {
+        duration: 400,
+        easing: 'swing'
+      }
+    });
+  }
+
+  function pushState(id) {
+    if (typeof(history.pushState) == 'function') {
+      if (location.href.indexOf('?') == -1) {
+        history.pushState(null, null, location.href + '?id=' + id);
+      } else {
+        if (location.href.indexOf('?id') > -1) {
+          history.pushState(null, null, location.href.replace(/id=\w+/ig, '') + 'id=' + id);
+        } else {
+          history.pushState(null, null, location.href.replace(/&id=\w+/ig, '') + '&id=' + id);
         }
+      }
     }
+  }
 
-    function showLinearProgressIndicator() {
-        $('#linear-progress-indicator').css('transform', 'scale(1, 1)');
-    }
+  $(window).on('popstate', function(event) {
+    parameters = getParameters();
+    getEntry(parameters.id, true);
+  })
 
-    function hideLinearProgressIndicator() {
-        $('#linear-progress-indicator').css('transform', 'scale(1, 0)');
+  function onClick(url) {
+    switch (platform) {
+      case 'ios':
+        if (useDeepLink) {
+          location.href = url;
+        } else {
+          setTimeout(function() {
+            location.href = appStore;
+          }, 500);
+        }
+        break;
+
+      case 'android':
+        if (navigator.userAgent.toLowerCase().search('build') > -1) {
+          if (useDeepLink) {
+            location.href = url;
+          } else {
+            setTimeout(function() {
+              location.href = googlePlay;
+            }, 500);
+          }
+        } else {
+          location.href = url;
+          setTimeout(function() {
+            location.href = googlePlay;
+          }, 500);
+        }
+        break;
+
+      default:
+        location.href = 'https://kyte.travel/';
     }
+  }
+
+  function showLinearProgressIndicator() {
+    $('#linear-progress-indicator').css('transform', 'scale(1, 1)');
+  }
+
+  function hideLinearProgressIndicator() {
+    $('#linear-progress-indicator').css('transform', 'scale(1, 0)');
+  }
 
 </script>
-
     <div class="footer" id="footer">
     <div class="container">
         <hr>
