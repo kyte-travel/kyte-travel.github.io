@@ -106,12 +106,7 @@ title: 공지사항
                   if (parameters.id) {
                     getEntry(parameters.id)
                   } else {
-                    if (platform == 'desktop' || href.indexOf('/faq.html') == -1) {
-                      getEntry(entries.items[0].sys.id)
-                    } else {
-                      activeSidebar();
-                      hideLinearProgressIndicator();
-                    }
+                    getEntry(entries.items[0].sys.id)
                   }
                 } else {
                   activeSidebar();

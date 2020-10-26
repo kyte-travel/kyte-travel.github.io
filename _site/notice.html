@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/css/icon.css">
-    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1603715204">
+    <link rel="stylesheet" type="text/css" href="/css/sub.css?v=1603715436">
     
 
     <noscript>
@@ -203,12 +203,7 @@
                   if (parameters.id) {
                     getEntry(parameters.id)
                   } else {
-                    if (platform == 'desktop' || href.indexOf('/faq.html') == -1) {
-                      getEntry(entries.items[0].sys.id)
-                    } else {
-                      activeSidebar();
-                      hideLinearProgressIndicator();
-                    }
+                    getEntry(entries.items[0].sys.id)
                   }
                 } else {
                   activeSidebar();
