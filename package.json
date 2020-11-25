@@ -1,0 +1,23 @@
+{
+  "name": "kyte-travel.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyte-travel/kyte-travel.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyte-travel/kyte-travel.github.io/issues"
+  },
+  "homepage": "https://github.com/kyte-travel/kyte-travel.github.io#readme",
+  "dependencies": {
+    "locomotive-scroll": "^4.0.4"
+  }
+}

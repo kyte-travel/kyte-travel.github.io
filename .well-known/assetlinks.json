@@ -1,8 +1,0 @@
-[{
-	"relation": ["delegate_permission/common.handle_all_urls"],
-	"target": {
-		"namespace": "android_app",
-		"package_name": "co.squarelab.kyte",
-		"sha256_cert_fingerprints": ["D9:9B:C3:94:B0:6B:EB:45:E6:1F:58:1A:63:04:DC:05:2E:6C:63:5B:EC:9A:69:45:36:E5:3B:8A:BE:48:B7:77"]
-	}
-}]
