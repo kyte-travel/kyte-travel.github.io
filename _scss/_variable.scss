@@ -1,0 +1,35 @@
+// color
+
+$white: #ffffff;
+$white-38: rgba(255,255,255,.38);
+$blue:  #2175ff;
+$darkGray: #272727;
+$black-87: rgba(0,0,0,.87);
+$black-38: rgba(0,0,0,.38);
+$black-24: rgba(0,0,0,.24);
+$black-04: rgba(0,0,0,.04);
+
+
+// font
+@mixin font-h5 {
+    font-size: 16px;
+    font-weight: 600;
+}
+@mixin font-14 {
+    font-size: 14px;
+    line-height: 32px;
+}
+@mixin font-13 {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+
+// break point
+
+$breakpoint-mobile: 1024px;
+@mixin mobile {
+    @media (max-width: #{$breakpoint-mobile - 1px}) {
+      @content;
+    }
+  }

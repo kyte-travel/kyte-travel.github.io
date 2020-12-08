@@ -1,0 +1,150 @@
+@import 'variable.scss';
+
+@include mobile {
+
+    .base-container {
+        width: 100%;
+        min-width: 100%;
+        padding: 0 32px;
+    }
+
+    #header {
+
+        #header-logo {
+            margin-top: 22vh;
+
+            img {
+                height: 40px;
+            }
+        }
+    }
+
+    #intro {
+
+        .left-side {
+            display: none;
+        }
+
+        .intro-wrapper {
+    
+            img {
+                width: 72vh;
+                max-width: 300px;
+            }
+        }
+    }
+
+    #section-1 {
+    
+        .section-1-wrapper {
+    
+            .row-1{
+                margin-top: 20vh;
+                margin-bottom: 6vh;
+    
+                img {
+                    max-height: 39px;
+                    height: 3.6vh;
+                }
+            }
+        
+            .row-2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+
+                .col-1 {
+                    width: 100%;
+                }
+
+                .col-2 {
+                    width: 100%;
+                    margin-top: 11.4vh;
+                }
+            }
+
+            .row-3 {
+                flex-direction: column;
+                max-height: 480px;
+                height: 50vh;
+
+                .col-img-1, .col-img-2 {
+                    flex-grow: 1;
+                }
+            }
+
+            .row-4 {
+                margin-top: 80vh;
+                margin-bottom: 6vh;
+    
+                img {
+                    max-height: 94px;
+                    height: 8.7vh;
+                }
+            }
+
+            .row-5 {
+                height: 504px;
+    
+                .history-line {
+                    height: 100%;
+                    width: 1px;
+                    background: linear-gradient(to bottom, rgba(208, 208, 208, 0.6), $blue 101%);
+                    margin-top: 0;
+                    left: 36%;
+                }
+    
+                .history-content {
+                    flex-direction: column;
+                    margin-top: 72px;
+                    height: 100%;
+                    width: 100%;
+                    
+                    div {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-content: flex-start;
+
+                        .history-title {
+                            margin-bottom: 0;
+                            width: 50%;
+
+                            br {
+                                display: none;
+                            }
+                        }
+
+                        .history-con {
+                            line-height: 20px;
+                            display: flex;
+                            flex-direction: column-reverse;
+                            width: 50%;
+
+                            span {
+                                display: block;
+                            }
+
+                            br {
+                                display: none;
+                            }
+                    
+                        }
+
+                        .history-con-1 {
+                            flex-direction: column;
+                        }
+                    } 
+                }
+            }
+
+            .row-7 {
+                
+                img {
+                    margin: 20vh 0;
+                }
+            }
+        }
+    }
+
+}
