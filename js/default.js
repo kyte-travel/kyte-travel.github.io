@@ -71,9 +71,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    var afterString = html.replace('<br>',"");
-
-
-
 })
 

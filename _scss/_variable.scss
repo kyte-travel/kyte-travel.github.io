@@ -23,6 +23,10 @@ $black-04: rgba(0,0,0,.04);
     font-size: 13px;
     line-height: 20px;
 }
+@mixin font-13-2 {
+    font-size: 13px;
+    line-height: 26px;
+}
 
 
 // break point

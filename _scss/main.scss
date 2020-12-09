@@ -286,8 +286,9 @@ section {
             justify-content: space-between;
             margin-top: 80px;
 
-            div {
+            li {
                 width: 260px;
+                list-style: none;
                 
                 &:first-of-type {
                     margin-left: 18px;
@@ -328,6 +329,7 @@ section {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+
 
         .section-3-wrapper {
             position: relative;
@@ -372,6 +374,10 @@ section {
         height: 161.5vh;
         background-color: #c3c3c3;
         position: relative;
+
+        .sub-2-mobile {
+            display: none;
+        }
 
         .title-flights {
             position: absolute;
