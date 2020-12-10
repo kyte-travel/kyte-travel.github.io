@@ -190,31 +190,41 @@
                     }
                 }
             }
-    
-            .info-txt {
+
+            .carousel {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                list-style: none;
+                display: flex;
+                padding: 0;
                 width: 100%;
                 margin-top: 40px;
                 margin-bottom: 48px;
-    
+
                 li {
-                    width: calc(100% - 72px);
-                    
+                    position: relative;
+                    flex: 0 0 calc(100% - 72px);
+                    padding-right: 24px;
+                    display: inline-grid;
+
                     &:first-of-type {
-                        margin-left: 32px;
+                        padding-left: 32px;
                     }
 
                     &:last-of-type {
-                        margin-right: 32px;
+                        padding-right: 32px;
                     }
-                }
-            }
+                  }
+              }
         }
     }
 
     #section-3 {
 
         .device {
-            width: 240px;
+            width: 61.53vw;
+            max-width: 240px;
+            filter: drop-shadow(12px 16px 24px $black-24);
 
             &:first-of-type {
                 top: 60vh;
@@ -245,67 +255,159 @@
         }
 
         .sub-2 {
+            color: $black-87;
+            position: relative;
+            height: auto;
 
             #base-con {
                 display: none;
             }
 
-            .sub-2-mobile {
-                display: flex;
-                padding-top: 50vh;
+            .mobile-container {
+                display: block;
+                padding-bottom: 12vh;
 
-                li {
-                    width: calc(100vw - 72px);
-                    color: $black-87;
-
-                    .carousel-box {
-                        width: 100% !important;
-                        height: inherit !important;
-                        display: flex;
-                        // justify-content: center;
-                        align-items: start;
-                        scroll-snap-align: center;
-
-                        .device-mobile {
-                            width: 240px;
-                            height: auto;
-                        }
-        
-                        .device-mobile-bordernone {
-                            width: 230px;
-                            height: auto;
-                        }
-                    }
+                .title-flights-mobile {
+                    position: relative;
+                    margin-left: 32px;
+                    margin-top: 300px;
+                    margin-bottom: 6vh;
+                    max-height: 150px;
+                    height: 13.8vh;
                 }
+    
+                .carousel {
+                    overflow-x: scroll;
+                    scroll-snap-type: x mandatory;
+                    list-style: none;
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+            
+                    li {
+                        position: relative;
+                        flex: 0 0 240px;
+                        padding-right: 48px;
+                        display: inline-grid;
+                        z-index: 1;
+            
+                        &:first-of-type {
+                            padding-left: 48px;
+                        }
+            
+                        &:last-of-type {
+                            padding-right: 48px;
+                        }
+            
+                        .carousel-box {
+                            scroll-snap-align: center;
+                            height: inherit;
+                            margin-bottom: 48px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+    
+                            img {
+                                width: 61.53vw;
+                                max-width: 240px;
+                                height: auto;
+                                filter: drop-shadow(12px 16px 24px $black-24);
+                            }
+    
+                          }
+                    }
+
+                    .bg-oval-1 {
+                        position: absolute;
+                        width: 136vw;
+                        height: 136vw;
+                        background-color: $black-04;
+                        border-radius: 50%;
+                        left: -18vw;
+                        z-index: 0;
+                    }
+                }              
+            }
+        }
+
+        .sub-3 {
+            color: $black-87;
+            position: relative;
+            height: auto;
+
+            .base-container {
+                display: none;
+            }
+
+            .mobile-container {
+                display: block;
+                padding-bottom: 12vh;
+
+                .title-hotel-mobile {
+                    position: relative;
+                    margin-left: 32px;
+                    margin-top: 12vh;
+                    margin-bottom: 6vh;
+                    max-height: 142px;
+                    height: 13.14vh;
+                }
+    
+                .carousel {
+                    overflow-x: scroll;
+                    scroll-snap-type: x mandatory;
+                    list-style: none;
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+            
+                    li {
+                        position: relative;
+                        flex: 0 0 240px;
+                        padding-right: 48px;
+                        display: inline-grid;
+                        z-index: 1;
+            
+                        &:first-of-type {
+                            padding-left: 48px;
+                        }
+            
+                        &:last-of-type {
+                            padding-right: 48px;
+                        }
+            
+                        .carousel-box {
+                            scroll-snap-align: center;
+                            height: inherit;
+                            margin-bottom: 48px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+    
+                            img {
+                                width: 61.53vw;
+                                max-width: 240px;
+                                height: auto;
+                                filter: drop-shadow(12px 16px 24px $black-24);
+                            }
+    
+                          }
+                    }
+
+                    .bg-oval-1 {
+                        position: absolute;
+                        width: 136vw;
+                        height: 136vw;
+                        background-color: #E4E2DA;
+                        border-radius: 50%;
+                        left: -18vw;
+                        z-index: 0;
+                    }
+                }              
             }
         }
     }
 
-    .carousel {
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        list-style: none;
-        display: flex;
-        padding: 0;
-        margin: 0;
-
-        li {
-            position: relative;
-            flex: 0 0 calc(100% - 72px);
-            padding-right: 16px;
-            display: flex;
-            flex-direction: column;
-            scroll-snap-align: center;
-
-            &:first-of-type {
-                padding-left: 32px;
-            }
-
-            &:last-of-type{
-                padding-right: 32px;
-            }
-        }
-          
-      }
-
+    #section-4 {
+        display: none;
+    }
 }

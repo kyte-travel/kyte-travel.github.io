@@ -375,7 +375,7 @@ section {
         background-color: #c3c3c3;
         position: relative;
 
-        .sub-2-mobile {
+        .mobile-container {
             display: none;
         }
 
@@ -459,6 +459,10 @@ section {
         background-color: #d3d2ce;
         height: 186.8vh;
         position: relative;
+
+        .mobile-container {
+            display: none;
+        }
 
         div {
 
@@ -707,4 +711,8 @@ section {
             }
         }
     }
+}
+
+footer {
+    display: none;
 }
