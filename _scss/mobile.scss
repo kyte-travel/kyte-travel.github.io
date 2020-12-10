@@ -214,8 +214,8 @@
                     &:last-of-type {
                         padding-right: 32px;
                     }
-                  }
-              }
+                }
+            }
         }
     }
 
@@ -313,8 +313,7 @@
                                 height: auto;
                                 filter: drop-shadow(12px 16px 24px $black-24);
                             }
-    
-                          }
+                        }
                     }
 
                     .bg-oval-1 {
@@ -409,5 +408,162 @@
 
     #section-4 {
         display: none;
+    }
+
+    #section-4-mobile {
+        display: block;
+        position: relative;
+        height: auto;
+        background-color: #f1f1f1;
+        color: $black-87;
+
+        .mobile-container {
+            padding-bottom: 12vh;
+
+            .title-magazine {
+                width: calc(100% - 72px);
+                height: 10vh;
+                margin-top: 12vh;
+                margin-bottom: 6vh;
+                margin-left: 32px;
+                position: relative;
+                display: flex;
+                justify-content: start;
+    
+                img {
+                    position: absolute;
+    
+                    &:first-of-type {
+                        max-height: 96px;
+                        height: 8.8vh;
+                    }
+    
+                    &:nth-of-type(2) {
+                        width: 90vw;
+                    }
+                }
+            }
+
+            .carousel {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                list-style: none;
+                display: flex;
+                padding: 0;
+                margin: 0;
+        
+                li {
+                    position: relative;
+                    flex: 0 0 240px;
+                    padding-right: 48px;
+                    display: inline-grid;
+                    z-index: 1;
+        
+                    &:first-of-type {
+                        padding-left: 48px;
+                    }
+        
+                    &:last-of-type {
+                        padding-right: 48px;
+                    }
+        
+                    .carousel-box {
+                        scroll-snap-align: center;
+                        height: inherit;
+                        margin-bottom: 48px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            width: 61.53vw;
+                            max-width: 240px;
+                            height: auto;
+                            filter: drop-shadow(12px 16px 24px $black-24);
+                        }
+
+                      }
+                }
+
+                .bg {
+                    position: absolute;
+                    width: 100vw;
+                    height: 50%;
+                    bottom: 0;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.13), $black-38);
+                    opacity: 0.24;
+                    z-index: 0;
+                }
+            }              
+        }
+    }
+
+    footer {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #logo-black {
+            margin: 0 32px;
+            display: flex;
+            flex-direction: column;
+
+            .row-1 {
+
+                .col-1 {
+                    color: $black-87;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align: center;
+                    margin-bottom: 56px;
+
+                    img {
+                        margin-top: 88px;
+                        margin-bottom: 48px;
+                    }
+                }
+
+                .col-2 {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+        
+                    button {
+                        width: calc(50% - 8px);
+                        height: 48px;
+                        background-color: $blue;
+                        border-radius: 4px;
+                        border: none;
+                        color: $white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all .2s ease-out;
+                        box-shadow: inset 0 0 0 0 $black-87;
+                        
+                        &:first-of-type {
+                            margin-right: 24px;
+                        }
+    
+                        &:hover {
+                            box-shadow: inset 176px 0 0 0 $black-87;
+                        }
+    
+                        i {
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+
+            .row-2 {
+                color: $black-60;
+                margin: 56px 0;
+            }
+        }
     }
 }
