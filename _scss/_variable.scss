@@ -14,15 +14,17 @@ $black-04: rgba(0,0,0,.04);
 // font
 @mixin font-h5 {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 800;
 }
 @mixin font-14 {
     font-size: 14px;
     line-height: 32px;
+    font-weight: 400;
 }
 @mixin font-13 {
     font-size: 13px;
     line-height: 20px;
+    font-weight: 400;
 }
 @mixin font-13-2 {
     font-size: 13px;

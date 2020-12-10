@@ -3,7 +3,7 @@
 @include mobile {
 
     body {
-        @include font-13-2;
+        @include font-14;
     }
 
     .base-container {
@@ -563,6 +563,7 @@
             .row-2 {
                 color: $black-60;
                 margin: 56px 0;
+                @include font-13-2;
             }
         }
     }
