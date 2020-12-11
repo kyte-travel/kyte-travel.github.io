@@ -1,0 +1,9 @@
+@import 'variable.scss';
+
+@include tablet {
+
+    .base-container {
+        min-width: 1024px !important;
+    }
+    
+}

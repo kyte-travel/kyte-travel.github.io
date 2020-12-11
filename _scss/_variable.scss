@@ -39,4 +39,11 @@ $breakpoint-mobile: 1024px;
     @media (max-width: #{$breakpoint-mobile - 1px}) {
       @content;
     }
-  }
+}
+
+$breakpoint-tablet: 1120px;
+@mixin tablet {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
+}
