@@ -41,7 +41,7 @@ $breakpoint-mobile: 1024px;
     }
 }
 
-$breakpoint-tablet: 1120px;
+$breakpoint-tablet: 1280px;
 @mixin tablet {
     @media (max-width: $breakpoint-tablet) {
       @content;
