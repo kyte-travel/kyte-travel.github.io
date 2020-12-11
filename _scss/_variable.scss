@@ -36,7 +36,8 @@ $black-04: rgba(0,0,0,.04);
 
 $breakpoint-mobile: 1024px;
 @mixin mobile {
-    @media (max-width: #{$breakpoint-mobile - 1px}) {
+    @media (max-width: $breakpoint-mobile) {
+    // @media (max-width: #{$breakpoint-mobile - 1px}) {
       @content;
     }
 }
