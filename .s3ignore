@@ -1,0 +1,4 @@
+.git
+.git/*
+.s3ignore
+deploy.sh
