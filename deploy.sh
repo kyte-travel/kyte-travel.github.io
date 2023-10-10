@@ -1,6 +1,3 @@
 #!/bin/bash
 echo "Deploying to PRD"
-DEPLOY_URL=s3://about.kyte.travel
-
-# --guess-mime-type --no-mime-magic is required. If not specified, css files that are uploaded to S3 will have "text/plain" MIME type.
-s3cmd sync --exclude-from .s3ignore _site/ $DEPLOY_URL --delete-removed --guess-mime-type --no-mime-magic $@
+aws s3 sync _site s3://about.kyte.travel --delete --region ap-northeast-1 --cache-control max-age=300 --no-progress
